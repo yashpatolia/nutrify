@@ -12,6 +12,7 @@
 \usepackage{graphicx}
 \usepackage{extarrows}
 \usepackage{setspace}
+\numberwithin{figure}{section}
 %------------------------------------------------------------------------------
 
 % Header and Footer
@@ -55,10 +56,7 @@ This section should provide an brief overview of the entire document.
 \subsection{Purpose}
 \label{sub:purpose}
 % Begin SubSection
-\begin{enumerate}[a)]
-	\item Delineate the purpose of the document
-	\item Specify the intended audience for the document
-\end{enumerate}
+This document provides more details on the Nutrify system architecture, including state chart diagrams, sequence diagrams, and a detailed class diagram. It's meant for internal Nutrify stakeholders, such as project managers, developers, domain experts, and team members/investors.  Deliverables 1 and 2 provide an in-depth background and provide more insight in the decisions leading up to this document and should be reviewed prior.
 % End SubSection
 
 \subsection{System Description}
@@ -80,29 +78,135 @@ This document is organized by chart / diagram type. Section 2 contains relevant 
 \section{State Charts for Controller Classes}
 \label{sec:state_charts_for_controller_classes}
 % Begin Section
-This section should provide a state chart for each controller class for your application.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{diagrams/state/accountstate.png} % Adjust width as needed
+    \caption{Account Management Controller State Diagram}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{diagrams/state/AnswerStateDiagram.jpeg} % Adjust width as needed
+    \caption{Answer Management Controller State Diagram}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{diagrams/state/QuestionStateDiagram.jpeg} % Adjust width as needed
+    \caption{Question Management Controller State Diagram}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{diagrams/state/UserSuccessState.png} % Adjust width as needed
+    \caption{User Success Management Controller State Diagram}
+\end{figure}
 % End Section
 
+\clearpage
 \section{Sequence Diagrams}
 \label{sec:sequence_diagrams}
 % Begin Section
-This section should provide a sequence diagram for each use case of your application.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\textwidth]{diagrams/sequence/AskQuestionSequence.png} % Adjust width as needed
+    \caption{Ask Question Sequence Diagram}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\textwidth]{diagrams/sequence/create_account.png} % Adjust width as needed
+    \caption{Create Account Sequence Diagram}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\textwidth]{diagrams/sequence/deleteqsequence.png} % Adjust width as needed
+    \caption{Delete Question Sequence Diagram}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\textwidth]{diagrams/sequence/edit_account.png} % Adjust width as needed
+    \caption{Edit Account Sequence Diagram}
+\end{figure}
 % End Section
 
+\clearpage
 \section{Detailed Class Diagram}
 \label{sec:detailed_class_diagram}
 % Begin Section
-This section should provide a detailed class diagram for your application.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{diagrams/Class_Diagram.png} % Adjust width as needed
+    \caption{Overall Detailed Class Diagram\\}
+\end{figure}
 % End Section
 
+\clearpage
 \appendix
 \section{Division of Labour}
 \label{sec:division_of_labour}
 % Begin Section
-Include a Division of Labour sheet which indicates the contributions of each team member. This sheet must be signed by all team members.
-% End Section
+Include a Division of Labour sheet which indicates the contributions of each team member. This sheet must be signed by all team members.\\
+
+\noindent
+\textbf{Patolia, Yash}
+\begin{itemize}
+	\item Section 1.2
+	\item Section 1.3
+	\item Sequence Diagrams: Login, Rating Sequence
+	\item Compiled the entire document in LaTeX
+\end{itemize}
+
+\includegraphics[width=0.2\textwidth]{signatures/yash.png} % Adjust width as needed
+
+\noindent
+\textbf{Wang, Jasmine}
+\begin{itemize}
+	\item State Charts: Question Management, Expert Management
+\end{itemize}
+
+\includegraphics[width=0.2\textwidth]{signatures/Jasmine_signature.jpg} % Adjust width as needed
+
+\noindent
+\textbf{Kwinecki, Justin Joseph}
+\begin{itemize}
+	\item Section 1.1
+	\item Sequence Diagrams: Edit Account, Create Account
+\end{itemize}
+
+\includegraphics[width=0.3\textwidth]{signatures/Justin.png} % Adjust width as needed
+
+\noindent
+\textbf{Zhang, Christina}
+\begin{itemize}
+	\item State Charts: Account Management
+	\item Sequence Diagrams: Delete Question 
+\end{itemize}
+
+\includegraphics[width=0.2\textwidth]{signatures/ChristinaSignature.png} % Adjust width as needed
 
 \newpage
+\noindent
+\textbf{Huzaifah, Muhammad}
+\begin{itemize}
+	\item State Charts: User Success Management
+	\item Sequence Diagrams: Ask a Question
+\end{itemize}
+
+\includegraphics[width=0.2\textwidth]{signatures/Muhammad_Signature.png} % Adjust width as needed
+
+\noindent
+\textbf{Hum, Nathan Joshua}
+\begin{itemize}
+	\item Detailed Class Diragram
+\end{itemize}
+
+\includegraphics[width=0.2\textwidth]{signatures/NathanHumSignature.png} % Adjust width as needed
+% End Section
+
+\clearpage
 \section*{IMPORTANT NOTES}
 \begin{itemize}
 	\item You do \underline{NOT} need to provide a text explanation of each diagram; the diagram should speak for itself
