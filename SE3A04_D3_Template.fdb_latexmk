@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1742609516 "/Users/yashpatolia/Documents/GitHub/3A04 D3/SE3A04_D3_Template.tex" "SE3A04_D3_Template.pdf" "SE3A04_D3_Template" 1742609517 0
-  "/Users/yashpatolia/Documents/GitHub/3A04 D3/SE3A04_D3_Template.tex" 1742609516 7914 4ca59ea4523534745e82821c744e51f1 ""
+["pdflatex"] 1742700661 "/Users/yashpatolia/Documents/GitHub/3A04 D3/SE3A04_D3_Template.tex" "SE3A04_D3_Template.pdf" "SE3A04_D3_Template" 1742700663 0
+  "/Users/yashpatolia/Documents/GitHub/3A04 D3/SE3A04_D3_Template.tex" 1742700659 8454 fa6dbc4719b10688421f1917d0850c78 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -66,9 +66,12 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1704771986 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1704771919 7883454 06ab8932e8eeada6910d0a77d9674667 ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "SE3A04_D3_Template.aux" 1742609517 2501 f6c06bdcb744fad42213711124ac8bc2 "pdflatex"
-  "SE3A04_D3_Template.tex" 1742609516 7914 4ca59ea4523534745e82821c744e51f1 ""
-  "diagrams/Class_Diagram.png" 1742607548 264148 06d6f6b8bd042c91dccece1b81981c2a ""
+  "SE3A04_D3_Template.aux" 1742700663 2918 0c0876b7f195a0f65c2ed8034dcb2552 "pdflatex"
+  "SE3A04_D3_Template.tex" 1742700659 8454 fa6dbc4719b10688421f1917d0850c78 ""
+  "diagrams/classdiagram.png" 1742700187 272364 ca7f6ad4d2b6a1b98ace70903674af10 ""
+  "diagrams/left.png" 1742700416 434790 f6072cb2ca0c68d0c75603cc1175918a ""
+  "diagrams/middle.png" 1742700422 440109 fffe7bc7412960a5c0086f0abab00e9a ""
+  "diagrams/right.png" 1742700428 284560 25672c7abc2f20e4648ab0b183f4c1b7 ""
   "diagrams/sequence/AskQuestionSequence.png" 1742607178 107452 9a65265962e913ac0bf1e852264d0f05 ""
   "diagrams/sequence/create_account.png" 1742607237 26527 02989b4974e662eb3431e5901406c0c2 ""
   "diagrams/sequence/deleteqsequence.png" 1742607252 13636 cfa2f9cdc917defe7437f980697861cc ""

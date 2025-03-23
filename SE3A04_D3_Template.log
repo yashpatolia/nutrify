@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.1.8)  21 MAR 2025 22:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.1.8)  22 MAR 2025 23:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -305,67 +305,89 @@ Package pdftex.def Info: diagrams/sequence/edit_account.png  used on input line 
  [7
 
  <./diagrams/sequence/AskQuestionSequence.png> <./diagrams/sequence/create_account.png (PNG copy)>] [8 <./diagrams/sequence/deleteqsequence.png (PNG copy)> <./diagrams/sequence/edit_account.png (PNG copy)>]
-<diagrams/Class_Diagram.png, id=45, 4111.36pt x 1222.5675pt>
-File: diagrams/Class_Diagram.png Graphic file (type png)
-<use diagrams/Class_Diagram.png>
-Package pdftex.def Info: diagrams/Class_Diagram.png  used on input line 141.
-(pdftex.def)             Requested size: 469.75502pt x 139.68755pt.
- [9
+<diagrams/classdiagram.png, id=45, 1433.355pt x 392.46625pt>
+File: diagrams/classdiagram.png Graphic file (type png)
+<use diagrams/classdiagram.png>
+Package pdftex.def Info: diagrams/classdiagram.png  used on input line 141.
+(pdftex.def)             Requested size: 469.75502pt x 128.62196pt.
+<diagrams/left.png, id=46, 1672.2475pt x 1025.8325pt>
+File: diagrams/left.png Graphic file (type png)
+<use diagrams/left.png>
+Package pdftex.def Info: diagrams/left.png  used on input line 147.
+(pdftex.def)             Requested size: 469.75502pt x 288.17032pt.
+<diagrams/middle.png, id=47, 1118.1775pt x 857.2025pt>
+File: diagrams/middle.png Graphic file (type png)
+<use diagrams/middle.png>
+Package pdftex.def Info: diagrams/middle.png  used on input line 153.
+(pdftex.def)             Requested size: 469.75502pt x 360.11415pt.
 
- <./diagrams/Class_Diagram.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 151--152
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<diagrams/right.png, id=48, 1191.45125pt x 716.6775pt>
+File: diagrams/right.png Graphic file (type png)
+<use diagrams/right.png>
+Package pdftex.def Info: diagrams/right.png  used on input line 159.
+(pdftex.def)             Requested size: 469.75502pt x 282.56508pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[9
+
+ <./diagrams/classdiagram.png> <./diagrams/left.png>] [10 <./diagrams/middle.png>] [11 <./diagrams/right.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
 
  []
 
-<signatures/yash.png, id=49, 505.89pt x 292.09125pt>
+<signatures/yash.png, id=62, 505.89pt x 292.09125pt>
 File: signatures/yash.png Graphic file (type png)
 <use signatures/yash.png>
-Package pdftex.def Info: signatures/yash.png  used on input line 162.
+Package pdftex.def Info: signatures/yash.png  used on input line 180.
 (pdftex.def)             Requested size: 93.94957pt x 54.24104pt.
-<signatures/Jasmine_signature.jpg, id=50, 1295.84125pt x 928.46875pt>
+<signatures/Jasmine_signature.jpg, id=63, 1295.84125pt x 928.46875pt>
 File: signatures/Jasmine_signature.jpg Graphic file (type jpg)
 <use signatures/Jasmine_signature.jpg>
-Package pdftex.def Info: signatures/Jasmine_signature.jpg  used on input line 170.
+Package pdftex.def Info: signatures/Jasmine_signature.jpg  used on input line 188.
 (pdftex.def)             Requested size: 93.94957pt x 67.30872pt.
-<signatures/Justin.png, id=51, 281.05pt x 117.43875pt>
+<signatures/Justin.png, id=64, 281.05pt x 117.43875pt>
 File: signatures/Justin.png Graphic file (type png)
 <use signatures/Justin.png>
-Package pdftex.def Info: signatures/Justin.png  used on input line 179.
+Package pdftex.def Info: signatures/Justin.png  used on input line 197.
 (pdftex.def)             Requested size: 140.92793pt x 58.88766pt.
-<signatures/ChristinaSignature.png, id=52, 284.86424pt x 125.268pt>
+<signatures/ChristinaSignature.png, id=65, 284.86424pt x 125.268pt>
 File: signatures/ChristinaSignature.png Graphic file (type png)
 <use signatures/ChristinaSignature.png>
-Package pdftex.def Info: signatures/ChristinaSignature.png  used on input line 188.
+Package pdftex.def Info: signatures/ChristinaSignature.png  used on input line 206.
 (pdftex.def)             Requested size: 93.94957pt x 41.3137pt.
-[10
+[12
 
  <./signatures/yash.png> <./signatures/Jasmine_signature.jpg> <./signatures/Justin.png> <./signatures/ChristinaSignature.png>]
-<signatures/Muhammad_Signature.png, id=58, 376.40625pt x 376.40625pt>
+<signatures/Muhammad_Signature.png, id=71, 376.40625pt x 376.40625pt>
 File: signatures/Muhammad_Signature.png Graphic file (type png)
 <use signatures/Muhammad_Signature.png>
-Package pdftex.def Info: signatures/Muhammad_Signature.png  used on input line 198.
+Package pdftex.def Info: signatures/Muhammad_Signature.png  used on input line 216.
 (pdftex.def)             Requested size: 93.94957pt x 93.94624pt.
-<signatures/NathanHumSignature.png, id=59, 258.9675pt x 119.69719pt>
+<signatures/NathanHumSignature.png, id=72, 258.9675pt x 119.69719pt>
 File: signatures/NathanHumSignature.png Graphic file (type png)
 <use signatures/NathanHumSignature.png>
-Package pdftex.def Info: signatures/NathanHumSignature.png  used on input line 206.
+Package pdftex.def Info: signatures/NathanHumSignature.png  used on input line 224.
 (pdftex.def)             Requested size: 93.94957pt x 43.42519pt.
- [11 <./signatures/Muhammad_Signature.png> <./signatures/NathanHumSignature.png>] [12
+ [13 <./signatures/Muhammad_Signature.png> <./signatures/NathanHumSignature.png>] [14
 
 ] (./SE3A04_D3_Template.aux) ) 
 Here is how much of TeX's memory you used:
- 3653 strings out of 476025
- 57723 string characters out of 5790018
+ 3671 strings out of 476025
+ 58145 string characters out of 5790018
  1854388 words of memory out of 5000000
- 24050 multiletter control sequences out of 15000+600000
+ 24068 multiletter control sequences out of 15000+600000
  520831 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,6n,62p,523b,235s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on SE3A04_D3_Template.pdf (12 pages, 1642086 bytes).
+Output written on SE3A04_D3_Template.pdf (14 pages, 2173372 bytes).
 PDF statistics:
- 101 PDF objects out of 1000 (max. 8388607)
- 51 compressed objects within 1 object stream
+ 115 PDF objects out of 1000 (max. 8388607)
+ 56 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 76 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 91 words of extra memory for PDF output out of 10000 (max. 10000000)
 
