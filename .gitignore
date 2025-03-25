@@ -1,0 +1,48 @@
+# Gradle files
+.gradle/
+**/build/
+!gradle/wrapper/gradle-wrapper.jar
+.gradle-cache/
+
+# Local configuration
+/code/local.properties
+/code/.idea/caches/
+/code/.idea/libraries/
+/code/.idea/modules.xml
+/code/.idea/workspace.xml
+/code/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+/code/.idea/httpRequests/
+*.iml
+
+# Android Studio's build folders
+captures/
+output.json
+
+# Compiled files
+*.class
+*.dex
+
+# Dependency directories
+/.gradle/
+/.idea/
+.externalNativeBuild/
+.cxx/
+*.log
+
+# Keystore files (security-sensitive)
+*.keystore
+*.jks
+
+# Android test and lint reports
+**/androidTest-results/
+**/test-results/
+**/lint/reports/
+**/lint-results.xml
+
+# Miscellaneous
+*.swp
+*.swo
+*.DS_Store
+**/tmp/
+**/*.lock
