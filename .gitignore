@@ -46,3 +46,6 @@ output.json
 *.DS_Store
 **/tmp/
 **/*.lock
+
+#model
+/model/.myenv/
