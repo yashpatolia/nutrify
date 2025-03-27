@@ -26,4 +26,15 @@ public class AccountTest {
         expected = userID.toString()+",UpU,Uppass,Uemail,Upn";
         Assert.assertEquals(expected, accountManagement.getAccount(userID));
     }
+
+    @Test
+    public void testLoginSuccess(){
+        boolean expected = true;
+        Assert.assertEquals(expected, accountManagement.login("Justin", "mypass"));
+    }
+    @Test
+    public void testLoginFail(){
+        boolean expected = false;
+        Assert.assertEquals(expected, accountManagement.login("Justin", "wrongpass"));
+    }
 }
