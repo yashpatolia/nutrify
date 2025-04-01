@@ -19,7 +19,7 @@ def create_knn_model(macros, labels):
 
 
 def export_model(knn):
-    joblib.dump(knn, "model/nutrify.pkl")
+    joblib.dump(knn, "nutrify.pkl")
 
 
 if __name__ == '__main__':
