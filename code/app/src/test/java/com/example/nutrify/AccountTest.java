@@ -32,6 +32,7 @@ public class AccountTest {
         boolean expected = true;
         Assert.assertEquals(expected, accountManagement.login("Justin", "mypass"));
     }
+
     @Test
     public void testLoginFail(){
         boolean expected = false;
