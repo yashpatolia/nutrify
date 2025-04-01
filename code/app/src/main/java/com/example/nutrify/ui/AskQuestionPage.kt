@@ -29,7 +29,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.material.icons.rounded.Send
+import androidx.compose.foundation.lazy.items
+import androidx.compose.ui.graphics.Color
+
 var message = mutableStateOf("")
 
 @Composable
@@ -65,8 +67,15 @@ fun TopSection(title: String = "Nutrify") {
 @Composable
 fun MessageSection(modifier: Modifier = Modifier) {
     LazyColumn (
-        modifier.fillMaxWidth().padding(16.dp).height(640.dp)
+        modifier.fillMaxWidth().padding(16.dp).height(640.dp),
+        reverseLayout = true
     ){
+        items(messageList) { chat ->
+            MessageBubble(
+                message = chat.text,
+                isUser = chat.isUser
+            )
+        }
     }
 }
 
@@ -86,7 +95,7 @@ fun MessageBubble(message: String?, isUser: Boolean) {
             ) {
                 Text(
                     text = message,
-                    color = MaterialTheme.colorScheme.secondary
+                    color = Color.White
                 )
             }
         }
