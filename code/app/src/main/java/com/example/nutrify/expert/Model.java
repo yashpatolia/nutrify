@@ -22,7 +22,7 @@ public class Model implements Expert{
             evaluator.verify();
         } catch (Exception e) {
             evaluator  = null;
-            System.out.println("Error has occured loading in pmml model");
+            System.out.println("Error has occurred loading in pmml model");
         }
 
     }
@@ -78,7 +78,5 @@ public class Model implements Expert{
     @Override
     public String getExpertAnswer(String question) {
         return predict(question);
-
-
     }
 }
