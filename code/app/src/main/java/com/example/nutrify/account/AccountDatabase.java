@@ -3,29 +3,31 @@ package com.example.nutrify.account;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.UUID;
 
 public class AccountDatabase {
-    private final String filePath = "./account.csv";
+    private final String filePath = "./src/main/java/com/example/nutrify/account/account.csv";
     public AccountDatabase(){
 
     }
 
-    private String retrieve(UUID userID){
+    private String retrieve(String attribute, int column){
 
         BufferedReader reader = null;
         String line = "";
         try{
             reader = new BufferedReader(new FileReader(filePath));
             while((line = reader.readLine()) != null){
-                System.out.println(line);
+
                 String[] row = line.split(",");
-                if(row[0].equals(userID.toString())){
-                    return line;
+                System.out.println(row.length + " " + Arrays.toString(row));
+                if(row.length>column){
+                    if(row[column].equals(attribute)){
+                        return line;
+                    }
                 }
+
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -41,7 +43,6 @@ public class AccountDatabase {
         try{
             reader = new BufferedReader(new FileReader(filePath));
             while((line = reader.readLine()) != null){
-                System.out.println(line);
                 String[] row = line.split(",");
                 if(!row[0].equals(userID.toString())){
                     data += line+ "\n" ;
@@ -98,7 +99,17 @@ public class AccountDatabase {
     }
 
     public String getUserInfo(UUID userID){
-        return retrieve(userID);
+        return retrieve(userID.toString(), 0);
     }
 
+    public boolean properCredentials(String username, String password){
+
+        String data = retrieve(username, 1);
+        System.out.println(data);
+        if(data != null){
+            String[] attributes = data.split(",");
+            return attributes[2].equals(password);
+        }
+        return false;
+    }
 }

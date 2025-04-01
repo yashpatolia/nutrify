@@ -13,6 +13,12 @@ public abstract class AccountManagement {
 
     public abstract boolean editAccount(UUID userID, String username, String password, String email, String phoneNumber);
 
+    public boolean login( String username, String password){
+        return accountDB.properCredentials(username, password);
+    }
+
+    public abstract void viewAccount();
+
     public String getAccount(UUID userID){
         return accountDB.getUserInfo(userID);
     }

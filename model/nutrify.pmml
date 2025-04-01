@@ -1,0 +1,3687 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PMML xmlns="http://www.dmg.org/PMML-4_4" xmlns:data="http://jpmml.org/jpmml-model/InlineTable" version="4.4">
+	<Header>
+		<Application name="SkLearn2PMML package" version="0.116.1"/>
+		<Timestamp>2025-04-01T17:03:49Z</Timestamp>
+	</Header>
+	<DataDictionary>
+		<DataField name="y" optype="categorical" dataType="string">
+			<Value value="(1/2 cup ice cream)"/>
+			<Value value="(cornstarch)"/>
+			<Value value="3 teaspoons sugar"/>
+			<Value value="9&quot; diam. pie"/>
+			<Value value="Almonds"/>
+			<Value value="Apple betty"/>
+			<Value value="Apple juice canned"/>
+			<Value value="Apple vinegar"/>
+			<Value value="Apples, raw"/>
+			<Value value="Apricots"/>
+			<Value value="Asparagus"/>
+			<Value value="Avocado"/>
+			<Value value="Bacon"/>
+			<Value value="Baked with cheese"/>
+			<Value value="Banana"/>
+			<Value value="Bean soups"/>
+			<Value value="Bean sprouts"/>
+			<Value value="Beans"/>
+			<Value value="Beef"/>
+			<Value value="Beef soup"/>
+			<Value value="Beer"/>
+			<Value value="Beet greens"/>
+			<Value value="Biscuits"/>
+			<Value value="Blackberries"/>
+			<Value value="Blueberries"/>
+			<Value value="Bouillon"/>
+			<Value value="Bran flakes"/>
+			<Value value="Brazil nuts"/>
+			<Value value="Bread pudding"/>
+			<Value value="Bread, cracked wheat"/>
+			<Value value="Broccoli"/>
+			<Value value="Brown, firm-packed, dark sugar"/>
+			<Value value="Brussels sprouts"/>
+			<Value value="Butter"/>
+			<Value value="Buttermilk"/>
+			<Value value="Cakes"/>
+			<Value value="Candied"/>
+			<Value value="Candy"/>
+			<Value value="Cane Syrup"/>
+			<Value value="Cantaloupe"/>
+			<Value value="Carbonated drinks Artificially sweetened"/>
+			<Value value="Carrots"/>
+			<Value value="Cashews"/>
+			<Value value="Cauliflower"/>
+			<Value value="Celery"/>
+			<Value value="Chard steamed"/>
+			<Value value="Cheddar"/>
+			<Value value="Cheddar, grated cup"/>
+			<Value value="Cheese"/>
+			<Value value="Cherries"/>
+			<Value value="Cherry Pie"/>
+			<Value value="Chicken livers, fried"/>
+			<Value value="Chocolate creams"/>
+			<Value value="Chocolate fudge"/>
+			<Value value="Chocolate syrup"/>
+			<Value value="Clam chowder"/>
+			<Value value="Clams"/>
+			<Value value="Club soda"/>
+			<Value value="Cocoa"/>
+			<Value value="Cod"/>
+			<Value value="Coffee"/>
+			<Value value="Cola drinks"/>
+			<Value value="Collards"/>
+			<Value value="Converted"/>
+			<Value value="Corn"/>
+			<Value value="Corn bread ground meal"/>
+			<Value value="Corn grits cooked"/>
+			<Value value="Corn meal"/>
+			<Value value="Corn oil"/>
+			<Value value="Corned beef"/>
+			<Value value="Corned beef hash Dried"/>
+			<Value value="Corned beef hash Stew"/>
+			<Value value="Corned beef hash canned"/>
+			<Value value="Cornflakes"/>
+			<Value value="Cows' milk"/>
+			<Value value="Crab meat"/>
+			<Value value="Crackers"/>
+			<Value value="Cranberry sauce sweetened"/>
+			<Value value="Cream cheese"/>
+			<Value value="Cream or half-and-half"/>
+			<Value value="Cream soups"/>
+			<Value value="Cucumbers"/>
+			<Value value="Cupcake"/>
+			<Value value="Custard"/>
+			<Value value="Dandelion greens"/>
+			<Value value="Dates"/>
+			<Value value="Doughnuts"/>
+			<Value value="Dried, uncooked"/>
+			<Value value="Duck, domestic"/>
+			<Value value="Eggplant"/>
+			<Value value="Eggs Scrambled or fried"/>
+			<Value value="Eggs raw"/>
+			<Value value="Endive"/>
+			<Value value="European, as Muscat, Tokay"/>
+			<Value value="Evaporated, undiluted"/>
+			<Value value="Farina"/>
+			<Value value="Figs"/>
+			<Value value="Fish sticks fried"/>
+			<Value value="Flounder"/>
+			<Value value="Flour"/>
+			<Value value="Fortified milk"/>
+			<Value value="French dressing"/>
+			<Value value="French-fried"/>
+			<Value value="Fresh"/>
+			<Value value="Fresh, raw"/>
+			<Value value="Fresh, raw figs"/>
+			<Value value="Fresh, steamed peas"/>
+			<Value value="Fried, breast or leg and thigh chicken"/>
+			<Value value="Frozen "/>
+			<Value value="Fruit cake"/>
+			<Value value="Fruit cocktail, canned"/>
+			<Value value="Fruit-flavored soda"/>
+			<Value value="Fudge"/>
+			<Value value="Gelatin, made with water"/>
+			<Value value="Gin"/>
+			<Value value="Ginger ale"/>
+			<Value value="Gingerbread"/>
+			<Value value="Goats' milk"/>
+			<Value value="Grape juice"/>
+			<Value value="Grapefruit juice"/>
+			<Value value="Grapefruit sections"/>
+			<Value value="Grapefruit, fresh, 5&quot; diameter"/>
+			<Value value="Grapes"/>
+			<Value value="Ground lean"/>
+			<Value value="Haddock"/>
+			<Value value="Halibut"/>
+			<Value value="Ham pan-broiled"/>
+			<Value value="Ham, as "/>
+			<Value value="Ham, canned, spiced"/>
+			<Value value="Hamburger"/>
+			<Value value="Hard candies"/>
+			<Value value="Herring"/>
+			<Value value="Honey"/>
+			<Value value="Hydrogenated cooking fat"/>
+			<Value value="Ice cream"/>
+			<Value value="Ice milk"/>
+			<Value value="Iceberg"/>
+			<Value value="Ices"/>
+			<Value value="Jellies"/>
+			<Value value="Kale"/>
+			<Value value="Kohlrabi"/>
+			<Value value="Lamb, chop, broiled"/>
+			<Value value="Lambs quarters, steamed"/>
+			<Value value="Lard"/>
+			<Value value="Leg roasted"/>
+			<Value value="Lemon juice"/>
+			<Value value="Lemon meringue"/>
+			<Value value="Lemonade concentratefrozen"/>
+			<Value value="Lentils"/>
+			<Value value="Lettuce"/>
+			<Value value="Lima"/>
+			<Value value="Lima, dry, cooked"/>
+			<Value value="Limeade concentrate frozen"/>
+			<Value value="Lobster"/>
+			<Value value="Macaroni"/>
+			<Value value="Margarine"/>
+			<Value value="Margarine, 2 pat or"/>
+			<Value value="Marshmallows"/>
+			<Value value="Mayonnaise"/>
+			<Value value="Milk chocolate"/>
+			<Value value="Milk skim"/>
+			<Value value="Mince"/>
+			<Value value="Molasses"/>
+			<Value value="Muffins"/>
+			<Value value="Mushrooms canned"/>
+			<Value value="Mustard greens"/>
+			<Value value="Navy, baked with pork"/>
+			<Value value="Nectar, or juice"/>
+			<Value value="Noodle"/>
+			<Value value="Noodles"/>
+			<Value value="Oatmeal"/>
+			<Value value="Okra"/>
+			<Value value="Olive oil"/>
+			<Value value="Olives large"/>
+			<Value value="OlivesRipe"/>
+			<Value value="Onions"/>
+			<Value value="Orange juice"/>
+			<Value value="Oranges 3&quot; diameter"/>
+			<Value value="Oyster stew"/>
+			<Value value="Oysters"/>
+			<Value value="Pancakes 4&quot; diam."/>
+			<Value value="Papaya"/>
+			<Value value="Parsley"/>
+			<Value value="Parsnips"/>
+			<Value value="Peaches"/>
+			<Value value="Peanut butter"/>
+			<Value value="Peanut butter, natural"/>
+			<Value value="Peanuts"/>
+			<Value value="Pears"/>
+			<Value value="Peas"/>
+			<Value value="Pecans"/>
+			<Value value="Peppers Raw, green, sweet"/>
+			<Value value="Peppers canned"/>
+			<Value value="Peppers with beef and crumbs"/>
+			<Value value="Persimmons"/>
+			<Value value="Pineapple"/>
+			<Value value="Pineapple Crushed"/>
+			<Value value="Pineapple juice"/>
+			<Value value="Pizza 14&quot; diam."/>
+			<Value value="Plain, with no icing"/>
+			<Value value="Plums"/>
+			<Value value="Popcorn salted"/>
+			<Value value="Pork roast"/>
+			<Value value="Pork sausage"/>
+			<Value value="Pork, chop, 1 thick"/>
+			<Value value="Pot-pie"/>
+			<Value value="Potato chips"/>
+			<Value value="Potatoes Mashed with milk and butter"/>
+			<Value value="Potatoes, baked"/>
+			<Value value="Potatoes, pan-tried"/>
+			<Value value="Powdered milk"/>
+			<Value value="Processed cheese"/>
+			<Value value="Prune juice"/>
+			<Value value="Prunes"/>
+			<Value value="Puddings Sugar"/>
+			<Value value="Puffed rice"/>
+			<Value value="Puffed wheat presweetened"/>
+			<Value value="Pumpkin Pie"/>
+			<Value value="Radishes"/>
+			<Value value="Raisins"/>
+			<Value value="Raspberries"/>
+			<Value value="Raw"/>
+			<Value value="Raw, 2 by 2 1/2"/>
+			<Value value="Raw, 2&quot; diameter"/>
+			<Value value="Raw, 3 by 2V"/>
+			<Value value="Raw, diced"/>
+			<Value value="Raw, grated"/>
+			<Value value="Raw, green"/>
+			<Value value="Raw, red"/>
+			<Value value="Red kidney"/>
+			<Value value="Rhubarb sweetened"/>
+			<Value value="Rice"/>
+			<Value value="Rice flakes"/>
+			<Value value="Rice polish"/>
+			<Value value="Roast"/>
+			<Value value="Roast beef"/>
+			<Value value="Roasted chicken"/>
+			<Value value="Rolls"/>
+			<Value value="Root beer"/>
+			<Value value="Roquefort type"/>
+			<Value value="Rutabagas"/>
+			<Value value="Rye"/>
+			<Value value="Safflower seed oil"/>
+			<Value value="Salmon"/>
+			<Value value="Sardines"/>
+			<Value value="Sauerkraut"/>
+			<Value value="Scalloped with cheese potatoes"/>
+			<Value value="Scallops"/>
+			<Value value="Sesame seeds"/>
+			<Value value="Shad"/>
+			<Value value="Shoulder, braised"/>
+			<Value value="Shredded wheat biscuit"/>
+			<Value value="Shrimp"/>
+			<Value value="Soda, 2 1/2 square"/>
+			<Value value="Soybeans"/>
+			<Value value="Spaghetti with meat sauce"/>
+			<Value value="Spanish rice"/>
+			<Value value="Spinach"/>
+			<Value value="Split cooked peas"/>
+			<Value value="Split-pea soup"/>
+			<Value value="Sponge cake"/>
+			<Value value="Squash"/>
+			<Value value="Stalk raw"/>
+			<Value value="Steak"/>
+			<Value value="Steak, lean, as round"/>
+			<Value value="Steamed cabbage"/>
+			<Value value="Steamed potatoes before peeling"/>
+			<Value value="Stewed or canned"/>
+			<Value value="Strawberries"/>
+			<Value value="Strips, from raw"/>
+			<Value value="Sunflower seeds"/>
+			<Value value="Sweet potatoes"/>
+			<Value value="Swiss"/>
+			<Value value="Swordfish"/>
+			<Value value="Syrup"/>
+			<Value value="Table (12.2% alcohol)"/>
+			<Value value="Tangerines"/>
+			<Value value="Tapioca cream pudding"/>
+			<Value value="Tea"/>
+			<Value value="Thousand Island sauce"/>
+			<Value value="Tomato catsup"/>
+			<Value value="Tomato juice"/>
+			<Value value="Tomato soup"/>
+			<Value value="Tomatoes"/>
+			<Value value="Tuna"/>
+			<Value value="Turkey"/>
+			<Value value="Turnip greens"/>
+			<Value value="Turnips, steamed"/>
+			<Value value="Veal"/>
+			<Value value="Vegetable"/>
+			<Value value="Waffles"/>
+			<Value value="Walnuts"/>
+			<Value value="Watercress stems, raw"/>
+			<Value value="Watermelon"/>
+			<Value value="Wheat (all purpose)"/>
+			<Value value="Wheat (whole)"/>
+			<Value value="Wheat germ"/>
+			<Value value="Wheat meal cereal unrefined"/>
+			<Value value="Wheat, cooked"/>
+			<Value value="Wheat, pancakes 4&quot; diam."/>
+			<Value value="Wheat-germ cereal toasted"/>
+			<Value value="White"/>
+			<Value value="White, 20 slices, or"/>
+			<Value value="Whole-wheat"/>
+			<Value value="Wines"/>
+			<Value value="Winter, mashed"/>
+			<Value value="Yolks"/>
+			<Value value="chicken"/>
+			<Value value="chicken soup"/>
+			<Value value="coconut sweetened"/>
+			<Value value="cooked or canned"/>
+			<Value value="figs Canned with syrup "/>
+			<Value value="heated peas"/>
+			<Value value="of refined flour"/>
+			<Value value="or whipping"/>
+			<Value value="preserves"/>
+			<Value value="roasted and salted"/>
+			<Value value="skim, instant"/>
+			<Value value="skim, non-instant"/>
+			<Value value="skim. milk"/>
+			<Value value="table blends sugar"/>
+			<Value value="uncreamed"/>
+			<Value value="whole-wheat"/>
+			<Value value="with tomatoes and cheese"/>
+		</DataField>
+		<DataField name="Grams" optype="continuous" dataType="float"/>
+		<DataField name="Calories" optype="continuous" dataType="float"/>
+		<DataField name="Protein" optype="continuous" dataType="float"/>
+		<DataField name="Fat" optype="continuous" dataType="float"/>
+		<DataField name="Sat.Fat" optype="continuous" dataType="float"/>
+		<DataField name="Fiber" optype="continuous" dataType="float"/>
+		<DataField name="Carbs" optype="continuous" dataType="float"/>
+	</DataDictionary>
+	<NearestNeighborModel functionName="classification" algorithmName="sklearn.neighbors._classification.KNeighborsClassifier" numberOfNeighbors="5">
+		<MiningSchema>
+			<MiningField name="y" usageType="target"/>
+			<MiningField name="Grams"/>
+			<MiningField name="Calories"/>
+			<MiningField name="Protein"/>
+			<MiningField name="Fat"/>
+			<MiningField name="Sat.Fat"/>
+			<MiningField name="Fiber"/>
+			<MiningField name="Carbs"/>
+		</MiningSchema>
+		<Output>
+			<OutputField name="neighbor(1)" optype="categorical" dataType="string" feature="entityId"/>
+			<OutputField name="neighbor(2)" optype="categorical" dataType="string" feature="entityId" rank="2"/>
+			<OutputField name="neighbor(3)" optype="categorical" dataType="string" feature="entityId" rank="3"/>
+			<OutputField name="neighbor(4)" optype="categorical" dataType="string" feature="entityId" rank="4"/>
+			<OutputField name="neighbor(5)" optype="categorical" dataType="string" feature="entityId" rank="5"/>
+		</Output>
+		<TrainingInstances isTransformed="true">
+			<InstanceFields>
+				<InstanceField field="y" column="data:y"/>
+				<InstanceField field="Grams" column="data:x1"/>
+				<InstanceField field="Calories" column="data:x2"/>
+				<InstanceField field="Protein" column="data:x3"/>
+				<InstanceField field="Fat" column="data:x4"/>
+				<InstanceField field="Sat.Fat" column="data:x5"/>
+				<InstanceField field="Fiber" column="data:x6"/>
+				<InstanceField field="Carbs" column="data:x7"/>
+			</InstanceFields>
+			<InlineTable>
+				<row>
+					<data:y>Cows' milk</data:y>
+					<data:x1>976.0</data:x1>
+					<data:x2>660.0</data:x2>
+					<data:x3>32.0</data:x3>
+					<data:x4>40.0</data:x4>
+					<data:x5>36.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>48.0</data:x7>
+				</row>
+				<row>
+					<data:y>Milk skim</data:y>
+					<data:x1>984.0</data:x1>
+					<data:x2>360.0</data:x2>
+					<data:x3>36.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.1</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>52.0</data:x7>
+				</row>
+				<row>
+					<data:y>Buttermilk</data:y>
+					<data:x1>246.0</data:x1>
+					<data:x2>127.0</data:x2>
+					<data:x3>9.0</data:x3>
+					<data:x4>5.0</data:x4>
+					<data:x5>4.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>13.0</data:x7>
+				</row>
+				<row>
+					<data:y>Evaporated, undiluted</data:y>
+					<data:x1>252.0</data:x1>
+					<data:x2>345.0</data:x2>
+					<data:x3>16.0</data:x3>
+					<data:x4>20.0</data:x4>
+					<data:x5>18.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>24.0</data:x7>
+				</row>
+				<row>
+					<data:y>Fortified milk</data:y>
+					<data:x1>1419.0</data:x1>
+					<data:x2>1373.0</data:x2>
+					<data:x3>89.0</data:x3>
+					<data:x4>42.0</data:x4>
+					<data:x5>23.0</data:x5>
+					<data:x6>1.4</data:x6>
+					<data:x7>119.0</data:x7>
+				</row>
+				<row>
+					<data:y>Powdered milk</data:y>
+					<data:x1>103.0</data:x1>
+					<data:x2>515.0</data:x2>
+					<data:x3>27.0</data:x3>
+					<data:x4>28.0</data:x4>
+					<data:x5>24.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>39.0</data:x7>
+				</row>
+				<row>
+					<data:y>skim, instant</data:y>
+					<data:x1>85.0</data:x1>
+					<data:x2>290.0</data:x2>
+					<data:x3>30.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.1</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>42.0</data:x7>
+				</row>
+				<row>
+					<data:y>skim, non-instant</data:y>
+					<data:x1>85.0</data:x1>
+					<data:x2>290.0</data:x2>
+					<data:x3>30.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.1</data:x5>
+					<data:x6>1.0</data:x6>
+					<data:x7>42.0</data:x7>
+				</row>
+				<row>
+					<data:y>Goats' milk</data:y>
+					<data:x1>244.0</data:x1>
+					<data:x2>165.0</data:x2>
+					<data:x3>8.0</data:x3>
+					<data:x4>10.0</data:x4>
+					<data:x5>8.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>11.0</data:x7>
+				</row>
+				<row>
+					<data:y>(1/2 cup ice cream)</data:y>
+					<data:x1>540.0</data:x1>
+					<data:x2>690.0</data:x2>
+					<data:x3>24.0</data:x3>
+					<data:x4>24.0</data:x4>
+					<data:x5>22.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>70.0</data:x7>
+				</row>
+				<row>
+					<data:y>Cocoa</data:y>
+					<data:x1>252.0</data:x1>
+					<data:x2>235.0</data:x2>
+					<data:x3>8.0</data:x3>
+					<data:x4>11.0</data:x4>
+					<data:x5>10.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>26.0</data:x7>
+				</row>
+				<row>
+					<data:y>skim. milk</data:y>
+					<data:x1>250.0</data:x1>
+					<data:x2>128.0</data:x2>
+					<data:x3>18.0</data:x3>
+					<data:x4>4.0</data:x4>
+					<data:x5>3.0</data:x5>
+					<data:x6>1.0</data:x6>
+					<data:x7>13.0</data:x7>
+				</row>
+				<row>
+					<data:y>(cornstarch)</data:y>
+					<data:x1>248.0</data:x1>
+					<data:x2>275.0</data:x2>
+					<data:x3>9.0</data:x3>
+					<data:x4>10.0</data:x4>
+					<data:x5>9.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>40.0</data:x7>
+				</row>
+				<row>
+					<data:y>Custard</data:y>
+					<data:x1>248.0</data:x1>
+					<data:x2>285.0</data:x2>
+					<data:x3>13.0</data:x3>
+					<data:x4>14.0</data:x4>
+					<data:x5>11.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>28.0</data:x7>
+				</row>
+				<row>
+					<data:y>Ice cream</data:y>
+					<data:x1>188.0</data:x1>
+					<data:x2>300.0</data:x2>
+					<data:x3>6.0</data:x3>
+					<data:x4>18.0</data:x4>
+					<data:x5>16.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>29.0</data:x7>
+				</row>
+				<row>
+					<data:y>Ice milk</data:y>
+					<data:x1>190.0</data:x1>
+					<data:x2>275.0</data:x2>
+					<data:x3>9.0</data:x3>
+					<data:x4>10.0</data:x4>
+					<data:x5>9.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>32.0</data:x7>
+				</row>
+				<row>
+					<data:y>Cream or half-and-half</data:y>
+					<data:x1>120.0</data:x1>
+					<data:x2>170.0</data:x2>
+					<data:x3>4.0</data:x3>
+					<data:x4>15.0</data:x4>
+					<data:x5>13.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>5.0</data:x7>
+				</row>
+				<row>
+					<data:y>or whipping</data:y>
+					<data:x1>119.0</data:x1>
+					<data:x2>430.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>44.0</data:x4>
+					<data:x5>27.0</data:x5>
+					<data:x6>1.0</data:x6>
+					<data:x7>3.0</data:x7>
+				</row>
+				<row>
+					<data:y>Cheese</data:y>
+					<data:x1>225.0</data:x1>
+					<data:x2>240.0</data:x2>
+					<data:x3>30.0</data:x3>
+					<data:x4>11.0</data:x4>
+					<data:x5>10.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>6.0</data:x7>
+				</row>
+				<row>
+					<data:y>uncreamed</data:y>
+					<data:x1>225.0</data:x1>
+					<data:x2>195.0</data:x2>
+					<data:x3>38.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.1</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>6.0</data:x7>
+				</row>
+				<row>
+					<data:y>Cheddar</data:y>
+					<data:x1>17.0</data:x1>
+					<data:x2>70.0</data:x2>
+					<data:x3>4.0</data:x3>
+					<data:x4>6.0</data:x4>
+					<data:x5>5.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.1</data:x7>
+				</row>
+				<row>
+					<data:y>Cheddar, grated cup</data:y>
+					<data:x1>56.0</data:x1>
+					<data:x2>226.0</data:x2>
+					<data:x3>14.0</data:x3>
+					<data:x4>19.0</data:x4>
+					<data:x5>17.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>1.0</data:x7>
+				</row>
+				<row>
+					<data:y>Cream cheese</data:y>
+					<data:x1>28.0</data:x1>
+					<data:x2>105.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>11.0</data:x4>
+					<data:x5>10.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>1.0</data:x7>
+				</row>
+				<row>
+					<data:y>Processed cheese</data:y>
+					<data:x1>28.0</data:x1>
+					<data:x2>105.0</data:x2>
+					<data:x3>7.0</data:x3>
+					<data:x4>9.0</data:x4>
+					<data:x5>8.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.1</data:x7>
+				</row>
+				<row>
+					<data:y>Roquefort type</data:y>
+					<data:x1>28.0</data:x1>
+					<data:x2>105.0</data:x2>
+					<data:x3>6.0</data:x3>
+					<data:x4>9.0</data:x4>
+					<data:x5>8.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.1</data:x7>
+				</row>
+				<row>
+					<data:y>Swiss</data:y>
+					<data:x1>28.0</data:x1>
+					<data:x2>105.0</data:x2>
+					<data:x3>7.0</data:x3>
+					<data:x4>8.0</data:x4>
+					<data:x5>7.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.1</data:x7>
+				</row>
+				<row>
+					<data:y>Eggs raw</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>150.0</data:x2>
+					<data:x3>12.0</data:x3>
+					<data:x4>12.0</data:x4>
+					<data:x5>10.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.1</data:x7>
+				</row>
+				<row>
+					<data:y>Eggs Scrambled or fried</data:y>
+					<data:x1>128.0</data:x1>
+					<data:x2>220.0</data:x2>
+					<data:x3>13.0</data:x3>
+					<data:x4>16.0</data:x4>
+					<data:x5>14.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>1.0</data:x7>
+				</row>
+				<row>
+					<data:y>Yolks</data:y>
+					<data:x1>34.0</data:x1>
+					<data:x2>120.0</data:x2>
+					<data:x3>6.0</data:x3>
+					<data:x4>10.0</data:x4>
+					<data:x5>8.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.1</data:x7>
+				</row>
+				<row>
+					<data:y>Butter</data:y>
+					<data:x1>14.0</data:x1>
+					<data:x2>100.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>11.0</data:x4>
+					<data:x5>10.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.1</data:x7>
+				</row>
+				<row>
+					<data:y>Butter</data:y>
+					<data:x1>112.0</data:x1>
+					<data:x2>113.0</data:x2>
+					<data:x3>114.0</data:x3>
+					<data:x4>115.0</data:x4>
+					<data:x5>116.0</data:x5>
+					<data:x6>117.0</data:x6>
+					<data:x7>118.0</data:x7>
+				</row>
+				<row>
+					<data:y>Butter</data:y>
+					<data:x1>112.0</data:x1>
+					<data:x2>113.0</data:x2>
+					<data:x3>114.0</data:x3>
+					<data:x4>115.0</data:x4>
+					<data:x5>116.0</data:x5>
+					<data:x6>117.0</data:x6>
+					<data:x7>118.0</data:x7>
+				</row>
+				<row>
+					<data:y>Hydrogenated cooking fat</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>665.0</data:x2>
+					<data:x3>0.0</data:x3>
+					<data:x4>100.0</data:x4>
+					<data:x5>88.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Lard</data:y>
+					<data:x1>110.0</data:x1>
+					<data:x2>992.0</data:x2>
+					<data:x3>0.0</data:x3>
+					<data:x4>110.0</data:x4>
+					<data:x5>92.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Margarine</data:y>
+					<data:x1>112.0</data:x1>
+					<data:x2>806.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>91.0</data:x4>
+					<data:x5>76.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.1</data:x7>
+				</row>
+				<row>
+					<data:y>Margarine, 2 pat or</data:y>
+					<data:x1>14.0</data:x1>
+					<data:x2>100.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>11.0</data:x4>
+					<data:x5>9.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.1</data:x7>
+				</row>
+				<row>
+					<data:y>Mayonnaise</data:y>
+					<data:x1>15.0</data:x1>
+					<data:x2>110.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>12.0</data:x4>
+					<data:x5>5.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.1</data:x7>
+				</row>
+				<row>
+					<data:y>Corn oil</data:y>
+					<data:x1>14.0</data:x1>
+					<data:x2>125.0</data:x2>
+					<data:x3>0.0</data:x3>
+					<data:x4>14.0</data:x4>
+					<data:x5>5.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Olive oil</data:y>
+					<data:x1>14.0</data:x1>
+					<data:x2>125.0</data:x2>
+					<data:x3>0.0</data:x3>
+					<data:x4>14.0</data:x4>
+					<data:x5>3.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Safflower seed oil</data:y>
+					<data:x1>14.0</data:x1>
+					<data:x2>125.0</data:x2>
+					<data:x3>0.0</data:x3>
+					<data:x4>14.0</data:x4>
+					<data:x5>3.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>French dressing</data:y>
+					<data:x1>15.0</data:x1>
+					<data:x2>60.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>6.0</data:x4>
+					<data:x5>2.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>2.0</data:x7>
+				</row>
+				<row>
+					<data:y>Thousand Island sauce</data:y>
+					<data:x1>15.0</data:x1>
+					<data:x2>75.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>8.0</data:x4>
+					<data:x5>3.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>1.0</data:x7>
+				</row>
+				<row>
+					<data:y>Bacon</data:y>
+					<data:x1>16.0</data:x1>
+					<data:x2>95.0</data:x2>
+					<data:x3>4.0</data:x3>
+					<data:x4>8.0</data:x4>
+					<data:x5>7.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>1.0</data:x7>
+				</row>
+				<row>
+					<data:y>Beef</data:y>
+					<data:x1>85.0</data:x1>
+					<data:x2>245.0</data:x2>
+					<data:x3>23.0</data:x3>
+					<data:x4>16.0</data:x4>
+					<data:x5>15.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Hamburger</data:y>
+					<data:x1>85.0</data:x1>
+					<data:x2>245.0</data:x2>
+					<data:x3>21.0</data:x3>
+					<data:x4>17.0</data:x4>
+					<data:x5>15.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Ground lean</data:y>
+					<data:x1>85.0</data:x1>
+					<data:x2>185.0</data:x2>
+					<data:x3>24.0</data:x3>
+					<data:x4>10.0</data:x4>
+					<data:x5>9.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Roast beef</data:y>
+					<data:x1>85.0</data:x1>
+					<data:x2>390.0</data:x2>
+					<data:x3>16.0</data:x3>
+					<data:x4>36.0</data:x4>
+					<data:x5>35.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Steak</data:y>
+					<data:x1>85.0</data:x1>
+					<data:x2>330.0</data:x2>
+					<data:x3>20.0</data:x3>
+					<data:x4>27.0</data:x4>
+					<data:x5>25.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Steak, lean, as round</data:y>
+					<data:x1>85.0</data:x1>
+					<data:x2>220.0</data:x2>
+					<data:x3>24.0</data:x3>
+					<data:x4>12.0</data:x4>
+					<data:x5>11.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Corned beef</data:y>
+					<data:x1>85.0</data:x1>
+					<data:x2>185.0</data:x2>
+					<data:x3>22.0</data:x3>
+					<data:x4>10.0</data:x4>
+					<data:x5>9.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Corned beef hash canned</data:y>
+					<data:x1>85.0</data:x1>
+					<data:x2>120.0</data:x2>
+					<data:x3>12.0</data:x3>
+					<data:x4>8.0</data:x4>
+					<data:x5>7.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>6.0</data:x7>
+				</row>
+				<row>
+					<data:y>Corned beef hash Dried</data:y>
+					<data:x1>56.0</data:x1>
+					<data:x2>115.0</data:x2>
+					<data:x3>19.0</data:x3>
+					<data:x4>4.0</data:x4>
+					<data:x5>4.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Pot-pie</data:y>
+					<data:x1>227.0</data:x1>
+					<data:x2>480.0</data:x2>
+					<data:x3>18.0</data:x3>
+					<data:x4>28.0</data:x4>
+					<data:x5>25.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>32.0</data:x7>
+				</row>
+				<row>
+					<data:y>Corned beef hash Stew</data:y>
+					<data:x1>235.0</data:x1>
+					<data:x2>185.0</data:x2>
+					<data:x3>15.0</data:x3>
+					<data:x4>10.0</data:x4>
+					<data:x5>9.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>15.0</data:x7>
+				</row>
+				<row>
+					<data:y>chicken</data:y>
+					<data:x1>85.0</data:x1>
+					<data:x2>185.0</data:x2>
+					<data:x3>23.0</data:x3>
+					<data:x4>9.0</data:x4>
+					<data:x5>7.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Fried, breast or leg and thigh chicken</data:y>
+					<data:x1>85.0</data:x1>
+					<data:x2>245.0</data:x2>
+					<data:x3>25.0</data:x3>
+					<data:x4>15.0</data:x4>
+					<data:x5>11.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Roasted chicken</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>290.0</data:x2>
+					<data:x3>25.0</data:x3>
+					<data:x4>20.0</data:x4>
+					<data:x5>16.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Chicken livers, fried</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>140.0</data:x2>
+					<data:x3>22.0</data:x3>
+					<data:x4>14.0</data:x4>
+					<data:x5>12.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>2.3</data:x7>
+				</row>
+				<row>
+					<data:y>Duck, domestic</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>370.0</data:x2>
+					<data:x3>16.0</data:x3>
+					<data:x4>28.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Lamb, chop, broiled</data:y>
+					<data:x1>115.0</data:x1>
+					<data:x2>480.0</data:x2>
+					<data:x3>24.0</data:x3>
+					<data:x4>35.0</data:x4>
+					<data:x5>33.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Leg roasted</data:y>
+					<data:x1>86.0</data:x1>
+					<data:x2>314.0</data:x2>
+					<data:x3>20.0</data:x3>
+					<data:x4>14.0</data:x4>
+					<data:x5>14.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Shoulder, braised</data:y>
+					<data:x1>85.0</data:x1>
+					<data:x2>285.0</data:x2>
+					<data:x3>18.0</data:x3>
+					<data:x4>23.0</data:x4>
+					<data:x5>21.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Pork, chop, 1 thick</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>260.0</data:x2>
+					<data:x3>16.0</data:x3>
+					<data:x4>21.0</data:x4>
+					<data:x5>18.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Ham pan-broiled</data:y>
+					<data:x1>85.0</data:x1>
+					<data:x2>290.0</data:x2>
+					<data:x3>16.0</data:x3>
+					<data:x4>22.0</data:x4>
+					<data:x5>19.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Ham, as </data:y>
+					<data:x1>57.0</data:x1>
+					<data:x2>170.0</data:x2>
+					<data:x3>13.0</data:x3>
+					<data:x4>13.0</data:x4>
+					<data:x5>11.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Ham, canned, spiced</data:y>
+					<data:x1>57.0</data:x1>
+					<data:x2>165.0</data:x2>
+					<data:x3>8.0</data:x3>
+					<data:x4>14.0</data:x4>
+					<data:x5>12.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>1.0</data:x7>
+				</row>
+				<row>
+					<data:y>Pork roast</data:y>
+					<data:x1>85.0</data:x1>
+					<data:x2>310.0</data:x2>
+					<data:x3>21.0</data:x3>
+					<data:x4>24.0</data:x4>
+					<data:x5>21.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Pork sausage</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>475.0</data:x2>
+					<data:x3>18.0</data:x3>
+					<data:x4>44.0</data:x4>
+					<data:x5>40.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Turkey</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>265.0</data:x2>
+					<data:x3>27.0</data:x3>
+					<data:x4>15.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Veal</data:y>
+					<data:x1>85.0</data:x1>
+					<data:x2>185.0</data:x2>
+					<data:x3>23.0</data:x3>
+					<data:x4>9.0</data:x4>
+					<data:x5>8.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Roast</data:y>
+					<data:x1>85.0</data:x1>
+					<data:x2>305.0</data:x2>
+					<data:x3>13.0</data:x3>
+					<data:x4>14.0</data:x4>
+					<data:x5>13.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Clams</data:y>
+					<data:x1>85.0</data:x1>
+					<data:x2>87.0</data:x2>
+					<data:x3>12.0</data:x3>
+					<data:x4>1.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>2.0</data:x7>
+				</row>
+				<row>
+					<data:y>Cod</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>170.0</data:x2>
+					<data:x3>28.0</data:x3>
+					<data:x4>5.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Crab meat</data:y>
+					<data:x1>85.0</data:x1>
+					<data:x2>90.0</data:x2>
+					<data:x3>14.0</data:x3>
+					<data:x4>2.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>1.0</data:x7>
+				</row>
+				<row>
+					<data:y>Fish sticks fried</data:y>
+					<data:x1>112.0</data:x1>
+					<data:x2>200.0</data:x2>
+					<data:x3>19.0</data:x3>
+					<data:x4>10.0</data:x4>
+					<data:x5>5.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>8.0</data:x7>
+				</row>
+				<row>
+					<data:y>Flounder</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>200.0</data:x2>
+					<data:x3>30.0</data:x3>
+					<data:x4>8.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Haddock</data:y>
+					<data:x1>85.0</data:x1>
+					<data:x2>135.0</data:x2>
+					<data:x3>16.0</data:x3>
+					<data:x4>5.0</data:x4>
+					<data:x5>4.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>6.0</data:x7>
+				</row>
+				<row>
+					<data:y>Halibut</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>182.0</data:x2>
+					<data:x3>26.0</data:x3>
+					<data:x4>8.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Herring</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>211.0</data:x2>
+					<data:x3>22.0</data:x3>
+					<data:x4>13.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Lobster</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>92.0</data:x2>
+					<data:x3>18.0</data:x3>
+					<data:x4>1.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.1</data:x7>
+				</row>
+				<row>
+					<data:y>Oysters</data:y>
+					<data:x1>230.0</data:x1>
+					<data:x2>231.0</data:x2>
+					<data:x3>232.0</data:x3>
+					<data:x4>233.0</data:x4>
+					<data:x5>234.0</data:x5>
+					<data:x6>235.0</data:x6>
+					<data:x7>236.0</data:x7>
+				</row>
+				<row>
+					<data:y>Oyster stew</data:y>
+					<data:x1>85.0</data:x1>
+					<data:x2>125.0</data:x2>
+					<data:x3>19.0</data:x3>
+					<data:x4>6.0</data:x4>
+					<data:x5>1.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Salmon</data:y>
+					<data:x1>85.0</data:x1>
+					<data:x2>120.0</data:x2>
+					<data:x3>17.0</data:x3>
+					<data:x4>5.0</data:x4>
+					<data:x5>1.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Sardines</data:y>
+					<data:x1>85.0</data:x1>
+					<data:x2>180.0</data:x2>
+					<data:x3>22.0</data:x3>
+					<data:x4>9.0</data:x4>
+					<data:x5>4.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Scallops</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>104.0</data:x2>
+					<data:x3>18.0</data:x3>
+					<data:x4>8.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>10.0</data:x7>
+				</row>
+				<row>
+					<data:y>Shad</data:y>
+					<data:x1>85.0</data:x1>
+					<data:x2>170.0</data:x2>
+					<data:x3>20.0</data:x3>
+					<data:x4>10.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Shrimp</data:y>
+					<data:x1>85.0</data:x1>
+					<data:x2>110.0</data:x2>
+					<data:x3>23.0</data:x3>
+					<data:x4>1.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Swordfish</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>180.0</data:x2>
+					<data:x3>27.0</data:x3>
+					<data:x4>6.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Tuna</data:y>
+					<data:x1>85.0</data:x1>
+					<data:x2>170.0</data:x2>
+					<data:x3>25.0</data:x3>
+					<data:x4>7.0</data:x4>
+					<data:x5>3.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Asparagus</data:y>
+					<data:x1>96.0</data:x1>
+					<data:x2>18.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.1</data:x5>
+					<data:x6>0.5</data:x6>
+					<data:x7>3.0</data:x7>
+				</row>
+				<row>
+					<data:y>Beans</data:y>
+					<data:x1>125.0</data:x1>
+					<data:x2>25.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.1</data:x5>
+					<data:x6>0.8</data:x6>
+					<data:x7>6.0</data:x7>
+				</row>
+				<row>
+					<data:y>Lima</data:y>
+					<data:x1>160.0</data:x1>
+					<data:x2>140.0</data:x2>
+					<data:x3>8.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.1</data:x5>
+					<data:x6>3.0</data:x6>
+					<data:x7>24.0</data:x7>
+				</row>
+				<row>
+					<data:y>Lima, dry, cooked</data:y>
+					<data:x1>192.0</data:x1>
+					<data:x2>260.0</data:x2>
+					<data:x3>16.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.1</data:x5>
+					<data:x6>2.0</data:x6>
+					<data:x7>48.0</data:x7>
+				</row>
+				<row>
+					<data:y>Navy, baked with pork</data:y>
+					<data:x1>200.0</data:x1>
+					<data:x2>250.0</data:x2>
+					<data:x3>11.0</data:x3>
+					<data:x4>6.0</data:x4>
+					<data:x5>6.0</data:x5>
+					<data:x6>2.0</data:x6>
+					<data:x7>37.0</data:x7>
+				</row>
+				<row>
+					<data:y>Red kidney</data:y>
+					<data:x1>260.0</data:x1>
+					<data:x2>230.0</data:x2>
+					<data:x3>15.0</data:x3>
+					<data:x4>1.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>2.5</data:x6>
+					<data:x7>42.0</data:x7>
+				</row>
+				<row>
+					<data:y>Bean sprouts</data:y>
+					<data:x1>50.0</data:x1>
+					<data:x2>17.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.3</data:x6>
+					<data:x7>3.0</data:x7>
+				</row>
+				<row>
+					<data:y>Beet greens</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>27.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.4</data:x6>
+					<data:x7>6.0</data:x7>
+				</row>
+				<row>
+					<data:y>Broccoli</data:y>
+					<data:x1>150.0</data:x1>
+					<data:x2>45.0</data:x2>
+					<data:x3>5.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.9</data:x6>
+					<data:x7>8.0</data:x7>
+				</row>
+				<row>
+					<data:y>Brussels sprouts</data:y>
+					<data:x1>130.0</data:x1>
+					<data:x2>60.0</data:x2>
+					<data:x3>6.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.7</data:x6>
+					<data:x7>12.0</data:x7>
+				</row>
+				<row>
+					<data:y>Sauerkraut</data:y>
+					<data:x1>150.0</data:x1>
+					<data:x2>32.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.2</data:x6>
+					<data:x7>7.0</data:x7>
+				</row>
+				<row>
+					<data:y>Steamed cabbage</data:y>
+					<data:x1>170.0</data:x1>
+					<data:x2>40.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.3</data:x6>
+					<data:x7>9.0</data:x7>
+				</row>
+				<row>
+					<data:y>Carrots</data:y>
+					<data:x1>150.0</data:x1>
+					<data:x2>45.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.9</data:x6>
+					<data:x7>10.0</data:x7>
+				</row>
+				<row>
+					<data:y>Raw, grated</data:y>
+					<data:x1>110.0</data:x1>
+					<data:x2>45.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.2</data:x6>
+					<data:x7>10.0</data:x7>
+				</row>
+				<row>
+					<data:y>Strips, from raw</data:y>
+					<data:x1>50.0</data:x1>
+					<data:x2>20.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.5</data:x6>
+					<data:x7>5.0</data:x7>
+				</row>
+				<row>
+					<data:y>Cauliflower</data:y>
+					<data:x1>120.0</data:x1>
+					<data:x2>30.0</data:x2>
+					<data:x3>3.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.0</data:x6>
+					<data:x7>6.0</data:x7>
+				</row>
+				<row>
+					<data:y>Celery</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>20.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.0</data:x6>
+					<data:x7>4.0</data:x7>
+				</row>
+				<row>
+					<data:y>Stalk raw</data:y>
+					<data:x1>40.0</data:x1>
+					<data:x2>5.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.3</data:x6>
+					<data:x7>1.0</data:x7>
+				</row>
+				<row>
+					<data:y>Chard steamed</data:y>
+					<data:x1>150.0</data:x1>
+					<data:x2>30.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.4</data:x6>
+					<data:x7>7.0</data:x7>
+				</row>
+				<row>
+					<data:y>Collards</data:y>
+					<data:x1>150.0</data:x1>
+					<data:x2>51.0</data:x2>
+					<data:x3>5.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>2.0</data:x6>
+					<data:x7>8.0</data:x7>
+				</row>
+				<row>
+					<data:y>Corn</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>92.0</data:x2>
+					<data:x3>3.0</data:x3>
+					<data:x4>1.0</data:x4>
+					<data:x5>0.1</data:x5>
+					<data:x6>0.8</data:x6>
+					<data:x7>21.0</data:x7>
+				</row>
+				<row>
+					<data:y>cooked or canned</data:y>
+					<data:x1>200.0</data:x1>
+					<data:x2>170.0</data:x2>
+					<data:x3>5.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.6</data:x6>
+					<data:x7>41.0</data:x7>
+				</row>
+				<row>
+					<data:y>Cucumbers</data:y>
+					<data:x1>50.0</data:x1>
+					<data:x2>6.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>0.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.2</data:x6>
+					<data:x7>1.0</data:x7>
+				</row>
+				<row>
+					<data:y>Dandelion greens</data:y>
+					<data:x1>180.0</data:x1>
+					<data:x2>80.0</data:x2>
+					<data:x3>5.0</data:x3>
+					<data:x4>1.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>3.2</data:x6>
+					<data:x7>16.0</data:x7>
+				</row>
+				<row>
+					<data:y>Eggplant</data:y>
+					<data:x1>180.0</data:x1>
+					<data:x2>30.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.0</data:x6>
+					<data:x7>9.0</data:x7>
+				</row>
+				<row>
+					<data:y>Endive</data:y>
+					<data:x1>57.0</data:x1>
+					<data:x2>10.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.6</data:x6>
+					<data:x7>2.0</data:x7>
+				</row>
+				<row>
+					<data:y>Kale</data:y>
+					<data:x1>110.0</data:x1>
+					<data:x2>45.0</data:x2>
+					<data:x3>4.0</data:x3>
+					<data:x4>1.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.9</data:x6>
+					<data:x7>8.0</data:x7>
+				</row>
+				<row>
+					<data:y>Kohlrabi</data:y>
+					<data:x1>140.0</data:x1>
+					<data:x2>40.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.5</data:x6>
+					<data:x7>9.0</data:x7>
+				</row>
+				<row>
+					<data:y>Lambs quarters, steamed</data:y>
+					<data:x1>150.0</data:x1>
+					<data:x2>48.0</data:x2>
+					<data:x3>5.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>3.2</data:x6>
+					<data:x7>7.0</data:x7>
+				</row>
+				<row>
+					<data:y>Lentils</data:y>
+					<data:x1>200.0</data:x1>
+					<data:x2>212.0</data:x2>
+					<data:x3>15.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>2.4</data:x6>
+					<data:x7>38.0</data:x7>
+				</row>
+				<row>
+					<data:y>Lettuce</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>14.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.5</data:x6>
+					<data:x7>2.0</data:x7>
+				</row>
+				<row>
+					<data:y>Iceberg</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>13.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.5</data:x6>
+					<data:x7>3.0</data:x7>
+				</row>
+				<row>
+					<data:y>Mushrooms canned</data:y>
+					<data:x1>120.0</data:x1>
+					<data:x2>12.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>4.0</data:x7>
+				</row>
+				<row>
+					<data:y>Mustard greens</data:y>
+					<data:x1>140.0</data:x1>
+					<data:x2>30.0</data:x2>
+					<data:x3>3.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.2</data:x6>
+					<data:x7>6.0</data:x7>
+				</row>
+				<row>
+					<data:y>Okra</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>32.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.0</data:x6>
+					<data:x7>7.0</data:x7>
+				</row>
+				<row>
+					<data:y>Onions</data:y>
+					<data:x1>210.0</data:x1>
+					<data:x2>80.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.6</data:x6>
+					<data:x7>18.0</data:x7>
+				</row>
+				<row>
+					<data:y>Raw, green</data:y>
+					<data:x1>50.0</data:x1>
+					<data:x2>22.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.0</data:x6>
+					<data:x7>5.0</data:x7>
+				</row>
+				<row>
+					<data:y>Parsley</data:y>
+					<data:x1>50.0</data:x1>
+					<data:x2>2.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>0.1</data:x7>
+				</row>
+				<row>
+					<data:y>Parsnips</data:y>
+					<data:x1>155.0</data:x1>
+					<data:x2>95.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>1.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>3.0</data:x6>
+					<data:x7>22.0</data:x7>
+				</row>
+				<row>
+					<data:y>Peas</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>66.0</data:x2>
+					<data:x3>3.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>13.0</data:x7>
+				</row>
+				<row>
+					<data:y>Fresh, steamed peas</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>70.0</data:x2>
+					<data:x3>5.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>2.2</data:x6>
+					<data:x7>12.0</data:x7>
+				</row>
+				<row>
+					<data:y>Split cooked peas</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>115.0</data:x2>
+					<data:x3>8.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.4</data:x6>
+					<data:x7>21.0</data:x7>
+				</row>
+				<row>
+					<data:y>heated peas</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>53.0</data:x2>
+					<data:x3>3.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.0</data:x6>
+					<data:x7>10.0</data:x7>
+				</row>
+				<row>
+					<data:y>Peppers canned</data:y>
+					<data:x1>38.0</data:x1>
+					<data:x2>10.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>2.0</data:x7>
+				</row>
+				<row>
+					<data:y>Peppers Raw, green, sweet</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>25.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.4</data:x6>
+					<data:x7>6.0</data:x7>
+				</row>
+				<row>
+					<data:y>Peppers with beef and crumbs</data:y>
+					<data:x1>150.0</data:x1>
+					<data:x2>255.0</data:x2>
+					<data:x3>19.0</data:x3>
+					<data:x4>9.0</data:x4>
+					<data:x5>8.0</data:x5>
+					<data:x6>1.0</data:x6>
+					<data:x7>24.0</data:x7>
+				</row>
+				<row>
+					<data:y>Potatoes, baked</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>100.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.5</data:x6>
+					<data:x7>22.0</data:x7>
+				</row>
+				<row>
+					<data:y>French-fried</data:y>
+					<data:x1>60.0</data:x1>
+					<data:x2>155.0</data:x2>
+					<data:x3>-1.0</data:x3>
+					<data:x4>7.0</data:x4>
+					<data:x5>3.0</data:x5>
+					<data:x6>0.4</data:x6>
+					<data:x7>20.0</data:x7>
+				</row>
+				<row>
+					<data:y>Potatoes Mashed with milk and butter</data:y>
+					<data:x1>200.0</data:x1>
+					<data:x2>230.0</data:x2>
+					<data:x3>4.0</data:x3>
+					<data:x4>12.0</data:x4>
+					<data:x5>11.0</data:x5>
+					<data:x6>0.7</data:x6>
+					<data:x7>28.0</data:x7>
+				</row>
+				<row>
+					<data:y>Potatoes, pan-tried</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>268.0</data:x2>
+					<data:x3>4.0</data:x3>
+					<data:x4>14.0</data:x4>
+					<data:x5>6.0</data:x5>
+					<data:x6>0.4</data:x6>
+					<data:x7>33.0</data:x7>
+				</row>
+				<row>
+					<data:y>Scalloped with cheese potatoes</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>145.0</data:x2>
+					<data:x3>6.0</data:x3>
+					<data:x4>8.0</data:x4>
+					<data:x5>7.0</data:x5>
+					<data:x6>0.4</data:x6>
+					<data:x7>14.0</data:x7>
+				</row>
+				<row>
+					<data:y>Steamed potatoes before peeling</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>80.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.4</data:x6>
+					<data:x7>19.0</data:x7>
+				</row>
+				<row>
+					<data:y>Potato chips</data:y>
+					<data:x1>20.0</data:x1>
+					<data:x2>110.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>7.0</data:x4>
+					<data:x5>4.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>10.0</data:x7>
+				</row>
+				<row>
+					<data:y>Radishes</data:y>
+					<data:x1>50.0</data:x1>
+					<data:x2>10.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>0.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.3</data:x6>
+					<data:x7>2.0</data:x7>
+				</row>
+				<row>
+					<data:y>Rutabagas</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>32.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>0.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.4</data:x6>
+					<data:x7>8.0</data:x7>
+				</row>
+				<row>
+					<data:y>Soybeans</data:y>
+					<data:x1>200.0</data:x1>
+					<data:x2>260.0</data:x2>
+					<data:x3>22.0</data:x3>
+					<data:x4>11.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>3.2</data:x6>
+					<data:x7>20.0</data:x7>
+				</row>
+				<row>
+					<data:y>Spinach</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>26.0</data:x2>
+					<data:x3>3.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.0</data:x6>
+					<data:x7>3.0</data:x7>
+				</row>
+				<row>
+					<data:y>Squash</data:y>
+					<data:x1>210.0</data:x1>
+					<data:x2>35.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.6</data:x6>
+					<data:x7>8.0</data:x7>
+				</row>
+				<row>
+					<data:y>Winter, mashed</data:y>
+					<data:x1>200.0</data:x1>
+					<data:x2>95.0</data:x2>
+					<data:x3>4.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>2.6</data:x6>
+					<data:x7>23.0</data:x7>
+				</row>
+				<row>
+					<data:y>Sweet potatoes</data:y>
+					<data:x1>110.0</data:x1>
+					<data:x2>155.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>1.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.0</data:x6>
+					<data:x7>36.0</data:x7>
+				</row>
+				<row>
+					<data:y>Candied</data:y>
+					<data:x1>175.0</data:x1>
+					<data:x2>235.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>6.0</data:x4>
+					<data:x5>5.0</data:x5>
+					<data:x6>1.5</data:x6>
+					<data:x7>80.0</data:x7>
+				</row>
+				<row>
+					<data:y>Tomatoes</data:y>
+					<data:x1>240.0</data:x1>
+					<data:x2>50.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.0</data:x6>
+					<data:x7>9.0</data:x7>
+				</row>
+				<row>
+					<data:y>Raw, 2 by 2 1/2</data:y>
+					<data:x1>150.0</data:x1>
+					<data:x2>30.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.6</data:x6>
+					<data:x7>6.0</data:x7>
+				</row>
+				<row>
+					<data:y>Tomato juice</data:y>
+					<data:x1>240.0</data:x1>
+					<data:x2>50.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.6</data:x6>
+					<data:x7>10.0</data:x7>
+				</row>
+				<row>
+					<data:y>Tomato catsup</data:y>
+					<data:x1>17.0</data:x1>
+					<data:x2>15.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>4.0</data:x7>
+				</row>
+				<row>
+					<data:y>Turnip greens</data:y>
+					<data:x1>145.0</data:x1>
+					<data:x2>45.0</data:x2>
+					<data:x3>4.0</data:x3>
+					<data:x4>1.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.8</data:x6>
+					<data:x7>8.0</data:x7>
+				</row>
+				<row>
+					<data:y>Turnips, steamed</data:y>
+					<data:x1>155.0</data:x1>
+					<data:x2>40.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.8</data:x6>
+					<data:x7>9.0</data:x7>
+				</row>
+				<row>
+					<data:y>Watercress stems, raw</data:y>
+					<data:x1>50.0</data:x1>
+					<data:x2>9.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.3</data:x6>
+					<data:x7>1.0</data:x7>
+				</row>
+				<row>
+					<data:y>Apple juice canned</data:y>
+					<data:x1>250.0</data:x1>
+					<data:x2>125.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>0.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>34.0</data:x7>
+				</row>
+				<row>
+					<data:y>Apple vinegar</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>14.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>0.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>3.0</data:x7>
+				</row>
+				<row>
+					<data:y>Apples, raw</data:y>
+					<data:x1>130.0</data:x1>
+					<data:x2>70.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.0</data:x6>
+					<data:x7>18.0</data:x7>
+				</row>
+				<row>
+					<data:y>Stewed or canned</data:y>
+					<data:x1>240.0</data:x1>
+					<data:x2>100.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>2.0</data:x6>
+					<data:x7>26.0</data:x7>
+				</row>
+				<row>
+					<data:y>Apricots</data:y>
+					<data:x1>250.0</data:x1>
+					<data:x2>220.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.0</data:x6>
+					<data:x7>57.0</data:x7>
+				</row>
+				<row>
+					<data:y>Dried, uncooked</data:y>
+					<data:x1>75.0</data:x1>
+					<data:x2>220.0</data:x2>
+					<data:x3>4.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.0</data:x6>
+					<data:x7>50.0</data:x7>
+				</row>
+				<row>
+					<data:y>Fresh</data:y>
+					<data:x1>114.0</data:x1>
+					<data:x2>55.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.7</data:x6>
+					<data:x7>14.0</data:x7>
+				</row>
+				<row>
+					<data:y>Nectar, or juice</data:y>
+					<data:x1>250.0</data:x1>
+					<data:x2>140.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>2.0</data:x6>
+					<data:x7>36.0</data:x7>
+				</row>
+				<row>
+					<data:y>Avocado</data:y>
+					<data:x1>108.0</data:x1>
+					<data:x2>185.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>18.0</data:x4>
+					<data:x5>12.0</data:x5>
+					<data:x6>1.8</data:x6>
+					<data:x7>6.0</data:x7>
+				</row>
+				<row>
+					<data:y>Banana</data:y>
+					<data:x1>150.0</data:x1>
+					<data:x2>85.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.9</data:x6>
+					<data:x7>23.0</data:x7>
+				</row>
+				<row>
+					<data:y>Blackberries</data:y>
+					<data:x1>144.0</data:x1>
+					<data:x2>85.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>1.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>6.6</data:x6>
+					<data:x7>19.0</data:x7>
+				</row>
+				<row>
+					<data:y>Blueberries</data:y>
+					<data:x1>250.0</data:x1>
+					<data:x2>245.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>2.0</data:x6>
+					<data:x7>65.0</data:x7>
+				</row>
+				<row>
+					<data:y>Cantaloupe</data:y>
+					<data:x1>380.0</data:x1>
+					<data:x2>40.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>2.2</data:x6>
+					<data:x7>9.0</data:x7>
+				</row>
+				<row>
+					<data:y>Cherries</data:y>
+					<data:x1>257.0</data:x1>
+					<data:x2>100.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>1.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>2.0</data:x6>
+					<data:x7>26.0</data:x7>
+				</row>
+				<row>
+					<data:y>Fresh, raw</data:y>
+					<data:x1>114.0</data:x1>
+					<data:x2>65.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.8</data:x6>
+					<data:x7>15.0</data:x7>
+				</row>
+				<row>
+					<data:y>Cranberry sauce sweetened</data:y>
+					<data:x1>277.0</data:x1>
+					<data:x2>530.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.2</data:x6>
+					<data:x7>142.0</data:x7>
+				</row>
+				<row>
+					<data:y>Dates</data:y>
+					<data:x1>178.0</data:x1>
+					<data:x2>505.0</data:x2>
+					<data:x3>4.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>3.6</data:x6>
+					<data:x7>134.0</data:x7>
+				</row>
+				<row>
+					<data:y>Figs</data:y>
+					<data:x1>42.0</data:x1>
+					<data:x2>120.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.9</data:x6>
+					<data:x7>30.0</data:x7>
+				</row>
+				<row>
+					<data:y>Fresh, raw figs</data:y>
+					<data:x1>114.0</data:x1>
+					<data:x2>90.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.0</data:x6>
+					<data:x7>22.0</data:x7>
+				</row>
+				<row>
+					<data:y>figs Canned with syrup </data:y>
+					<data:x1>115.0</data:x1>
+					<data:x2>130.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.0</data:x6>
+					<data:x7>32.0</data:x7>
+				</row>
+				<row>
+					<data:y>Fruit cocktail, canned</data:y>
+					<data:x1>256.0</data:x1>
+					<data:x2>195.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.5</data:x6>
+					<data:x7>50.0</data:x7>
+				</row>
+				<row>
+					<data:y>Grapefruit sections</data:y>
+					<data:x1>250.0</data:x1>
+					<data:x2>170.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.5</data:x6>
+					<data:x7>44.0</data:x7>
+				</row>
+				<row>
+					<data:y>Grapefruit, fresh, 5" diameter</data:y>
+					<data:x1>285.0</data:x1>
+					<data:x2>50.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.1</data:x5>
+					<data:x6>1.0</data:x6>
+					<data:x7>14.0</data:x7>
+				</row>
+				<row>
+					<data:y>Grapefruit juice</data:y>
+					<data:x1>250.0</data:x1>
+					<data:x2>100.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.0</data:x6>
+					<data:x7>24.0</data:x7>
+				</row>
+				<row>
+					<data:y>Grapes</data:y>
+					<data:x1>153.0</data:x1>
+					<data:x2>70.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.8</data:x6>
+					<data:x7>16.0</data:x7>
+				</row>
+				<row>
+					<data:y>European, as Muscat, Tokay</data:y>
+					<data:x1>160.0</data:x1>
+					<data:x2>100.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.7</data:x6>
+					<data:x7>26.0</data:x7>
+				</row>
+				<row>
+					<data:y>Grape juice</data:y>
+					<data:x1>250.0</data:x1>
+					<data:x2>160.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>42.0</data:x7>
+				</row>
+				<row>
+					<data:y>Lemon juice</data:y>
+					<data:x1>125.0</data:x1>
+					<data:x2>30.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>10.0</data:x7>
+				</row>
+				<row>
+					<data:y>Lemonade concentratefrozen</data:y>
+					<data:x1>220.0</data:x1>
+					<data:x2>430.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>112.0</data:x7>
+				</row>
+				<row>
+					<data:y>Limeade concentrate frozen</data:y>
+					<data:x1>218.0</data:x1>
+					<data:x2>405.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>108.0</data:x7>
+				</row>
+				<row>
+					<data:y>Olives large</data:y>
+					<data:x1>65.0</data:x1>
+					<data:x2>72.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>10.0</data:x4>
+					<data:x5>9.0</data:x5>
+					<data:x6>0.8</data:x6>
+					<data:x7>3.0</data:x7>
+				</row>
+				<row>
+					<data:y>OlivesRipe</data:y>
+					<data:x1>65.0</data:x1>
+					<data:x2>105.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>13.0</data:x4>
+					<data:x5>12.0</data:x5>
+					<data:x6>1.0</data:x6>
+					<data:x7>1.0</data:x7>
+				</row>
+				<row>
+					<data:y>Oranges 3" diameter</data:y>
+					<data:x1>180.0</data:x1>
+					<data:x2>60.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.1</data:x5>
+					<data:x6>1.0</data:x6>
+					<data:x7>16.0</data:x7>
+				</row>
+				<row>
+					<data:y>Orange juice</data:y>
+					<data:x1>250.0</data:x1>
+					<data:x2>112.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.2</data:x6>
+					<data:x7>25.0</data:x7>
+				</row>
+				<row>
+					<data:y>Frozen </data:y>
+					<data:x1>210.0</data:x1>
+					<data:x2>330.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.1</data:x5>
+					<data:x6>0.4</data:x6>
+					<data:x7>78.0</data:x7>
+				</row>
+				<row>
+					<data:y>Papaya</data:y>
+					<data:x1>200.0</data:x1>
+					<data:x2>75.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.8</data:x6>
+					<data:x7>18.0</data:x7>
+				</row>
+				<row>
+					<data:y>Peaches</data:y>
+					<data:x1>257.0</data:x1>
+					<data:x2>200.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.0</data:x6>
+					<data:x7>52.0</data:x7>
+				</row>
+				<row>
+					<data:y>Fresh, raw</data:y>
+					<data:x1>114.0</data:x1>
+					<data:x2>35.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.6</data:x6>
+					<data:x7>10.0</data:x7>
+				</row>
+				<row>
+					<data:y>Pears</data:y>
+					<data:x1>255.0</data:x1>
+					<data:x2>195.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>2.0</data:x6>
+					<data:x7>50.0</data:x7>
+				</row>
+				<row>
+					<data:y>Raw, 3 by 2V</data:y>
+					<data:x1>182.0</data:x1>
+					<data:x2>100.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>1.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>2.0</data:x6>
+					<data:x7>25.0</data:x7>
+				</row>
+				<row>
+					<data:y>Persimmons</data:y>
+					<data:x1>125.0</data:x1>
+					<data:x2>75.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>2.0</data:x6>
+					<data:x7>20.0</data:x7>
+				</row>
+				<row>
+					<data:y>Pineapple</data:y>
+					<data:x1>122.0</data:x1>
+					<data:x2>95.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.4</data:x6>
+					<data:x7>26.0</data:x7>
+				</row>
+				<row>
+					<data:y>Pineapple Crushed</data:y>
+					<data:x1>260.0</data:x1>
+					<data:x2>205.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.7</data:x6>
+					<data:x7>55.0</data:x7>
+				</row>
+				<row>
+					<data:y>Raw, diced</data:y>
+					<data:x1>140.0</data:x1>
+					<data:x2>75.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.6</data:x6>
+					<data:x7>19.0</data:x7>
+				</row>
+				<row>
+					<data:y>Pineapple juice</data:y>
+					<data:x1>250.0</data:x1>
+					<data:x2>120.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.2</data:x6>
+					<data:x7>32.0</data:x7>
+				</row>
+				<row>
+					<data:y>Plums</data:y>
+					<data:x1>256.0</data:x1>
+					<data:x2>185.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.7</data:x6>
+					<data:x7>50.0</data:x7>
+				</row>
+				<row>
+					<data:y>Raw, 2" diameter</data:y>
+					<data:x1>60.0</data:x1>
+					<data:x2>30.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.2</data:x6>
+					<data:x7>7.0</data:x7>
+				</row>
+				<row>
+					<data:y>Prunes</data:y>
+					<data:x1>270.0</data:x1>
+					<data:x2>300.0</data:x2>
+					<data:x3>3.0</data:x3>
+					<data:x4>1.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.8</data:x6>
+					<data:x7>81.0</data:x7>
+				</row>
+				<row>
+					<data:y>Prune juice</data:y>
+					<data:x1>240.0</data:x1>
+					<data:x2>170.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.7</data:x6>
+					<data:x7>45.0</data:x7>
+				</row>
+				<row>
+					<data:y>Raisins</data:y>
+					<data:x1>88.0</data:x1>
+					<data:x2>230.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.7</data:x6>
+					<data:x7>82.0</data:x7>
+				</row>
+				<row>
+					<data:y>Raspberries</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>100.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>2.0</data:x6>
+					<data:x7>25.0</data:x7>
+				</row>
+				<row>
+					<data:y>Raw, red</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>57.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>5.0</data:x6>
+					<data:x7>14.0</data:x7>
+				</row>
+				<row>
+					<data:y>Rhubarb sweetened</data:y>
+					<data:x1>270.0</data:x1>
+					<data:x2>385.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.9</data:x6>
+					<data:x7>98.0</data:x7>
+				</row>
+				<row>
+					<data:y>Strawberries</data:y>
+					<data:x1>227.0</data:x1>
+					<data:x2>242.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.3</data:x6>
+					<data:x7>60.0</data:x7>
+				</row>
+				<row>
+					<data:y>Raw</data:y>
+					<data:x1>149.0</data:x1>
+					<data:x2>54.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.9</data:x6>
+					<data:x7>12.0</data:x7>
+				</row>
+				<row>
+					<data:y>Tangerines</data:y>
+					<data:x1>114.0</data:x1>
+					<data:x2>40.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.0</data:x6>
+					<data:x7>10.0</data:x7>
+				</row>
+				<row>
+					<data:y>Watermelon</data:y>
+					<data:x1>925.0</data:x1>
+					<data:x2>120.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>1.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>3.6</data:x6>
+					<data:x7>29.0</data:x7>
+				</row>
+				<row>
+					<data:y>Biscuits</data:y>
+					<data:x1>38.0</data:x1>
+					<data:x2>130.0</data:x2>
+					<data:x3>3.0</data:x3>
+					<data:x4>4.0</data:x4>
+					<data:x5>3.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>18.0</data:x7>
+				</row>
+				<row>
+					<data:y>Bran flakes</data:y>
+					<data:x1>25.0</data:x1>
+					<data:x2>117.0</data:x2>
+					<data:x3>3.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>32.0</data:x7>
+				</row>
+				<row>
+					<data:y>Bread, cracked wheat</data:y>
+					<data:x1>23.0</data:x1>
+					<data:x2>60.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>1.0</data:x4>
+					<data:x5>1.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>12.0</data:x7>
+				</row>
+				<row>
+					<data:y>Rye</data:y>
+					<data:x1>23.0</data:x1>
+					<data:x2>55.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>1.0</data:x4>
+					<data:x5>1.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>12.0</data:x7>
+				</row>
+				<row>
+					<data:y>White, 20 slices, or</data:y>
+					<data:x1>454.0</data:x1>
+					<data:x2>1225.0</data:x2>
+					<data:x3>39.0</data:x3>
+					<data:x4>15.0</data:x4>
+					<data:x5>12.0</data:x5>
+					<data:x6>9.0</data:x6>
+					<data:x7>229.0</data:x7>
+				</row>
+				<row>
+					<data:y>Whole-wheat</data:y>
+					<data:x1>454.0</data:x1>
+					<data:x2>1100.0</data:x2>
+					<data:x3>48.0</data:x3>
+					<data:x4>14.0</data:x4>
+					<data:x5>10.0</data:x5>
+					<data:x6>67.5</data:x6>
+					<data:x7>216.0</data:x7>
+				</row>
+				<row>
+					<data:y>Whole-wheat</data:y>
+					<data:x1>23.0</data:x1>
+					<data:x2>55.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>1.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.31</data:x6>
+					<data:x7>11.0</data:x7>
+				</row>
+				<row>
+					<data:y>Corn bread ground meal</data:y>
+					<data:x1>50.0</data:x1>
+					<data:x2>100.0</data:x2>
+					<data:x3>3.0</data:x3>
+					<data:x4>4.0</data:x4>
+					<data:x5>2.0</data:x5>
+					<data:x6>0.3</data:x6>
+					<data:x7>15.0</data:x7>
+				</row>
+				<row>
+					<data:y>Cornflakes</data:y>
+					<data:x1>25.0</data:x1>
+					<data:x2>110.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>25.0</data:x7>
+				</row>
+				<row>
+					<data:y>Corn grits cooked</data:y>
+					<data:x1>242.0</data:x1>
+					<data:x2>120.0</data:x2>
+					<data:x3>8.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.2</data:x6>
+					<data:x7>27.0</data:x7>
+				</row>
+				<row>
+					<data:y>Corn meal</data:y>
+					<data:x1>118.0</data:x1>
+					<data:x2>360.0</data:x2>
+					<data:x3>9.0</data:x3>
+					<data:x4>4.0</data:x4>
+					<data:x5>2.0</data:x5>
+					<data:x6>1.6</data:x6>
+					<data:x7>74.0</data:x7>
+				</row>
+				<row>
+					<data:y>Crackers</data:y>
+					<data:x1>14.0</data:x1>
+					<data:x2>55.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>1.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>10.0</data:x7>
+				</row>
+				<row>
+					<data:y>Soda, 2 1/2 square</data:y>
+					<data:x1>11.0</data:x1>
+					<data:x2>45.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>1.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>8.0</data:x7>
+				</row>
+				<row>
+					<data:y>Farina</data:y>
+					<data:x1>238.0</data:x1>
+					<data:x2>105.0</data:x2>
+					<data:x3>3.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>8.0</data:x6>
+					<data:x7>22.0</data:x7>
+				</row>
+				<row>
+					<data:y>Flour</data:y>
+					<data:x1>110.0</data:x1>
+					<data:x2>460.0</data:x2>
+					<data:x3>39.0</data:x3>
+					<data:x4>22.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>2.9</data:x6>
+					<data:x7>33.0</data:x7>
+				</row>
+				<row>
+					<data:y>Wheat (all purpose)</data:y>
+					<data:x1>110.0</data:x1>
+					<data:x2>400.0</data:x2>
+					<data:x3>12.0</data:x3>
+					<data:x4>1.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.3</data:x6>
+					<data:x7>84.0</data:x7>
+				</row>
+				<row>
+					<data:y>Wheat (whole)</data:y>
+					<data:x1>120.0</data:x1>
+					<data:x2>390.0</data:x2>
+					<data:x3>13.0</data:x3>
+					<data:x4>2.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>2.8</data:x6>
+					<data:x7>79.0</data:x7>
+				</row>
+				<row>
+					<data:y>Macaroni</data:y>
+					<data:x1>140.0</data:x1>
+					<data:x2>155.0</data:x2>
+					<data:x3>5.0</data:x3>
+					<data:x4>1.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>32.0</data:x7>
+				</row>
+				<row>
+					<data:y>Baked with cheese</data:y>
+					<data:x1>220.0</data:x1>
+					<data:x2>475.0</data:x2>
+					<data:x3>18.0</data:x3>
+					<data:x4>25.0</data:x4>
+					<data:x5>24.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>44.0</data:x7>
+				</row>
+				<row>
+					<data:y>Muffins</data:y>
+					<data:x1>48.0</data:x1>
+					<data:x2>135.0</data:x2>
+					<data:x3>4.0</data:x3>
+					<data:x4>5.0</data:x4>
+					<data:x5>4.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>19.0</data:x7>
+				</row>
+				<row>
+					<data:y>Noodles</data:y>
+					<data:x1>160.0</data:x1>
+					<data:x2>200.0</data:x2>
+					<data:x3>7.0</data:x3>
+					<data:x4>2.0</data:x4>
+					<data:x5>2.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>37.0</data:x7>
+				</row>
+				<row>
+					<data:y>Oatmeal</data:y>
+					<data:x1>236.0</data:x1>
+					<data:x2>150.0</data:x2>
+					<data:x3>5.0</data:x3>
+					<data:x4>3.0</data:x4>
+					<data:x5>2.0</data:x5>
+					<data:x6>4.6</data:x6>
+					<data:x7>26.0</data:x7>
+				</row>
+				<row>
+					<data:y>Pancakes 4" diam.</data:y>
+					<data:x1>108.0</data:x1>
+					<data:x2>250.0</data:x2>
+					<data:x3>7.0</data:x3>
+					<data:x4>9.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>28.0</data:x7>
+				</row>
+				<row>
+					<data:y>Wheat, pancakes 4" diam.</data:y>
+					<data:x1>108.0</data:x1>
+					<data:x2>250.0</data:x2>
+					<data:x3>7.0</data:x3>
+					<data:x4>9.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>28.0</data:x7>
+				</row>
+				<row>
+					<data:y>Pizza 14" diam.</data:y>
+					<data:x1>75.0</data:x1>
+					<data:x2>180.0</data:x2>
+					<data:x3>8.0</data:x3>
+					<data:x4>6.0</data:x4>
+					<data:x5>5.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>23.0</data:x7>
+				</row>
+				<row>
+					<data:y>Popcorn salted</data:y>
+					<data:x1>28.0</data:x1>
+					<data:x2>152.0</data:x2>
+					<data:x3>3.0</data:x3>
+					<data:x4>7.0</data:x4>
+					<data:x5>2.0</data:x5>
+					<data:x6>0.5</data:x6>
+					<data:x7>20.0</data:x7>
+				</row>
+				<row>
+					<data:y>Puffed rice</data:y>
+					<data:x1>14.0</data:x1>
+					<data:x2>55.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>12.0</data:x7>
+				</row>
+				<row>
+					<data:y>Puffed wheat presweetened</data:y>
+					<data:x1>28.0</data:x1>
+					<data:x2>105.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.6</data:x6>
+					<data:x7>26.0</data:x7>
+				</row>
+				<row>
+					<data:y>Rice</data:y>
+					<data:x1>208.0</data:x1>
+					<data:x2>748.0</data:x2>
+					<data:x3>15.0</data:x3>
+					<data:x4>3.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.2</data:x6>
+					<data:x7>154.0</data:x7>
+				</row>
+				<row>
+					<data:y>Converted</data:y>
+					<data:x1>187.0</data:x1>
+					<data:x2>677.0</data:x2>
+					<data:x3>14.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.4</data:x6>
+					<data:x7>142.0</data:x7>
+				</row>
+				<row>
+					<data:y>White</data:y>
+					<data:x1>191.0</data:x1>
+					<data:x2>692.0</data:x2>
+					<data:x3>14.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.3</data:x6>
+					<data:x7>150.0</data:x7>
+				</row>
+				<row>
+					<data:y>Rice flakes</data:y>
+					<data:x1>30.0</data:x1>
+					<data:x2>115.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>26.0</data:x7>
+				</row>
+				<row>
+					<data:y>Rice polish</data:y>
+					<data:x1>50.0</data:x1>
+					<data:x2>132.0</data:x2>
+					<data:x3>6.0</data:x3>
+					<data:x4>6.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.2</data:x6>
+					<data:x7>28.0</data:x7>
+				</row>
+				<row>
+					<data:y>Rolls</data:y>
+					<data:x1>50.0</data:x1>
+					<data:x2>411.0</data:x2>
+					<data:x3>3.0</data:x3>
+					<data:x4>12.0</data:x4>
+					<data:x5>11.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>23.0</data:x7>
+				</row>
+				<row>
+					<data:y>of refined flour</data:y>
+					<data:x1>38.0</data:x1>
+					<data:x2>115.0</data:x2>
+					<data:x3>3.0</data:x3>
+					<data:x4>2.0</data:x4>
+					<data:x5>2.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>20.0</data:x7>
+				</row>
+				<row>
+					<data:y>whole-wheat</data:y>
+					<data:x1>40.0</data:x1>
+					<data:x2>102.0</data:x2>
+					<data:x3>4.0</data:x3>
+					<data:x4>1.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>20.0</data:x7>
+				</row>
+				<row>
+					<data:y>Spaghetti with meat sauce</data:y>
+					<data:x1>250.0</data:x1>
+					<data:x2>285.0</data:x2>
+					<data:x3>13.0</data:x3>
+					<data:x4>10.0</data:x4>
+					<data:x5>6.0</data:x5>
+					<data:x6>0.5</data:x6>
+					<data:x7>35.0</data:x7>
+				</row>
+				<row>
+					<data:y>with tomatoes and cheese</data:y>
+					<data:x1>250.0</data:x1>
+					<data:x2>210.0</data:x2>
+					<data:x3>6.0</data:x3>
+					<data:x4>5.0</data:x4>
+					<data:x5>3.0</data:x5>
+					<data:x6>0.5</data:x6>
+					<data:x7>36.0</data:x7>
+				</row>
+				<row>
+					<data:y>Spanish rice</data:y>
+					<data:x1>250.0</data:x1>
+					<data:x2>217.0</data:x2>
+					<data:x3>4.0</data:x3>
+					<data:x4>4.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>1.2</data:x6>
+					<data:x7>40.0</data:x7>
+				</row>
+				<row>
+					<data:y>Shredded wheat biscuit</data:y>
+					<data:x1>28.0</data:x1>
+					<data:x2>100.0</data:x2>
+					<data:x3>3.0</data:x3>
+					<data:x4>1.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.7</data:x6>
+					<data:x7>23.0</data:x7>
+				</row>
+				<row>
+					<data:y>Waffles</data:y>
+					<data:x1>75.0</data:x1>
+					<data:x2>240.0</data:x2>
+					<data:x3>8.0</data:x3>
+					<data:x4>9.0</data:x4>
+					<data:x5>1.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>30.0</data:x7>
+				</row>
+				<row>
+					<data:y>Wheat germ</data:y>
+					<data:x1>68.0</data:x1>
+					<data:x2>245.0</data:x2>
+					<data:x3>17.0</data:x3>
+					<data:x4>7.0</data:x4>
+					<data:x5>3.0</data:x5>
+					<data:x6>2.5</data:x6>
+					<data:x7>34.0</data:x7>
+				</row>
+				<row>
+					<data:y>Wheat-germ cereal toasted</data:y>
+					<data:x1>65.0</data:x1>
+					<data:x2>260.0</data:x2>
+					<data:x3>20.0</data:x3>
+					<data:x4>7.0</data:x4>
+					<data:x5>3.0</data:x5>
+					<data:x6>2.5</data:x6>
+					<data:x7>36.0</data:x7>
+				</row>
+				<row>
+					<data:y>Wheat meal cereal unrefined</data:y>
+					<data:x1>30.0</data:x1>
+					<data:x2>103.0</data:x2>
+					<data:x3>4.0</data:x3>
+					<data:x4>1.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.7</data:x6>
+					<data:x7>25.0</data:x7>
+				</row>
+				<row>
+					<data:y>Wheat, cooked</data:y>
+					<data:x1>200.0</data:x1>
+					<data:x2>275.0</data:x2>
+					<data:x3>12.0</data:x3>
+					<data:x4>1.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>4.4</data:x6>
+					<data:x7>35.0</data:x7>
+				</row>
+				<row>
+					<data:y>Bean soups</data:y>
+					<data:x1>250.0</data:x1>
+					<data:x2>190.0</data:x2>
+					<data:x3>8.0</data:x3>
+					<data:x4>5.0</data:x4>
+					<data:x5>4.0</data:x5>
+					<data:x6>0.6</data:x6>
+					<data:x7>30.0</data:x7>
+				</row>
+				<row>
+					<data:y>Beef soup</data:y>
+					<data:x1>250.0</data:x1>
+					<data:x2>100.0</data:x2>
+					<data:x3>6.0</data:x3>
+					<data:x4>4.0</data:x4>
+					<data:x5>4.0</data:x5>
+					<data:x6>0.5</data:x6>
+					<data:x7>11.0</data:x7>
+				</row>
+				<row>
+					<data:y>Bouillon</data:y>
+					<data:x1>240.0</data:x1>
+					<data:x2>24.0</data:x2>
+					<data:x3>5.0</data:x3>
+					<data:x4>0.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>chicken soup</data:y>
+					<data:x1>250.0</data:x1>
+					<data:x2>75.0</data:x2>
+					<data:x3>4.0</data:x3>
+					<data:x4>2.0</data:x4>
+					<data:x5>2.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>10.0</data:x7>
+				</row>
+				<row>
+					<data:y>Clam chowder</data:y>
+					<data:x1>255.0</data:x1>
+					<data:x2>85.0</data:x2>
+					<data:x3>5.0</data:x3>
+					<data:x4>2.0</data:x4>
+					<data:x5>8.0</data:x5>
+					<data:x6>0.5</data:x6>
+					<data:x7>12.0</data:x7>
+				</row>
+				<row>
+					<data:y>Cream soups</data:y>
+					<data:x1>255.0</data:x1>
+					<data:x2>200.0</data:x2>
+					<data:x3>7.0</data:x3>
+					<data:x4>12.0</data:x4>
+					<data:x5>11.0</data:x5>
+					<data:x6>1.2</data:x6>
+					<data:x7>18.0</data:x7>
+				</row>
+				<row>
+					<data:y>Noodle</data:y>
+					<data:x1>250.0</data:x1>
+					<data:x2>115.0</data:x2>
+					<data:x3>6.0</data:x3>
+					<data:x4>4.0</data:x4>
+					<data:x5>3.0</data:x5>
+					<data:x6>0.2</data:x6>
+					<data:x7>13.0</data:x7>
+				</row>
+				<row>
+					<data:y>Split-pea soup</data:y>
+					<data:x1>250.0</data:x1>
+					<data:x2>147.0</data:x2>
+					<data:x3>8.0</data:x3>
+					<data:x4>3.0</data:x4>
+					<data:x5>3.0</data:x5>
+					<data:x6>0.5</data:x6>
+					<data:x7>25.0</data:x7>
+				</row>
+				<row>
+					<data:y>Tomato soup</data:y>
+					<data:x1>245.0</data:x1>
+					<data:x2>175.0</data:x2>
+					<data:x3>6.0</data:x3>
+					<data:x4>7.0</data:x4>
+					<data:x5>6.0</data:x5>
+					<data:x6>0.5</data:x6>
+					<data:x7>22.0</data:x7>
+				</row>
+				<row>
+					<data:y>Vegetable</data:y>
+					<data:x1>250.0</data:x1>
+					<data:x2>80.0</data:x2>
+					<data:x3>4.0</data:x3>
+					<data:x4>2.0</data:x4>
+					<data:x5>2.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>14.0</data:x7>
+				</row>
+				<row>
+					<data:y>Apple betty</data:y>
+					<data:x1>100.0</data:x1>
+					<data:x2>150.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>4.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.5</data:x6>
+					<data:x7>29.0</data:x7>
+				</row>
+				<row>
+					<data:y>Bread pudding</data:y>
+					<data:x1>200.0</data:x1>
+					<data:x2>374.0</data:x2>
+					<data:x3>11.0</data:x3>
+					<data:x4>12.0</data:x4>
+					<data:x5>11.0</data:x5>
+					<data:x6>0.2</data:x6>
+					<data:x7>56.0</data:x7>
+				</row>
+				<row>
+					<data:y>Cakes</data:y>
+					<data:x1>40.0</data:x1>
+					<data:x2>110.0</data:x2>
+					<data:x3>3.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>23.0</data:x7>
+				</row>
+				<row>
+					<data:y>Chocolate fudge</data:y>
+					<data:x1>120.0</data:x1>
+					<data:x2>420.0</data:x2>
+					<data:x3>5.0</data:x3>
+					<data:x4>14.0</data:x4>
+					<data:x5>12.0</data:x5>
+					<data:x6>0.3</data:x6>
+					<data:x7>70.0</data:x7>
+				</row>
+				<row>
+					<data:y>Cupcake</data:y>
+					<data:x1>50.0</data:x1>
+					<data:x2>160.0</data:x2>
+					<data:x3>3.0</data:x3>
+					<data:x4>3.0</data:x4>
+					<data:x5>2.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>31.0</data:x7>
+				</row>
+				<row>
+					<data:y>Fruit cake</data:y>
+					<data:x1>30.0</data:x1>
+					<data:x2>105.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>4.0</data:x4>
+					<data:x5>3.0</data:x5>
+					<data:x6>0.2</data:x6>
+					<data:x7>17.0</data:x7>
+				</row>
+				<row>
+					<data:y>Gingerbread</data:y>
+					<data:x1>55.0</data:x1>
+					<data:x2>180.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>7.0</data:x4>
+					<data:x5>6.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>28.0</data:x7>
+				</row>
+				<row>
+					<data:y>Plain, with no icing</data:y>
+					<data:x1>55.0</data:x1>
+					<data:x2>180.0</data:x2>
+					<data:x3>4.0</data:x3>
+					<data:x4>5.0</data:x4>
+					<data:x5>4.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>31.0</data:x7>
+				</row>
+				<row>
+					<data:y>Sponge cake</data:y>
+					<data:x1>40.0</data:x1>
+					<data:x2>115.0</data:x2>
+					<data:x3>3.0</data:x3>
+					<data:x4>2.0</data:x4>
+					<data:x5>2.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>22.0</data:x7>
+				</row>
+				<row>
+					<data:y>Candy</data:y>
+					<data:x1>25.0</data:x1>
+					<data:x2>104.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>3.0</data:x4>
+					<data:x5>3.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>19.0</data:x7>
+				</row>
+				<row>
+					<data:y>Chocolate creams</data:y>
+					<data:x1>30.0</data:x1>
+					<data:x2>130.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>4.0</data:x4>
+					<data:x5>4.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>24.0</data:x7>
+				</row>
+				<row>
+					<data:y>Fudge</data:y>
+					<data:x1>90.0</data:x1>
+					<data:x2>370.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>12.0</data:x4>
+					<data:x5>11.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>80.0</data:x7>
+				</row>
+				<row>
+					<data:y>Hard candies</data:y>
+					<data:x1>28.0</data:x1>
+					<data:x2>90.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>0.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>28.0</data:x7>
+				</row>
+				<row>
+					<data:y>Marshmallows</data:y>
+					<data:x1>30.0</data:x1>
+					<data:x2>98.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>0.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>23.0</data:x7>
+				</row>
+				<row>
+					<data:y>Milk chocolate</data:y>
+					<data:x1>56.0</data:x1>
+					<data:x2>290.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>6.0</data:x4>
+					<data:x5>6.0</data:x5>
+					<data:x6>0.2</data:x6>
+					<data:x7>44.0</data:x7>
+				</row>
+				<row>
+					<data:y>Chocolate syrup</data:y>
+					<data:x1>40.0</data:x1>
+					<data:x2>80.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.1</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>22.0</data:x7>
+				</row>
+				<row>
+					<data:y>Doughnuts</data:y>
+					<data:x1>33.0</data:x1>
+					<data:x2>135.0</data:x2>
+					<data:x3>2.0</data:x3>
+					<data:x4>7.0</data:x4>
+					<data:x5>4.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>17.0</data:x7>
+				</row>
+				<row>
+					<data:y>Gelatin, made with water</data:y>
+					<data:x1>239.0</data:x1>
+					<data:x2>155.0</data:x2>
+					<data:x3>4.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.1</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>36.0</data:x7>
+				</row>
+				<row>
+					<data:y>Honey</data:y>
+					<data:x1>42.0</data:x1>
+					<data:x2>120.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>0.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>30.0</data:x7>
+				</row>
+				<row>
+					<data:y>Ice cream</data:y>
+					<data:x1>300.0</data:x1>
+					<data:x2>250.0</data:x2>
+					<data:x3>0.0</data:x3>
+					<data:x4>0.0</data:x4>
+					<data:x5>12.0</data:x5>
+					<data:x6>10.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Ices</data:y>
+					<data:x1>150.0</data:x1>
+					<data:x2>117.0</data:x2>
+					<data:x3>0.0</data:x3>
+					<data:x4>0.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>48.0</data:x7>
+				</row>
+				<row>
+					<data:y>preserves</data:y>
+					<data:x1>20.0</data:x1>
+					<data:x2>55.0</data:x2>
+					<data:x3>0.0</data:x3>
+					<data:x4>0.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>14.0</data:x7>
+				</row>
+				<row>
+					<data:y>Jellies</data:y>
+					<data:x1>20.0</data:x1>
+					<data:x2>50.0</data:x2>
+					<data:x3>0.0</data:x3>
+					<data:x4>0.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>13.0</data:x7>
+				</row>
+				<row>
+					<data:y>Molasses</data:y>
+					<data:x1>20.0</data:x1>
+					<data:x2>45.0</data:x2>
+					<data:x3>0.0</data:x3>
+					<data:x4>0.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>8.0</data:x6>
+					<data:x7>11.0</data:x7>
+				</row>
+				<row>
+					<data:y>Cane Syrup</data:y>
+					<data:x1>20.0</data:x1>
+					<data:x2>50.0</data:x2>
+					<data:x3>0.0</data:x3>
+					<data:x4>0.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>13.0</data:x7>
+				</row>
+				<row>
+					<data:y>9" diam. pie</data:y>
+					<data:x1>135.0</data:x1>
+					<data:x2>330.0</data:x2>
+					<data:x3>3.0</data:x3>
+					<data:x4>13.0</data:x4>
+					<data:x5>11.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>53.0</data:x7>
+				</row>
+				<row>
+					<data:y>Cherry Pie</data:y>
+					<data:x1>135.0</data:x1>
+					<data:x2>340.0</data:x2>
+					<data:x3>3.0</data:x3>
+					<data:x4>13.0</data:x4>
+					<data:x5>11.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>55.0</data:x7>
+				</row>
+				<row>
+					<data:y>Custard</data:y>
+					<data:x1>130.0</data:x1>
+					<data:x2>265.0</data:x2>
+					<data:x3>7.0</data:x3>
+					<data:x4>11.0</data:x4>
+					<data:x5>10.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>34.0</data:x7>
+				</row>
+				<row>
+					<data:y>Lemon meringue</data:y>
+					<data:x1>120.0</data:x1>
+					<data:x2>300.0</data:x2>
+					<data:x3>4.0</data:x3>
+					<data:x4>12.0</data:x4>
+					<data:x5>10.0</data:x5>
+					<data:x6>0.1</data:x6>
+					<data:x7>45.0</data:x7>
+				</row>
+				<row>
+					<data:y>Mince</data:y>
+					<data:x1>135.0</data:x1>
+					<data:x2>340.0</data:x2>
+					<data:x3>3.0</data:x3>
+					<data:x4>9.0</data:x4>
+					<data:x5>8.0</data:x5>
+					<data:x6>0.7</data:x6>
+					<data:x7>62.0</data:x7>
+				</row>
+				<row>
+					<data:y>Pumpkin Pie</data:y>
+					<data:x1>130.0</data:x1>
+					<data:x2>265.0</data:x2>
+					<data:x3>5.0</data:x3>
+					<data:x4>12.0</data:x4>
+					<data:x5>11.0</data:x5>
+					<data:x6>8.0</data:x6>
+					<data:x7>34.0</data:x7>
+				</row>
+				<row>
+					<data:y>Puddings Sugar</data:y>
+					<data:x1>200.0</data:x1>
+					<data:x2>770.0</data:x2>
+					<data:x3>0.0</data:x3>
+					<data:x4>0.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>199.0</data:x7>
+				</row>
+				<row>
+					<data:y>3 teaspoons sugar</data:y>
+					<data:x1>12.0</data:x1>
+					<data:x2>50.0</data:x2>
+					<data:x3>0.0</data:x3>
+					<data:x4>0.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>12.0</data:x7>
+				</row>
+				<row>
+					<data:y>Brown, firm-packed, dark sugar</data:y>
+					<data:x1>220.0</data:x1>
+					<data:x2>815.0</data:x2>
+					<data:x3>0.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>210.0</data:x7>
+				</row>
+				<row>
+					<data:y>Syrup</data:y>
+					<data:x1>40.0</data:x1>
+					<data:x2>100.0</data:x2>
+					<data:x3>0.0</data:x3>
+					<data:x4>0.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>25.0</data:x7>
+				</row>
+				<row>
+					<data:y>table blends sugar</data:y>
+					<data:x1>40.0</data:x1>
+					<data:x2>110.0</data:x2>
+					<data:x3>0.0</data:x3>
+					<data:x4>0.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>29.0</data:x7>
+				</row>
+				<row>
+					<data:y>Tapioca cream pudding</data:y>
+					<data:x1>250.0</data:x1>
+					<data:x2>335.0</data:x2>
+					<data:x3>10.0</data:x3>
+					<data:x4>10.0</data:x4>
+					<data:x5>9.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>42.0</data:x7>
+				</row>
+				<row>
+					<data:y>Almonds</data:y>
+					<data:x1>70.0</data:x1>
+					<data:x2>425.0</data:x2>
+					<data:x3>13.0</data:x3>
+					<data:x4>38.0</data:x4>
+					<data:x5>28.0</data:x5>
+					<data:x6>1.8</data:x6>
+					<data:x7>13.0</data:x7>
+				</row>
+				<row>
+					<data:y>roasted and salted</data:y>
+					<data:x1>70.0</data:x1>
+					<data:x2>439.0</data:x2>
+					<data:x3>13.0</data:x3>
+					<data:x4>40.0</data:x4>
+					<data:x5>31.0</data:x5>
+					<data:x6>1.8</data:x6>
+					<data:x7>13.0</data:x7>
+				</row>
+				<row>
+					<data:y>Brazil nuts</data:y>
+					<data:x1>70.0</data:x1>
+					<data:x2>457.0</data:x2>
+					<data:x3>10.0</data:x3>
+					<data:x4>47.0</data:x4>
+					<data:x5>31.0</data:x5>
+					<data:x6>2.0</data:x6>
+					<data:x7>7.0</data:x7>
+				</row>
+				<row>
+					<data:y>Cashews</data:y>
+					<data:x1>70.0</data:x1>
+					<data:x2>392.0</data:x2>
+					<data:x3>12.0</data:x3>
+					<data:x4>32.0</data:x4>
+					<data:x5>28.0</data:x5>
+					<data:x6>0.9</data:x6>
+					<data:x7>20.0</data:x7>
+				</row>
+				<row>
+					<data:y>coconut sweetened</data:y>
+					<data:x1>50.0</data:x1>
+					<data:x2>274.0</data:x2>
+					<data:x3>1.0</data:x3>
+					<data:x4>20.0</data:x4>
+					<data:x5>19.0</data:x5>
+					<data:x6>2.0</data:x6>
+					<data:x7>26.0</data:x7>
+				</row>
+				<row>
+					<data:y>Peanut butter</data:y>
+					<data:x1>50.0</data:x1>
+					<data:x2>300.0</data:x2>
+					<data:x3>12.0</data:x3>
+					<data:x4>25.0</data:x4>
+					<data:x5>17.0</data:x5>
+					<data:x6>0.9</data:x6>
+					<data:x7>9.0</data:x7>
+				</row>
+				<row>
+					<data:y>Peanut butter, natural</data:y>
+					<data:x1>50.0</data:x1>
+					<data:x2>284.0</data:x2>
+					<data:x3>13.0</data:x3>
+					<data:x4>24.0</data:x4>
+					<data:x5>10.0</data:x5>
+					<data:x6>0.9</data:x6>
+					<data:x7>8.0</data:x7>
+				</row>
+				<row>
+					<data:y>Peanuts</data:y>
+					<data:x1>50.0</data:x1>
+					<data:x2>290.0</data:x2>
+					<data:x3>13.0</data:x3>
+					<data:x4>25.0</data:x4>
+					<data:x5>16.0</data:x5>
+					<data:x6>1.2</data:x6>
+					<data:x7>9.0</data:x7>
+				</row>
+				<row>
+					<data:y>Pecans</data:y>
+					<data:x1>52.0</data:x1>
+					<data:x2>343.0</data:x2>
+					<data:x3>5.0</data:x3>
+					<data:x4>35.0</data:x4>
+					<data:x5>25.0</data:x5>
+					<data:x6>1.1</data:x6>
+					<data:x7>7.0</data:x7>
+				</row>
+				<row>
+					<data:y>Sesame seeds</data:y>
+					<data:x1>50.0</data:x1>
+					<data:x2>280.0</data:x2>
+					<data:x3>9.0</data:x3>
+					<data:x4>24.0</data:x4>
+					<data:x5>13.0</data:x5>
+					<data:x6>3.1</data:x6>
+					<data:x7>10.0</data:x7>
+				</row>
+				<row>
+					<data:y>Sunflower seeds</data:y>
+					<data:x1>50.0</data:x1>
+					<data:x2>280.0</data:x2>
+					<data:x3>12.0</data:x3>
+					<data:x4>26.0</data:x4>
+					<data:x5>7.0</data:x5>
+					<data:x6>1.9</data:x6>
+					<data:x7>10.0</data:x7>
+				</row>
+				<row>
+					<data:y>Walnuts</data:y>
+					<data:x1>50.0</data:x1>
+					<data:x2>325.0</data:x2>
+					<data:x3>7.0</data:x3>
+					<data:x4>32.0</data:x4>
+					<data:x5>7.0</data:x5>
+					<data:x6>1.0</data:x6>
+					<data:x7>8.0</data:x7>
+				</row>
+				<row>
+					<data:y>Beer</data:y>
+					<data:x1>480.0</data:x1>
+					<data:x2>228.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>0.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>8.0</data:x7>
+				</row>
+				<row>
+					<data:y>Gin</data:y>
+					<data:x1>28.0</data:x1>
+					<data:x2>70.0</data:x2>
+					<data:x3>0.0</data:x3>
+					<data:x4>0.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.1</data:x7>
+				</row>
+				<row>
+					<data:y>Wines</data:y>
+					<data:x1>120.0</data:x1>
+					<data:x2>164.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>0.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>9.0</data:x7>
+				</row>
+				<row>
+					<data:y>Table (12.2% alcohol)</data:y>
+					<data:x1>120.0</data:x1>
+					<data:x2>100.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>0.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>5.0</data:x7>
+				</row>
+				<row>
+					<data:y>Carbonated drinks Artificially sweetened</data:y>
+					<data:x1>346.0</data:x1>
+					<data:x2>0.0</data:x2>
+					<data:x3>0.0</data:x3>
+					<data:x4>0.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Club soda</data:y>
+					<data:x1>346.0</data:x1>
+					<data:x2>0.0</data:x2>
+					<data:x3>0.0</data:x3>
+					<data:x4>0.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>0.0</data:x7>
+				</row>
+				<row>
+					<data:y>Cola drinks</data:y>
+					<data:x1>346.0</data:x1>
+					<data:x2>137.0</data:x2>
+					<data:x3>0.0</data:x3>
+					<data:x4>0.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>38.0</data:x7>
+				</row>
+				<row>
+					<data:y>Fruit-flavored soda</data:y>
+					<data:x1>346.0</data:x1>
+					<data:x2>161.0</data:x2>
+					<data:x3>0.0</data:x3>
+					<data:x4>0.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>42.0</data:x7>
+				</row>
+				<row>
+					<data:y>Ginger ale</data:y>
+					<data:x1>346.0</data:x1>
+					<data:x2>105.0</data:x2>
+					<data:x3>0.0</data:x3>
+					<data:x4>0.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>28.0</data:x7>
+				</row>
+				<row>
+					<data:y>Root beer</data:y>
+					<data:x1>346.0</data:x1>
+					<data:x2>140.0</data:x2>
+					<data:x3>0.0</data:x3>
+					<data:x4>0.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>35.0</data:x7>
+				</row>
+				<row>
+					<data:y>Coffee</data:y>
+					<data:x1>230.0</data:x1>
+					<data:x2>3.0</data:x2>
+					<data:x3>0.1</data:x3>
+					<data:x4>0.0</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>1.0</data:x7>
+				</row>
+				<row>
+					<data:y>Tea</data:y>
+					<data:x1>230.0</data:x1>
+					<data:x2>4.0</data:x2>
+					<data:x3>0.0</data:x3>
+					<data:x4>0.1</data:x4>
+					<data:x5>0.0</data:x5>
+					<data:x6>0.0</data:x6>
+					<data:x7>1.0</data:x7>
+				</row>
+			</InlineTable>
+		</TrainingInstances>
+		<ComparisonMeasure kind="distance">
+			<euclidean/>
+		</ComparisonMeasure>
+		<KNNInputs>
+			<KNNInput field="Grams"/>
+			<KNNInput field="Calories"/>
+			<KNNInput field="Protein"/>
+			<KNNInput field="Fat"/>
+			<KNNInput field="Sat.Fat"/>
+			<KNNInput field="Fiber"/>
+			<KNNInput field="Carbs"/>
+		</KNNInputs>
+	</NearestNeighborModel>
+</PMML>
