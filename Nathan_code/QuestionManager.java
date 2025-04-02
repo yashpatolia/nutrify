@@ -1,6 +1,9 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 public class QuestionManager extends QuestionManagement {
 
@@ -8,7 +11,7 @@ public class QuestionManager extends QuestionManagement {
 
     // // Constructor to initialize the database
     // public QuestionManager(QuestionDatabase questionDB) {
-    //     this.questionDB = questionDB;
+    // this.questionDB = questionDB;
     // }
 
     // Method to ask a question and save it to a CSV file
@@ -22,7 +25,7 @@ public class QuestionManager extends QuestionManagement {
         String filePath = "questions.csv"; // File path to save questions
 
         try (FileWriter fileWriter = new FileWriter(filePath, true);
-             PrintWriter printWriter = new PrintWriter(fileWriter)) {
+                PrintWriter printWriter = new PrintWriter(fileWriter)) {
 
             // Writing question to CSV file. Assuming each question is written in a new row.
             printWriter.println(question);
@@ -34,9 +37,23 @@ public class QuestionManager extends QuestionManagement {
     }
 
     // Method to retrieve search history
-    public void searchHistory() {
-        System.out.println("Retrieving question history...");
+    public ArrayList<String> searchHistory(String search) {
         // Logic to retrieve and display search history from the database
+        ArrayList<String> questions = new ArrayList<>();
+        String filePath = "questions.csv";
+        try (FileReader fileReader = new FileReader(filePath);
+                BufferedReader bufferedReader = new BufferedReader(fileReader)) {
+
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                if (line.toLowerCase().contains(search.toLowerCase())) {
+                    questions.add(line);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return questions;
     }
 
     // Method to delete question history

@@ -1,14 +1,16 @@
+import java.util.ArrayList;
+
 public abstract class QuestionManagement {
     // // Declare field for the database service
     // protected QuestionDatabase questionDB;
 
     // // Constructor to initialize the database
     // public QuestionManagement(QuestionDatabase questionDB) {
-    //     this.questionDB = questionDB;
+    // this.questionDB = questionDB;
     // }
 
     // Abstract method for searching history
-    public abstract void searchHistory();
+    public abstract ArrayList<String> searchHistory();
 
     // Abstract method for displaying page
     public abstract void displayPage();
