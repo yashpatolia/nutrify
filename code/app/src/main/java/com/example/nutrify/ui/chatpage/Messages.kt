@@ -1,4 +1,4 @@
-package com.example.nutrify.ui
+package com.example.nutrify.ui.chatpage
 
 data class Message(
     var text: String?=null,
@@ -6,7 +6,7 @@ data class Message(
     var isUser: Boolean = false
 )
 
-val messageList = listOf(
+val messageDummy = listOf(
     Message(
         text = "hi",
         sender =  "user",

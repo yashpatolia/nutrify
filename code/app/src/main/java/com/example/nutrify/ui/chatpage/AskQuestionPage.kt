@@ -1,12 +1,12 @@
-package com.example.nutrify.ui
+package com.example.nutrify.ui.chatpage
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.material3.Text
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.material3.Card
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -21,14 +21,9 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.Send
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Alignment
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.foundation.lazy.items
 import androidx.compose.ui.graphics.Color
 
@@ -70,7 +65,7 @@ fun MessageSection(modifier: Modifier = Modifier) {
         modifier.fillMaxWidth().padding(16.dp).height(640.dp),
         reverseLayout = true
     ){
-        items(messageList) { chat ->
+        items(messageDummy) { chat ->
             MessageBubble(
                 message = chat.text,
                 isUser = chat.isUser
@@ -110,12 +105,12 @@ fun UserInput() {
         OutlinedTextField(
             placeholder = {Text("Enter nutrients")},
             value = message.value,
-            onValueChange = {message.value = it},
+            onValueChange = { message.value = it},
             trailingIcon = {
                 Icon(
                     Icons.AutoMirrored.Rounded.Send,
-                    contentDescription = "MessageButton"
-
+                    contentDescription = "MessageButton",
+                    modifier = Modifier.clickable{}
                 )
             },
             modifier = Modifier.fillMaxWidth().padding(10.dp)
