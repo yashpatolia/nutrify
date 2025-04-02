@@ -136,6 +136,15 @@ public class AccountDatabase {
         return retrieve(username, 1) != null;
     }
 
+    public UUID getID(String username){
+        String info = retrieve(username, 1);
+        if(info != null){
+            String[] data = info.split(",");
+            return UUID.fromString(data[0]);
+        }
+        return null;
+    }
+
     public boolean properCredentials(String username, String password){
         System.out.println(username + " " + password);
         String data = retrieve(username, 1);

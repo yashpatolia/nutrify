@@ -2,15 +2,24 @@ package com.example.nutrify
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
+import android.view.Gravity
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.activity.ComponentActivity
 
 import com.example.nutrify.account.AccountManager
+import java.util.UUID
 
 class MainActivity : ComponentActivity() {
     private lateinit var accountManagement: AccountManager
+
+    private lateinit var userID : UUID
+
+    private var currentUsername : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +52,11 @@ class MainActivity : ComponentActivity() {
 
     private fun handleLogin(username: String, password: String) {
         if (accountManagement.login(username, password)) {
-            Log.i("Login Attempt", "Successful")
+            Log.i("Login Attempt", "Successful current username : $username")
+            userID = accountManagement.getID(username)
+            currentUsername = username
+            showQuestionPrompt()
+
         } else {
             Log.i("Login Attempt", "Failure")
         }
@@ -61,7 +74,7 @@ class MainActivity : ComponentActivity() {
         val emailInput: EditText = findViewById(R.id.email_input)
         val phoneInput: EditText = findViewById(R.id.phone_input)
         val createButton: Button = findViewById(R.id.cre_create_but)
-        val backArrow: ImageView = findViewById(R.id.back_arrow);
+        val backArrow: ImageView = findViewById(R.id.back_arrow)
 
         createButton.setOnClickListener {
             handleCreateAccount(
@@ -90,5 +103,69 @@ class MainActivity : ComponentActivity() {
         } else {
             Log.i("Account", "Password confirmation does not match")
         }
+    }
+
+    private fun showQuestionPrompt(){
+        setContentView(R.layout.home)
+        setupQuestionPrompt()
+    }
+
+    private fun setupQuestionPrompt(){
+        val questionInput : EditText = findViewById(R.id.question_prompt)
+        val logoutButton : ImageView = findViewById(R.id.logout)
+        val submitQuestion : ImageView = findViewById(R.id.sendButton)
+        val questionContainer : LinearLayout = findViewById(R.id.messageContainer)
+
+        logoutButton.setOnClickListener {
+            setContentView(R.layout.activity_main)
+            setupLoginUI()
+        }
+
+        submitQuestion.setOnClickListener {
+
+            addMessageBubble(questionInput.text.toString(), true, questionContainer)
+            questionInput.text.clear()
+            handleQuestion(questionInput.toString())
+            //send question to question class for response
+            questionContainer.postDelayed({ addMessageBubble("Auto-response", false, questionContainer) }, 1000)
+        }
+
+    }
+
+    private fun handleQuestion(question : String){
+        if(question.isNotEmpty()){
+
+        }
+
+    }
+
+
+    private fun addMessageBubble(text: String, isUser: Boolean, questionContainer : LinearLayout) {
+        val textView = TextView(this)
+        textView.text = text
+        textView.setBackgroundResource(R.drawable.text_bubble_right)
+        textView.setPadding(20, 10, 20, 10)
+        textView.textSize = 16f
+
+        val params = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.WRAP_CONTENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        ).apply {
+            if (isUser) {
+                setMargins(50, 10, 10, 10)
+                textView.textAlignment = View.TEXT_ALIGNMENT_TEXT_END
+                gravity = Gravity.END
+            } else {
+                setMargins(10, 10, 50, 10)
+                textView.textAlignment = View.TEXT_ALIGNMENT_TEXT_START
+                gravity = Gravity.START
+            }
+        }
+
+        textView.layoutParams = params
+
+        textView.layoutParams = params
+
+        questionContainer.addView(textView)
     }
 }
