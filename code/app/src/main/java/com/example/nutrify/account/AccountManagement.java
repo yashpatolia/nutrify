@@ -23,6 +23,10 @@ public abstract class AccountManagement {
         return accountDB.getUserInfo(userID);
     }
 
+    public UUID getID(String username){
+        return accountDB.getID(username);
+    }
+
     public boolean deleteAccount(String username){
         if(accountDB.usernameExists(username)){
             return accountDB.delete(username);
