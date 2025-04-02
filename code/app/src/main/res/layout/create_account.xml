@@ -11,16 +11,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:orientation="vertical">
+
+        <ImageView
+            android:layout_marginTop="20dp"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:contentDescription="arrow"
+            android:gravity="start"
+            android:src="@drawable/arrow"
+            android:tint="@color/white"
+            android:id="@+id/back_arrow"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginBottom="30dp"
-            android:layout_marginTop="65dp"
+            android:layout_margin="30dp"
             android:text="Nutrify"
             android:textColor="@color/white"
             android:textSize="60dp"
@@ -34,9 +40,9 @@
             android:textColorHint="@color/white"
             android:textSize="20sp"
             android:background="@drawable/rounded_corner"
-            android:padding="18dp"
+            android:padding="16dp"
             android:inputType="text"
-            android:id="@+id/username_input"
+            android:id="@+id/cre_username_input"
             android:backgroundTint="#4c4c4c"
             android:layout_margin="10dp"/>
 
@@ -49,24 +55,58 @@
             android:textColorHint="@color/white"
             android:textSize="20sp"
             android:background="@drawable/rounded_corner"
-            android:padding="18dp"
+            android:padding="16dp"
             android:inputType="text"
-            android:id="@+id/password_input"
+            android:id="@+id/cre_password_input"
             android:backgroundTint="#4c4c4c"
             android:layout_margin="10dp"/>
 
-        <Button
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Login"
-            android:textColor="#1b1c1c"
-            android:backgroundTint="#d0d2d2"
-            android:padding="18dp"
-            android:layout_marginTop="32dp"
+            android:hint="Confirm Password"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
             android:textSize="20sp"
-            android:id="@+id/login_but"
-           android:background="@drawable/rounded_corner"
+            android:background="@drawable/rounded_corner"
+            android:padding="16dp"
+            android:inputType="text"
+            android:id="@+id/password_conf_input"
+            android:backgroundTint="#4c4c4c"
             android:layout_margin="10dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email Address"
+            android:layout_marginTop="14dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/rounded_corner"
+            android:padding="16dp"
+            android:inputType="text"
+            android:id="@+id/email_input"
+            android:backgroundTint="#4c4c4c"
+            android:layout_margin="10dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone Number"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/rounded_corner"
+            android:padding="16dp"
+            android:inputType="text"
+            android:id="@+id/phone_input"
+            android:backgroundTint="#4c4c4c"
+            android:layout_margin="10dp"/>
+
+
 
         <Button
             android:layout_width="match_parent"
@@ -77,7 +117,7 @@
             android:padding="18dp"
             android:layout_marginTop="18dp"
             android:textSize="20sp"
-            android:id="@+id/create_but"
+            android:id="@+id/cre_create_but"
             android:layout_margin="10dp"
             android:background="@drawable/rounded_corner"/>
     </LinearLayout>
