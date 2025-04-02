@@ -8,7 +8,7 @@ import org.junit.Test;
 import java.util.UUID;
 
 public class AccountTest {
-    private final AccountManager accountManagement = new AccountManager();
+    private final AccountManager accountManagement = new AccountManager("./src/main/java/com/example/nutrify/account/account.csv");
 
     @Test
     public void createAccountTest(){

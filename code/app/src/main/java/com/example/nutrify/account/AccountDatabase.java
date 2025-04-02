@@ -1,5 +1,7 @@
 package com.example.nutrify.account;
 
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -7,17 +9,22 @@ import java.util.Arrays;
 import java.util.UUID;
 
 public class AccountDatabase {
-    private final String filePath = "./src/main/java/com/example/nutrify/account/account.csv";
-    public AccountDatabase(){}
+    private final String filePath;
+
+    public AccountDatabase(String filePath){
+        this.filePath = filePath;
+    }
 
     private String retrieve(String attribute, int column){
-
+        Log.i("Retrieve", "Retrieving " + attribute + " from " + filePath );
         BufferedReader reader = null;
         String line = "";
         try{
-            reader = new BufferedReader(new FileReader(filePath));
-            while((line = reader.readLine()) != null){
 
+            reader = new BufferedReader(new FileReader(filePath));
+
+            while((line = reader.readLine()) != null){
+                System.out.println(line);
                 String[] row = line.split(",");
                 System.out.println(row.length + " " + Arrays.toString(row));
                 if(row.length>column){
@@ -75,6 +82,7 @@ public class AccountDatabase {
             writeToDB(infoForCSV, true);
             return true;
         } catch (Exception e) {
+            Log.i("AccountDB", e.toString());
             return false;
         }
     }
@@ -101,7 +109,7 @@ public class AccountDatabase {
     }
 
     public boolean properCredentials(String username, String password){
-
+        System.out.println(username + " " + password);
         String data = retrieve(username, 1);
         System.out.println(data);
         if(data != null){

@@ -5,8 +5,8 @@ import java.util.UUID;
 public abstract class AccountManagement {
     private final AccountDatabase accountDB;
 
-    public AccountManagement(){
-        accountDB = new AccountDatabase();
+    public AccountManagement(String filePath){
+        accountDB = new AccountDatabase(filePath);
     }
 
     public abstract UUID createAccount(String username, String password, String email, String phoneNumber);
