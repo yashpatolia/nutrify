@@ -5,7 +5,9 @@ import android.util.Log;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 
 public class AccountDatabase {
@@ -16,7 +18,7 @@ public class AccountDatabase {
     }
 
     private String retrieve(String attribute, int column){
-        Log.i("Retrieve", "Retrieving " + attribute + " from " + filePath );
+    //    Log.i("Retrieve", "Retrieving " + attribute + " from " + filePath );
         BufferedReader reader = null;
         String line = "";
         try{
@@ -38,6 +40,28 @@ public class AccountDatabase {
             throw new RuntimeException(e);
         }
         return null;
+    }
+
+    private List<String[]> retrieveAll(){
+        BufferedReader reader = null;
+        String line = "";
+        List<String[]> data = new ArrayList<>();
+        try{
+
+            reader = new BufferedReader(new FileReader(filePath));
+
+            while((line = reader.readLine()) != null){
+                System.out.println(line);
+                String[] row = line.split(",");
+                if(row.length > 0){
+                    data.add(row);
+                }
+
+            }
+            return data;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private String retrieveExceptEdit(UUID userID){
@@ -75,14 +99,14 @@ public class AccountDatabase {
         UUID userID = userInfo.getUserID();
         infoForCSV += userID.toString() + "," +
                 userInfo.getUserUsername() + "," +
-                userInfo.getUserEmail() + "," +
                 userInfo.getUserPassword() + "," +
+                userInfo.getUserEmail() + "," +
                 userInfo.getUserPhoneNumber();
         try{
             writeToDB(infoForCSV, true);
             return true;
         } catch (Exception e) {
-            Log.i("AccountDB", e.toString());
+           // Log.i("AccountDB", e.toString());
             return false;
         }
     }
@@ -108,6 +132,10 @@ public class AccountDatabase {
         return retrieve(userID.toString(), 0);
     }
 
+    public boolean usernameExists(String username){
+        return retrieve(username, 1) != null;
+    }
+
     public boolean properCredentials(String username, String password){
         System.out.println(username + " " + password);
         String data = retrieve(username, 1);
@@ -117,5 +145,32 @@ public class AccountDatabase {
             return attributes[2].equals(password);
         }
         return false;
+    }
+
+    public boolean delete(String username){
+        List<String[]> entries = retrieveAll();
+        try{
+            for(String[] s : entries){
+                if(s[0].equals(username)){
+                    entries.remove(s);
+                    break;
+                }
+            }
+            for(int i = 0; i < entries.size(); i++){
+                String content = "";
+                if(i != 0){
+                    content = "\n";
+                }
+                content += entries.get(i)[0]  + "," +
+                    entries.get(i)[1] + "," +
+                    entries.get(i)[2] + "," +
+                    entries.get(i)[3] + "," +
+                    entries.get(i)[4];
+                writeToDB(content, i != 0);
+            }
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 }

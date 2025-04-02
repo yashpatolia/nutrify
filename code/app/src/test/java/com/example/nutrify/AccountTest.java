@@ -13,18 +13,22 @@ public class AccountTest {
     @Test
     public void createAccountTest(){
         UUID userID = accountManagement.createAccount("Tuname", "Tpass", "Temail", "Tpn");
-        String expected = userID.toString()+",Tuname,Temail,Tpass,Tpn";
+        String expected = userID.toString()+",Tuname,Tpass,Temail,Tpn";
         Assert.assertEquals(expected, accountManagement.getAccount(userID));
+        accountManagement.deleteAccount("Tuname");
+
+
     }
 
     @Test
     public void editAccount(){
         UUID userID = accountManagement.createAccount("Tuname", "Tpass", "Temail", "Tpn");
-        String expected = userID.toString()+",Tuname,Temail,Tpass,Tpn";
+        String expected = userID.toString()+",Tuname,Tpass,Temail,Tpn";
         Assert.assertEquals(expected, accountManagement.getAccount(userID));
         accountManagement.editAccount(userID, "UpU", "Uppass", "Uemail", "Upn");
         expected = userID.toString()+",UpU,Uppass,Uemail,Upn";
         Assert.assertEquals(expected, accountManagement.getAccount(userID));
+        accountManagement.deleteAccount("Tuname");
     }
 
     @Test

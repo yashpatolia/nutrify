@@ -22,4 +22,11 @@ public abstract class AccountManagement {
     public String getAccount(UUID userID){
         return accountDB.getUserInfo(userID);
     }
+
+    public boolean deleteAccount(String username){
+        if(accountDB.usernameExists(username)){
+            return accountDB.delete(username);
+        }
+        return false;
+    }
 }
