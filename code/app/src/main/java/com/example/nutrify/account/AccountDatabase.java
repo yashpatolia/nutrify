@@ -8,9 +8,7 @@ import java.util.UUID;
 
 public class AccountDatabase {
     private final String filePath = "./src/main/java/com/example/nutrify/account/account.csv";
-    public AccountDatabase(){
-
-    }
+    public AccountDatabase(){}
 
     private String retrieve(String attribute, int column){
 

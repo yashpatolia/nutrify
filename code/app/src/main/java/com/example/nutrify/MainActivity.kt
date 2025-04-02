@@ -1,47 +1,37 @@
 package com.example.nutrify
-
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.nutrify.ui.theme.NutrifyTheme
+
+
+import com.example.nutrify.account.AccountManager
+
+val accountManagement = AccountManager();
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            NutrifyTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+        setContentView(R.layout.activity_main)
+
+        var usernameInput : EditText = findViewById(R.id.username_input)
+        var passwordInput : EditText =findViewById(R.id.password_input)
+        var loginButton : Button = findViewById(R.id.login_but)
+        var createButton : Button = findViewById(R.id.create_but)
+
+        loginButton.setOnClickListener {
+            val username = usernameInput.text.toString();
+            val password = passwordInput.text.toString()
+            if (accountManagement.login(username, password)) {
+                //successful login route to home page
             }
         }
-    }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+        createButton.setOnClickListener{
+            
+        }
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    NutrifyTheme {
-        Greeting("Android")
     }
+
 }
