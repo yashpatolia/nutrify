@@ -6,7 +6,7 @@ from skl2onnx import convert
 from skl2onnx.common.data_types import FloatTensorType
 
 def prepare_data():
-    df = pd.read_csv("/Users/justinkwinecki/Documents/School/Year3/Semester2/3A04/Project/3A04-D3/model/nutrients_csvfile.csv")
+    df = pd.read_csv("/nutrients_csvfile.csv")
     df = df.drop(columns=['Measure', 'Category'])
     macros = df.drop(columns=['Food'])
     labels = df.loc[:,['Food']]
