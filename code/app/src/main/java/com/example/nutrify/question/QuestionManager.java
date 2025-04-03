@@ -6,25 +6,28 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class QuestionManager extends QuestionManagement {
 
     // Method to ask a question and save both question and answer to a text file
     public String askUserQuestion(String question, String answer) {
-        saveQuestionToTextFile(question, answer);
+        // Generate a new UUID for the question-answer pair
+        UUID questionId = UUID.randomUUID();
+        saveQuestionToTextFile(questionId, question, answer);
         return question;
     }
 
     // Private method to save a question and its answer to a text file
-    private void saveQuestionToTextFile(String question, String answer) {
+    private void saveQuestionToTextFile(UUID questionId, String question, String answer) {
         String filePath = "questions.txt"; // File path to save questions and answers
 
         try (FileWriter fileWriter = new FileWriter(filePath, true); // 'true' for appending data
-                PrintWriter printWriter = new PrintWriter(fileWriter)) {
+             PrintWriter printWriter = new PrintWriter(fileWriter)) {
 
-            // Writing the question and answer to the text file.
-            // Format: "question ~ answer"
-            printWriter.println(question + "~" + answer); // Write both question and answer on the same line
+            // Writing the UUID, question, and answer to the text file.
+            // Format: "UUID ~ question ~ answer"
+            printWriter.println(questionId.toString() + " ~ " + question + " ~ " + answer); // Save the question-answer pair
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -33,27 +36,23 @@ public class QuestionManager extends QuestionManagement {
 
     // Method to retrieve search history
     public ArrayList<String> searchHistory(String search) {
-        // Logic to retrieve and display search history from the database
         ArrayList<String> questions = new ArrayList<>();
-        ArrayList<String> answers = new ArrayList<>();
-
-        String filePath = "questions.csv";
+        String filePath = "questions.txt"; // Reading from the correct file (questions.txt)
 
         try (FileReader fileReader = new FileReader(filePath);
-                BufferedReader bufferedReader = new BufferedReader(fileReader)) {
+             BufferedReader bufferedReader = new BufferedReader(fileReader)) {
+
             String line;
-            boolean isFirstLine = true;
             while ((line = bufferedReader.readLine()) != null) {
                 String[] columns = line.split("~");
 
-                if (isFirstLine) {
-                    isFirstLine = false; // skip header row
-                    continue;
-                }
-
-                if (columns.length >= 2) {
-                    questions.add(columns[0]);
-                    answers.add(columns[1]);
+                // Assuming that each line follows the format: "UUID ~ question ~ answer"
+                if (columns.length >= 3) {
+                    String question = columns[1].trim();
+                    String answer = columns[2].trim();
+                    if (question.toLowerCase().contains(search.toLowerCase()) || answer.toLowerCase().contains(search.toLowerCase())) {
+                        questions.add(line); // Add the full question-answer pair to the list
+                    }
                 }
             }
         } catch (IOException e) {
@@ -65,8 +64,7 @@ public class QuestionManager extends QuestionManagement {
     // Method to delete question history
     public void deleteHistory(String questionId) {
         System.out.println("Deleting question with ID: " + questionId);
-        // Logic to delete a question from the database (implementation not provided
-        // yet)
+        // Logic to delete a question from the database (implementation not provided yet)
     }
 
     // Method to display a page with questions and answers
