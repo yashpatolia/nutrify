@@ -13,16 +13,16 @@ public class Model implements Expert{
 
     private Evaluator evaluator;
 
-    public Model() {
+    public Model(String modelPath) {
         try{
             this.evaluator = new LoadingModelEvaluatorBuilder()
-                    .load(new File("./src/main/java/com/example/nutrify/expert/nutrify.pmml"))
+                    .load(new File(modelPath))
                     .build();
 
             evaluator.verify();
         } catch (Exception e) {
             evaluator  = null;
-            System.out.println("Error has occurred loading in pmml model");
+            System.out.println("Error has occurred loading in pmml model" + e);
         }
 
     }

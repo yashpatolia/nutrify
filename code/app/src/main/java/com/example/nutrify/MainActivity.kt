@@ -10,12 +10,17 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.ComponentActivity
+import com.example.nutrify.account.AccountManagement
 
 import com.example.nutrify.account.AccountManager
+import com.example.nutrify.expert.Expert
+import com.example.nutrify.expert.Model
 import java.util.UUID
 
 class MainActivity : ComponentActivity() {
-    private lateinit var accountManagement: AccountManager
+    private lateinit var accountManagement: AccountManagement
+
+    private lateinit var expert : Expert
 
     private lateinit var userID : UUID
 
@@ -115,6 +120,13 @@ class MainActivity : ComponentActivity() {
         val logoutButton : ImageView = findViewById(R.id.logout)
         val submitQuestion : ImageView = findViewById(R.id.sendButton)
         val questionContainer : LinearLayout = findViewById(R.id.messageContainer)
+        val macroBut : Button = findViewById(R.id.macro_but)
+        val profileBut : ImageView = findViewById(R.id.rightImage)
+
+        macroBut.setOnClickListener {
+            setContentView(R.layout.macros)
+            setUpMacroView()
+        }
 
         logoutButton.setOnClickListener {
             setContentView(R.layout.activity_main)
@@ -129,6 +141,12 @@ class MainActivity : ComponentActivity() {
             //send question to question class for response
             questionContainer.postDelayed({ addMessageBubble("Auto-response", false, questionContainer) }, 1000)
         }
+
+        profileBut.setOnClickListener {
+            setUpEdit()
+        }
+
+
 
     }
 
@@ -164,8 +182,58 @@ class MainActivity : ComponentActivity() {
 
         textView.layoutParams = params
 
-        textView.layoutParams = params
-
         questionContainer.addView(textView)
+    }
+
+
+    private fun setUpEdit(){
+        setContentView(R.layout.edit_account)
+        val userContainer : LinearLayout = findViewById(R.id.user_container)
+        val passContainer : LinearLayout = findViewById(R.id.pass_container)
+        val emailContainer : LinearLayout = findViewById(R.id.email_container)
+        val phoneContainer : LinearLayout = findViewById(R.id.phone_container)
+
+        val info : String = accountManagement.getAccount(userID)
+        val infoSep : List<String> = info.split(",")
+        addAccountInfo(infoSep[1], userContainer)
+        addAccountInfo(infoSep[2], passContainer)
+        addAccountInfo(infoSep[3], emailContainer)
+        addAccountInfo(infoSep[4], phoneContainer)
+
+    }
+
+    private fun addAccountInfo(info : String, container : LinearLayout){
+        val textView = TextView(this)
+        textView.text = info
+        textView.setTextColor(resources.getColor(R. color. white))
+        textView.textSize = 18f
+
+        container.addView(textView)
+    }
+
+    private fun setUpMacroView(){
+
+        val gramInput : EditText = findViewById(R.id.gram_input)
+        val calorieInput : EditText = findViewById(R.id.calorie_input)
+        val proteinInput : EditText = findViewById(R.id.protein_input)
+        val fatInput : EditText = findViewById(R.id.fat_input)
+        val satFatInput : EditText = findViewById(R.id.sat_input)
+        val fibreInput : EditText = findViewById(R.id.fibre_input)
+        val carbInput : EditText = findViewById(R.id.carbs_input)
+        val getFoodBut : Button = findViewById(R.id.get_food)
+
+        getFoodBut.setOnClickListener {
+            val result : String = handleMacros(gramInput.text.toString(), calorieInput.text.toString(),
+                proteinInput.text.toString(), fatInput.text.toString(),
+                satFatInput.text.toString(), fibreInput.text.toString(), carbInput.text.toString())
+
+            Log.i("Model", "result : $result")
+        }
+    }
+
+    private fun handleMacros(grams : String, calories : String, protein : String, fat : String, sat : String, fibre : String, carb : String) : String{
+        expert = Model("/storage/emulated/0/Android/data/com.example.nutrify/files/Download/nutrify.pmml")
+        val questionCS : String = "$grams,$calories,$protein,$fat,$sat,$fibre,$carb"
+        return expert.getExpertAnswer(questionCS)
     }
 }

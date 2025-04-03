@@ -18,6 +18,20 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="15dp"/>
 
+    <Button
+        android:id="@+id/macro_but"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:text="Enter exact Nutrients"
+        android:textSize="14sp"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="#d0d2d2"
+        android:textColor="@color/black"
+        android:padding="5dp"
+        android:layout_toStartOf="@id/rightImage"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="15dp"/>
+
     <ImageView
         android:id="@+id/rightImage"
         android:layout_width="32dp"
@@ -59,6 +73,8 @@
             android:src="@drawable/arrow"
             android:tint="@color/white"
             android:rotation="90"/>
+
+
     </LinearLayout>
 
     <LinearLayout
