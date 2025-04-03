@@ -1,11 +1,8 @@
 package com.example.nutrify.question;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class QuestionManager extends QuestionManagement {
@@ -76,9 +73,40 @@ public class QuestionManager extends QuestionManagement {
 
     // Method to delete question history
     public void deleteHistory(String questionId) {
-        System.out.println("Deleting question with ID: " + questionId);
-        // Logic to delete a question from the database (implementation not provided
-        // yet)
+
+        File questionHistory = new File("questions.txt"); // Reading from the text file with question history, questions.txt
+        File newQuestionHistory = new File("updatedQuestions.txt"); // A new file where the updates question history will be stored
+
+        try(
+                BufferedReader br = new BufferedReader(new FileReader(questionHistory));
+                BufferedWriter bw = new BufferedWriter(new FileWriter(newQuestionHistory));)
+        {
+            String line;
+
+            while((line = br.readLine()) != null) {
+
+                String[] columns = line.split("~");
+                if (columns.length >= 3) {
+
+                    if(!columns[0].equals(questionId)) {
+                        bw.write(line);
+                        bw.newLine();
+                    }
+
+                }
+
+            }
+
+            if(!questionHistory.delete())
+                throw new IOException("Failed to delete original question history file");
+
+            if(!newQuestionHistory.renameTo(questionHistory))
+                throw new IOException("Failed to rename new question history file");
+
+        }
+        catch(IOException e) {
+            e.printStackTrace();
+        }
     }
 
     // Method to display a page with questions and answers
