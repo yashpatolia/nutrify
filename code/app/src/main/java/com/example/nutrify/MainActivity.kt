@@ -179,7 +179,22 @@ class MainActivity : ComponentActivity() {
         recyclerView = findViewById(R.id.questionlist)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
+        val backButton : ImageView = findViewById(R.id.back_arrow_qhistory)
+        val searchButton : ImageView = findViewById(R.id.search_button)
+
+
         getQuestionHistory()
+
+        backButton.setOnClickListener {
+            //setContentView(idk where we're accessing question history from LOL)
+
+        }
+
+        searchButton.setOnClickListener {
+            setContentView(R.layout.search)
+            handleQuestionSearch()
+        }
+
     }
 
     private fun getQuestionHistory() {
@@ -187,4 +202,45 @@ class MainActivity : ComponentActivity() {
         //val questionList
         //recyclerView.adapter = AdapterClass(questionList)
     }
+
+    private fun setUpQuestionSearch(searchValue: String) {
+        recyclerView = findViewById(R.id.questionlist)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.setHasFixedSize(true)
+        val backButton : ImageView = findViewById(R.id.back_arrow_qhistory)
+        val searchButton : ImageView = findViewById(R.id.search_button)
+
+        getSearch(searchValue)
+
+        backButton.setOnClickListener {
+
+            setUpQuestionHistory()
+
+        }
+
+        searchButton.setOnClickListener {
+            setContentView(R.layout.search)
+            handleQuestionSearch()
+        }
+
+    }
+
+    private fun handleQuestionSearch(){
+        val searchButton : ImageView = findViewById(R.id.search_button)
+        val searchValue: EditText = findViewById(R.id.search_prompt)
+
+        searchButton.setOnClickListener {
+            setContentView(R.layout.question_history)
+            setUpQuestionSearch(searchValue.text.toString())
+        }
+
+    }
+
+    private fun getSearch(searchValue: String) {
+        //get list of questions
+        //val searchResults
+        //recyclerView.adapter = AdapterClass(searchResults)
+    }
+
+
 }
