@@ -25,11 +25,12 @@ public class QuestionManager extends QuestionManagement {
         UUID questionId = UUID.randomUUID();
 
         try (FileWriter fileWriter = new FileWriter(filePath, true); // 'true' for appending data
-             PrintWriter printWriter = new PrintWriter(fileWriter)) {
+                PrintWriter printWriter = new PrintWriter(fileWriter)) {
 
             // Writing the UUID, question, and answer to the text file.
             // Format: "UUID ~ question ~ answer"
-            printWriter.println(questionId.toString() + " ~ " + question + " ~ " + answer); // Save the question-answer pair
+            printWriter.println(questionId.toString() + " ~ " + question + " ~ " + answer); // Save the question-answer
+                                                                                            // pair
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -38,35 +39,46 @@ public class QuestionManager extends QuestionManagement {
 
     // Method to retrieve search history
     public ArrayList<String> searchHistory(String search) {
-        ArrayList<String> questions = new ArrayList<>();
         String filePath = "questions.txt"; // Reading from the correct file (questions.txt)
 
-        try (FileReader fileReader = new FileReader(filePath);
-             BufferedReader bufferedReader = new BufferedReader(fileReader)) {
+        List<String> questionID = new ArrayList<>();
+        List<String> question = new ArrayList<>();
+        List<String> answer = new ArrayList<>();
 
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath))) {
             String line;
+            boolean isFirstLine = true;
+
             while ((line = bufferedReader.readLine()) != null) {
                 String[] columns = line.split("~");
 
+                if (isFirstLine) {
+                    isFirstLine = false;
+                    continue;
+                }
+
                 // Assuming that each line follows the format: "UUID ~ question ~ answer"
                 if (columns.length >= 3) {
-                    String question = columns[1].trim();
-                    String answer = columns[2].trim();
-                    if (question.toLowerCase().contains(search.toLowerCase()) || answer.toLowerCase().contains(search.toLowerCase())) {
-                        questions.add(line); // Add the full question-answer pair to the list
-                    }
+                    questionID.add(columns[0]);
+                    question.add(columns[1]);
+                    answer.add(columns[2]);
                 }
             }
+
+            List<List> questionAnswer = new ArrayList<>();
+            questionAnswer.add(question, answer);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return questions;
+
+        return questionAnswer;
     }
 
     // Method to delete question history
     public void deleteHistory(String questionId) {
         System.out.println("Deleting question with ID: " + questionId);
-        // Logic to delete a question from the database (implementation not provided yet)
+        // Logic to delete a question from the database (implementation not provided
+        // yet)
     }
 
     // Method to display a page with questions and answers
