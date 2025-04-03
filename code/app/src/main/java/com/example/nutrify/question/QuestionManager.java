@@ -19,8 +19,8 @@ public class QuestionManager extends QuestionManagement {
     private void saveQuestionToTextFile(String question, String answer) {
         String filePath = "questions.txt"; // File path to save questions and answers
 
-        try (FileWriter fileWriter = new FileWriter(filePath, true);  // 'true' for appending data
-             PrintWriter printWriter = new PrintWriter(fileWriter)) {
+        try (FileWriter fileWriter = new FileWriter(filePath, true); // 'true' for appending data
+                PrintWriter printWriter = new PrintWriter(fileWriter)) {
 
             // Writing the question and answer to the text file.
             // Format: "question ~ answer"
@@ -32,17 +32,29 @@ public class QuestionManager extends QuestionManagement {
     }
 
     // Method to retrieve search history
+    // Method to retrieve search history
     public ArrayList<String> searchHistory(String search) {
+        // Logic to retrieve and display search history from the database
         ArrayList<String> questions = new ArrayList<>();
-        String filePath = "questions.txt"; // Reading from the correct file (questions.txt)
+        ArrayList<String> answers = new ArrayList<>();
+
+        String filePath = "questions.csv";
 
         try (FileReader fileReader = new FileReader(filePath);
-             BufferedReader bufferedReader = new BufferedReader(fileReader)) {
-
+                BufferedReader bufferedReader = new BufferedReader(fileReader)) {
             String line;
+            boolean isFirstLine = true;
             while ((line = bufferedReader.readLine()) != null) {
-                if (line.toLowerCase().contains(search.toLowerCase())) {
-                    questions.add(line);  // Add matching lines to the search results
+                String[] columns = line.split("~");
+
+                if (isFirstLine) {
+                    isFirstLine = false; // skip header row
+                    continue;
+                }
+
+                if (columns.length >= 2) {
+                    questions.add(columns[0]);
+                    answers.add(columns[1]);
                 }
             }
         } catch (IOException e) {
@@ -54,7 +66,8 @@ public class QuestionManager extends QuestionManagement {
     // Method to delete question history
     public void deleteHistory(String questionId) {
         System.out.println("Deleting question with ID: " + questionId);
-        // Logic to delete a question from the database (implementation not provided yet)
+        // Logic to delete a question from the database (implementation not provided
+        // yet)
     }
 
     // Method to display a page with questions and answers
