@@ -232,8 +232,8 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun handleMacros(grams : String, calories : String, protein : String, fat : String, sat : String, fibre : String, carb : String) : String{
-        expert = Model("/storage/emulated/0/Android/data/com.example.nutrify/files/Download/nutrify.pmml")
-        val questionCS : String = "$grams,$calories,$protein,$fat,$sat,$fibre,$carb"
+        expert = Model()
+        val questionCS : String = "$grams,$calories,$protein,$fat,$sat,$fibre,$carb,"
         return expert.getExpertAnswer(questionCS)
     }
 }

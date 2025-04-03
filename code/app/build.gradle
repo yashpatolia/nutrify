@@ -64,4 +64,5 @@ dependencies {
     implementation libs.pmml.evaluator.metro
     implementation libs.onnxruntime.mobile
     implementation libs.guava
+    implementation libs.gson
 }

@@ -8,7 +8,7 @@ import org.junit.Test;
 
 public class ModelTest {
 
-    private final Expert expert = new Model("./src/main/java/com/example/nutrify/expert/nutrify.pmml");
+    private final Expert expert = new Model();
 
     @Test
     public void predictionTest(){
