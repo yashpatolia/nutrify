@@ -32,7 +32,6 @@ public class QuestionManager extends QuestionManagement {
     }
 
     // Method to retrieve search history
-    // Method to retrieve search history
     public ArrayList<String> searchHistory(String search) {
         // Logic to retrieve and display search history from the database
         ArrayList<String> questions = new ArrayList<>();
