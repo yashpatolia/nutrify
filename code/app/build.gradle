@@ -62,5 +62,7 @@ dependencies {
     debugImplementation libs.androidx.ui.tooling
     debugImplementation libs.androidx.ui.test.manifest
     implementation libs.pmml.evaluator.metro
+    implementation libs.onnxruntime.mobile
     implementation libs.guava
+    implementation libs.gson
 }

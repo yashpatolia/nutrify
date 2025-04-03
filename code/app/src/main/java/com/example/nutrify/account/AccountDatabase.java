@@ -1,6 +1,5 @@
 package com.example.nutrify.account;
 
-import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -18,7 +17,6 @@ public class AccountDatabase {
     }
 
     private String retrieve(String attribute, int column){
-    //    Log.i("Retrieve", "Retrieving " + attribute + " from " + filePath );
         BufferedReader reader = null;
         String line = "";
         try{

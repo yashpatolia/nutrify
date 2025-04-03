@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_page"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_marginTop="20dp"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:contentDescription="arrow"
+            android:gravity="start"
+            android:src="@drawable/arrow"
+            android:tint="@color/white"
+            android:id="@+id/back_arrow"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="Nutrify"
+            android:textColor="@color/white"
+            android:textSize="60dp"
+            android:gravity="center"/>
+
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Grams"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/rounded_corner"
+            android:padding="12dp"
+            android:inputType="text"
+            android:id="@+id/gram_input"
+            android:backgroundTint="#4c4c4c"
+            android:layout_margin="10dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Calories"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/rounded_corner"
+            android:padding="12dp"
+            android:inputType="text"
+            android:id="@+id/calorie_input"
+            android:backgroundTint="#4c4c4c"
+            android:layout_margin="10dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Protein (g)"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/rounded_corner"
+            android:padding="12dp"
+            android:inputType="text"
+            android:id="@+id/protein_input"
+            android:backgroundTint="#4c4c4c"
+            android:layout_margin="10dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Fat (g)"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/rounded_corner"
+            android:padding="12dp"
+            android:inputType="text"
+            android:id="@+id/fat_input"
+            android:backgroundTint="#4c4c4c"
+            android:layout_margin="10dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Saturated Fat (g)"
+            android:layout_marginTop="14dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/rounded_corner"
+            android:padding="12dp"
+            android:inputType="text"
+            android:id="@+id/sat_input"
+            android:backgroundTint="#4c4c4c"
+            android:layout_margin="10dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Fibre (g)"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/rounded_corner"
+            android:padding="12dp"
+            android:inputType="text"
+            android:id="@+id/fibre_input"
+            android:backgroundTint="#4c4c4c"
+            android:layout_margin="10dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Carbohydrates (g)"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/rounded_corner"
+            android:padding="12dp"
+            android:inputType="text"
+            android:id="@+id/carbs_input"
+            android:backgroundTint="#4c4c4c"
+            android:layout_margin="10dp"/>
+
+
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Get food!"
+            android:textColor="#1b1c1c"
+            android:backgroundTint="#d0d2d2"
+            android:padding="14dp"
+            android:layout_marginTop="18dp"
+            android:textSize="20sp"
+            android:id="@+id/get_food"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_corner"/>
+    </LinearLayout>
+
+</RelativeLayout>

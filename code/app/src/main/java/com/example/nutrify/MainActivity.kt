@@ -10,16 +10,23 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.ComponentActivity
+import com.example.nutrify.account.AccountManagement
 
 import com.example.nutrify.account.AccountManager
+import com.example.nutrify.expert.Expert
+import com.example.nutrify.expert.Model
 import java.util.UUID
 
 class MainActivity : ComponentActivity() {
-    private lateinit var accountManagement: AccountManager
+    private lateinit var accountManagement: AccountManagement
+
+    private lateinit var expert : Expert
 
     private lateinit var userID : UUID
 
     private var currentUsername : String = ""
+
+    private val messageQueue: ArrayDeque<TextView> = ArrayDeque();
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +57,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+
     private fun handleLogin(username: String, password: String) {
         if (accountManagement.login(username, password)) {
             Log.i("Login Attempt", "Successful current username : $username")
@@ -62,10 +70,12 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+
     private fun showCreateAccountUI() {
         setContentView(R.layout.create_account)
         setupCreateAccountUI()
     }
+
 
     private fun setupCreateAccountUI() {
         val creUsernameInput: EditText = findViewById(R.id.cre_username_input)
@@ -90,8 +100,6 @@ class MainActivity : ComponentActivity() {
             setContentView(R.layout.activity_main)
             setupLoginUI()
         }
-
-
     }
 
     private fun handleCreateAccount(username: String, password: String, passwordConf: String, email: String, phone: String) {
@@ -115,6 +123,13 @@ class MainActivity : ComponentActivity() {
         val logoutButton : ImageView = findViewById(R.id.logout)
         val submitQuestion : ImageView = findViewById(R.id.sendButton)
         val questionContainer : LinearLayout = findViewById(R.id.messageContainer)
+        val macroBut : Button = findViewById(R.id.macro_but)
+        val profileBut : ImageView = findViewById(R.id.rightImage)
+
+        macroBut.setOnClickListener {
+            setContentView(R.layout.macros)
+            setUpMacroView()
+        }
 
         logoutButton.setOnClickListener {
             setContentView(R.layout.activity_main)
@@ -130,6 +145,9 @@ class MainActivity : ComponentActivity() {
             questionContainer.postDelayed({ addMessageBubble("Auto-response", false, questionContainer) }, 1000)
         }
 
+        profileBut.setOnClickListener {
+            setUpEdit()
+        }
     }
 
     private fun handleQuestion(question : String){
@@ -143,6 +161,12 @@ class MainActivity : ComponentActivity() {
     private fun addMessageBubble(text: String, isUser: Boolean, questionContainer : LinearLayout) {
         val textView = TextView(this)
         textView.text = text
+
+        textView.id = messageQueue.size;
+        if(messageQueue.size >= 10){
+            questionContainer.removeView(messageQueue.removeFirst());
+            questionContainer.removeView(messageQueue.removeFirst());
+        }
         textView.setBackgroundResource(R.drawable.text_bubble_right)
         textView.setPadding(20, 10, 20, 10)
         textView.textSize = 16f
@@ -164,8 +188,72 @@ class MainActivity : ComponentActivity() {
 
         textView.layoutParams = params
 
-        textView.layoutParams = params
+        messageQueue.add(textView);
 
         questionContainer.addView(textView)
+    }
+
+
+    private fun setUpEdit(){
+        setContentView(R.layout.edit_account)
+        val userContainer : LinearLayout = findViewById(R.id.user_container)
+        val passContainer : LinearLayout = findViewById(R.id.pass_container)
+        val emailContainer : LinearLayout = findViewById(R.id.email_container)
+        val phoneContainer : LinearLayout = findViewById(R.id.phone_container)
+        val backArrow: ImageView = findViewById(R.id.back_arrow)
+        val info : String = accountManagement.getAccount(userID)
+        val infoSep : List<String> = info.split(",")
+
+        addAccountInfo(infoSep[1], userContainer)
+        addAccountInfo(infoSep[2], passContainer)
+        addAccountInfo(infoSep[3], emailContainer)
+        addAccountInfo(infoSep[4], phoneContainer)
+
+        backArrow.setOnClickListener {
+            setContentView(R.layout.home)
+            setupQuestionPrompt()
+        }
+    }
+
+
+    private fun addAccountInfo(info : String, container : LinearLayout){
+        val textView = TextView(this)
+        textView.text = info
+        textView.setTextColor(resources.getColor(R. color. white))
+        textView.textSize = 18f
+
+        container.addView(textView)
+    }
+
+    private fun setUpMacroView(){
+
+        val gramInput : EditText = findViewById(R.id.gram_input)
+        val calorieInput : EditText = findViewById(R.id.calorie_input)
+        val proteinInput : EditText = findViewById(R.id.protein_input)
+        val fatInput : EditText = findViewById(R.id.fat_input)
+        val satFatInput : EditText = findViewById(R.id.sat_input)
+        val fibreInput : EditText = findViewById(R.id.fibre_input)
+        val carbInput : EditText = findViewById(R.id.carbs_input)
+        val getFoodBut : Button = findViewById(R.id.get_food)
+        val backArrow: ImageView = findViewById(R.id.back_arrow)
+
+        getFoodBut.setOnClickListener {
+            val result : String = handleMacros(gramInput.text.toString(), calorieInput.text.toString(),
+                proteinInput.text.toString(), fatInput.text.toString(),
+                satFatInput.text.toString(), fibreInput.text.toString(), carbInput.text.toString())
+
+            Log.i("Model", "result : $result")
+        }
+
+        backArrow.setOnClickListener {
+            setContentView(R.layout.home)
+            setupQuestionPrompt()
+        }
+    }
+
+    private fun handleMacros(grams : String, calories : String, protein : String, fat : String, sat : String, fibre : String, carb : String) : String{
+        expert = Model()
+        val questionCS : String = "$grams,$calories,$protein,$fat,$sat,$fibre,$carb,"
+        return expert.getExpertAnswer(questionCS)
     }
 }

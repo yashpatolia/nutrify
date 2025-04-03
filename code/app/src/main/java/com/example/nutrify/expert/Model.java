@@ -1,82 +1,119 @@
 package com.example.nutrify.expert;
 
-import org.jpmml.evaluator.Evaluator;
-import org.jpmml.evaluator.EvaluatorUtil;
-import org.jpmml.evaluator.LoadingModelEvaluatorBuilder;
-
-import java.io.File;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
 
-public class Model implements Expert{
+import com.google.common.reflect.TypeToken;
+import com.google.gson.Gson;
+public class Model implements Expert {
 
-    private Evaluator evaluator;
+    private String pred ="";
+    private String parse(String question){
 
-    public Model() {
-        try{
-            this.evaluator = new LoadingModelEvaluatorBuilder()
-                    .load(new File("./src/main/java/com/example/nutrify/expert/nutrify.pmml"))
-                    .build();
-
-            evaluator.verify();
-        } catch (Exception e) {
-            evaluator  = null;
-            System.out.println("Error has occurred loading in pmml model");
-        }
-
-    }
-
-    private Map<String, Object> parse(String question){
-        Map<String, Object> inputData = new HashMap<>();
-        //initializing input data
-        inputData.put("Grams", null);
-        inputData.put("Calories", null);
-        inputData.put("Protein", null);
-        inputData.put("Fat", null);
-        inputData.put("Sat.Fat",null);
-        inputData.put("Fiber", null);
-        inputData.put("Carbs", null);
+        String jsonString = "{";
         String current = "";
         int macro = 0;
-        for(int i = 0; i < question.length(); i++){
-            if(question.charAt(i) == ','){
-                switch (macro){
-                    case 0:
-                        inputData.put("Grams", Integer.parseInt(current));
-                    case 1:
-                        inputData.put("Calories", Integer.parseInt(current));
-                    case 2:
-                        inputData.put("Protein", Integer.parseInt(current));
-                    case 3:
-                        inputData.put("Fat", Integer.parseInt(current));
-                    case 4:
-                        inputData.put("Sat.Fat", Integer.parseInt(current));
-                    case 5:
-                        inputData.put("Fiber", Integer.parseInt(current));
-                    case 6:
-                        inputData.put("Carbs", Integer.parseInt(current));
 
+        for (int i = 0; i < question.length(); i++) {
+            if (question.charAt(i) == ',') {
+
+                switch (macro) {
+                    case 0:
+                        jsonString += "\"Grams\" : " + current;
+                        break;
+                    case 1:
+                        jsonString += ",\"Calories\" : " + current;
+                        break;
+                    case 2:
+                        jsonString += ",\"Protein\" : " + current;
+                        break;
+                    case 3:
+                        jsonString += ",\"Fat\" : " + current;
+                        break;
+                    case 4:
+                        jsonString += ",\"Sat.Fat\" : " + current;
+                        break;
+                    case 5:
+                        jsonString += ",\"Fiber\" : " + current;
+                        break;
+                    case 6:
+                        jsonString += ",\"Carbs\" : " + current + "}";
+                        break;
                 }
                 current = "";
-                macro ++;
-            }
-            else{
+                macro++;
+            } else {
                 current += question.charAt(i);
             }
         }
-        return inputData;
+
+        System.out.println(jsonString);
+        return jsonString;
     }
+
     private String predict(String question){
+        try {
+            URL url = new URL("http://10.0.2.2:5000/predict");
 
-        Map<String, ?> results = evaluator.evaluate(parse(question));
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Content-Type", "application/json");
 
-        results = EvaluatorUtil.decodeAll(results);
-        return Objects.requireNonNull(results.get("y")).toString();
+            connection.setDoOutput(true);
+            String jsonInputString = parse(question);
+
+            try (OutputStream os = connection.getOutputStream()) {
+                byte[] input = jsonInputString.getBytes(StandardCharsets.UTF_8);
+                os.write(input, 0, input.length);
+            }
+
+            int responseCode = connection.getResponseCode();
+            System.out.println("Response Code: " + responseCode);
+
+            BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            String inputLine;
+            StringBuilder response = new StringBuilder();
+
+            while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+            }
+            in.close();
+
+            Gson gson = new Gson();
+            HashMap<String, String> map = gson.fromJson(String.valueOf(response), new TypeToken<HashMap<String, String>>(){}.getType());
+
+            System.out.println("Response: " + response.toString());
+            pred = map.get("prediction");
+            return map.get("prediction");
+
+        } catch (Exception e) {
+           System.out.println("Error " + e);
+        }
+        return "";
+
     }
 
     @Override
     public String getExpertAnswer(String question) {
-        return predict(question);
+
+        Thread background = new Thread(() -> {
+            String result = predict(question);
+        });
+        background.start();
+        try {
+            background.join();
+        }catch(Exception e){
+            System.out.println(e);
+        }
+
+        return pred;
     }
+
+
+
 }
