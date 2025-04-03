@@ -52,7 +52,6 @@ public class Model implements Expert {
             }
         }
 
-
         System.out.println(jsonString);
         return jsonString;
     }
@@ -72,7 +71,6 @@ public class Model implements Expert {
                 byte[] input = jsonInputString.getBytes(StandardCharsets.UTF_8);
                 os.write(input, 0, input.length);
             }
-
 
             int responseCode = connection.getResponseCode();
             System.out.println("Response Code: " + responseCode);
