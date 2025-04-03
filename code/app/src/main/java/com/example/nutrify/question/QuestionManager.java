@@ -12,15 +12,17 @@ public class QuestionManager extends QuestionManagement {
 
     // Method to ask a question and save both question and answer to a text file
     public String askUserQuestion(String question, String answer) {
-        // Generate a new UUID for the question-answer pair
-        UUID questionId = UUID.randomUUID();
-        saveQuestionToTextFile(questionId, question, answer);
+        // Generate a new UUID for the question-answer pair and save it
+        saveQuestionToTextFile(question, answer);
         return question;
     }
 
     // Private method to save a question and its answer to a text file
-    private void saveQuestionToTextFile(UUID questionId, String question, String answer) {
+    private void saveQuestionToTextFile(String question, String answer) {
         String filePath = "questions.txt"; // File path to save questions and answers
+
+        // Generate a new UUID for each question-answer pair
+        UUID questionId = UUID.randomUUID();
 
         try (FileWriter fileWriter = new FileWriter(filePath, true); // 'true' for appending data
              PrintWriter printWriter = new PrintWriter(fileWriter)) {
