@@ -11,8 +11,11 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.ComponentActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 import com.example.nutrify.account.AccountManager
+import com.example.nutrify.ui.AdapterClass
 import java.util.UUID
 
 class MainActivity : ComponentActivity() {
@@ -21,6 +24,8 @@ class MainActivity : ComponentActivity() {
     private lateinit var userID : UUID
 
     private var currentUsername : String = ""
+
+    private lateinit var recyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -168,5 +173,18 @@ class MainActivity : ComponentActivity() {
         textView.layoutParams = params
 
         questionContainer.addView(textView)
+    }
+
+    private fun setUpQuestionHistory() {
+        recyclerView = findViewById(R.id.questionlist)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.setHasFixedSize(true)
+        getQuestionHistory()
+    }
+
+    private fun getQuestionHistory() {
+        //get list of questions
+        //val questionList
+        //recyclerView.adapter = AdapterClass(questionList)
     }
 }
