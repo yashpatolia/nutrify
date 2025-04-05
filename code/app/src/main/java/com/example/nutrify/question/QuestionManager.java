@@ -62,13 +62,15 @@ public class QuestionManager extends QuestionManagement {
                 }
             }
 
-            List<List> questionAnswer = new ArrayList<>();
-            questionAnswer.add(question, answer);
+            //List<List> questionAnswer = new ArrayList<>();
+            //questionAnswer.add(question, answer);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return questionAnswer;
+        //return questionAnswer
+        return null;
     }
 
     // Method to delete question history

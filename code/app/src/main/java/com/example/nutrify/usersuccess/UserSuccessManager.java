@@ -1,9 +1,11 @@
-public class UserSuccessManager extends UserSuccessManagement {
-    private final AccountDatabase accountDB;
+package com.example.nutrify.usersuccess;
 
-    public UserSuccessManager(String filePath) {
-        accountDB = new AccountDatabase(filePath);
-    }
+public class UserSuccessManager extends UserSuccessManagement {
+    //private final AccountDatabase accountDB;
+
+    //public UserSuccessManager(String filePath) {
+        //accountDB = new AccountDatabase(filePath);
+    //}
 
     @Override
     public String getRatingMessage() {

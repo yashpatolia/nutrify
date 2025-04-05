@@ -1,4 +1,5 @@
 package com.example.nutrify
+import android.media.Image
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
@@ -18,12 +19,15 @@ import com.example.nutrify.account.AccountManager
 import com.example.nutrify.ui.AdapterClass
 import com.example.nutrify.expert.Expert
 import com.example.nutrify.expert.Model
+import com.example.nutrify.question.QuestionManagement
 import java.util.UUID
 
 class MainActivity : ComponentActivity() {
     private lateinit var accountManagement: AccountManagement
 
     private lateinit var expert : Expert
+
+    private lateinit var questionManagement: QuestionManagement
 
     private lateinit var userID : UUID
 
@@ -130,6 +134,7 @@ class MainActivity : ComponentActivity() {
         val questionContainer : LinearLayout = findViewById(R.id.messageContainer)
         val macroBut : Button = findViewById(R.id.macro_but)
         val profileBut : ImageView = findViewById(R.id.rightImage)
+        val historyBut : ImageView = findViewById(R.id.questionHistoryButton)
 
         macroBut.setOnClickListener {
             setContentView(R.layout.macros)
@@ -152,6 +157,11 @@ class MainActivity : ComponentActivity() {
 
         profileBut.setOnClickListener {
             setUpEdit()
+        }
+
+        historyBut.setOnClickListener {
+            setContentView(R.layout.question_history)
+            setUpQuestionHistory()
         }
     }
 
@@ -209,8 +219,8 @@ class MainActivity : ComponentActivity() {
         getQuestionHistory()
 
         backButton.setOnClickListener {
-            //setContentView(idk where we're accessing question history from LOL)
-
+            setContentView(R.layout.home)
+            setupQuestionPrompt()
         }
 
         searchButton.setOnClickListener {
@@ -222,8 +232,8 @@ class MainActivity : ComponentActivity() {
 
     private fun getQuestionHistory() {
         //get list of questions
-        //val questionList
-        //recyclerView.adapter = AdapterClass(questionList)
+        val questionList = arrayListOf("hi", "hello", "testing")
+        recyclerView.adapter = AdapterClass(questionList)
     }
 
     private fun setUpQuestionSearch(searchValue: String) {
@@ -251,18 +261,24 @@ class MainActivity : ComponentActivity() {
     private fun handleQuestionSearch(){
         val searchButton : ImageView = findViewById(R.id.search_button)
         val searchValue: EditText = findViewById(R.id.search_prompt)
+        val backButton: ImageView = findViewById(R.id.back_arrow_search)
 
         searchButton.setOnClickListener {
             setContentView(R.layout.question_history)
             setUpQuestionSearch(searchValue.text.toString())
         }
 
+        backButton.setOnClickListener {
+            setContentView(R.layout.question_history)
+            setUpQuestionHistory()
+        }
+
     }
 
     private fun getSearch(searchValue: String) {
         //get list of questions
-        //val searchResults
-        //recyclerView.adapter = AdapterClass(searchResults)
+        val searchResults = arrayListOf("hi", "hello")
+        recyclerView.adapter = AdapterClass(searchResults)
     }
 
 

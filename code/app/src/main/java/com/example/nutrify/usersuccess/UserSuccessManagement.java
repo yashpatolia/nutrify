@@ -1,14 +1,16 @@
 package com.example.nutrify.usersuccess;
 
-public abstract class UserSuccessManagement {
-    private final AccountDatabase accountDB;
+import com.example.nutrify.account.AccountDatabase;
 
-    public AccountManagement(String filePath){
-        accountDB = new AccountDatabase(filePath);
-    }
+public abstract class UserSuccessManagement {
+    //private final AccountDatabase accountDB;
+
+    //public AccountManagement(String filePath){
+        //accountDB = new AccountDatabase(filePath);
+    //}
 
     public abstract String getRatingMessage();
 
-    public abstract void rateAnswer();
+    public abstract void rateAnswer(int rating);
 
 }
