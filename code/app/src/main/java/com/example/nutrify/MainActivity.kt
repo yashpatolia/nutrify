@@ -214,6 +214,7 @@ class MainActivity : ComponentActivity() {
         recyclerView.setHasFixedSize(true)
         val backButton : ImageView = findViewById(R.id.back_arrow_qhistory)
         val searchButton : ImageView = findViewById(R.id.search_button)
+        val deleteButton : ImageView = findViewById(R.id.delete_button)
 
 
         getQuestionHistory()
@@ -228,12 +229,20 @@ class MainActivity : ComponentActivity() {
             handleQuestionSearch()
         }
 
+        deleteButton.setOnClickListener {
+
+        }
+
     }
 
     private fun getQuestionHistory() {
         //get list of questions
-        val questionList = arrayListOf("hi", "hello", "testing")
-        recyclerView.adapter = AdapterClass(questionList)
+
+        //recyclerView.adapter = AdapterClass(questionList)
+    }
+
+    private fun handleDeleteButton() {
+
     }
 
     private fun setUpQuestionSearch(searchValue: String) {
@@ -277,8 +286,7 @@ class MainActivity : ComponentActivity() {
 
     private fun getSearch(searchValue: String) {
         //get list of questions
-        val searchResults = arrayListOf("hi", "hello")
-        recyclerView.adapter = AdapterClass(searchResults)
+        //recyclerView.adapter = AdapterClass(searchResults)
     }
 
 
