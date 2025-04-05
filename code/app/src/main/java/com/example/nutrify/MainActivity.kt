@@ -1,4 +1,5 @@
 package com.example.nutrify
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
@@ -10,6 +11,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.ComponentActivity
+import androidx.core.view.setPadding
 import com.example.nutrify.account.AccountManagement
 
 import com.example.nutrify.account.AccountManager
@@ -41,6 +43,7 @@ class MainActivity : ComponentActivity() {
         val downloadsDir = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS)
         downloadsDir?.let { Log.i("Files", it.absolutePath) }
     }
+
 
     private fun setupLoginUI() {
         val usernameInput: EditText = findViewById(R.id.username_input)
@@ -102,6 +105,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+
     private fun handleCreateAccount(username: String, password: String, passwordConf: String, email: String, phone: String) {
         if (passwordConf == password) {
             Log.i("Account", "Creating Account: $username $password")
@@ -113,10 +117,12 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+
     private fun showQuestionPrompt(){
         setContentView(R.layout.home)
         setupQuestionPrompt()
     }
+
 
     private fun setupQuestionPrompt(){
         val questionInput : EditText = findViewById(R.id.question_prompt)
@@ -225,6 +231,7 @@ class MainActivity : ComponentActivity() {
         container.addView(textView)
     }
 
+
     private fun setUpMacroView(){
 
         val gramInput : EditText = findViewById(R.id.gram_input)
@@ -243,6 +250,7 @@ class MainActivity : ComponentActivity() {
                 satFatInput.text.toString(), fibreInput.text.toString(), carbInput.text.toString())
 
             Log.i("Model", "result : $result")
+            setUpResponse(result)
         }
 
         backArrow.setOnClickListener {
@@ -251,9 +259,44 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+
     private fun handleMacros(grams : String, calories : String, protein : String, fat : String, sat : String, fibre : String, carb : String) : String{
         expert = Model()
         val questionCS : String = "$grams,$calories,$protein,$fat,$sat,$fibre,$carb,"
         return expert.getExpertAnswer(questionCS)
+    }
+
+
+    private fun setUpResponse(result : String){
+        setContentView(R.layout.answer)
+
+        val backBut : ImageView = findViewById(R.id.back_arrow)
+        val againBut : Button = findViewById(R.id.ask_again)
+
+        handleResponse(result, findViewById(R.id.response))
+
+        backBut.setOnClickListener {
+            setContentView(R.layout.macros)
+            setUpMacroView()
+        }
+
+        againBut.setOnClickListener {
+            setContentView(R.layout.answer)
+            handleResponse(result, findViewById(R.id.response))
+        }
+        
+    }
+
+
+    private fun handleResponse(food: String, layout: LinearLayout){
+        val textView = TextView(this)
+        Log.i("Handle Response", food)
+        textView.text = food
+        textView.setTextColor(resources.getColor(R.color.white))
+        textView.textSize = 30f
+        textView.setPadding(15)
+        textView.gravity = Gravity.CENTER
+
+        layout.addView(textView)
     }
 }
