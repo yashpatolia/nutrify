@@ -16,7 +16,7 @@
         android:tint="@color/white"
         android:layout_alignParentStart="true"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="15dp"/>
+        android:layout_marginTop="18dp"/>
 
     <Button
         android:id="@+id/macro_but"
@@ -30,7 +30,7 @@
         android:padding="5dp"
         android:layout_toStartOf="@id/questionHistoryButton"
         android:layout_marginEnd="8dp"
-        android:layout_marginTop="15dp"/>
+        android:layout_marginTop="18dp"/>
 
     <ImageView
         android:id="@+id/questionHistoryButton"
@@ -52,7 +52,7 @@
         android:tint="@color/white"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="15dp"/>
+        android:layout_marginTop="18dp"/>
 
     <LinearLayout
         android:id="@+id/inputContainer"

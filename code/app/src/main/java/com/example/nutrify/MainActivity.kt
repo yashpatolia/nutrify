@@ -2,6 +2,8 @@ package com.example.nutrify
 import android.media.Image
 import android.os.Bundle
 import android.os.Environment
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.Gravity
 import android.view.View
@@ -13,6 +15,8 @@ import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.core.content.ContextCompat
+import androidx.core.view.setPadding
 import com.example.nutrify.account.AccountManagement
 
 import com.example.nutrify.account.AccountManager
@@ -21,6 +25,7 @@ import com.example.nutrify.expert.Expert
 import com.example.nutrify.expert.Model
 import com.example.nutrify.question.QuestionManagement
 import java.util.UUID
+import androidx.core.graphics.toColorInt
 
 class MainActivity : ComponentActivity() {
     private lateinit var accountManagement: AccountManagement
@@ -35,7 +40,9 @@ class MainActivity : ComponentActivity() {
 
     private lateinit var recyclerView: RecyclerView
 
-    private val messageQueue: ArrayDeque<TextView> = ArrayDeque();
+    private val messageQueue: ArrayDeque<TextView> = ArrayDeque()
+
+    private val attributes: ArrayDeque<EditText> = ArrayDeque()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +57,7 @@ class MainActivity : ComponentActivity() {
         val downloadsDir = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS)
         downloadsDir?.let { Log.i("Files", it.absolutePath) }
     }
+
 
     private fun setupLoginUI() {
         val usernameInput: EditText = findViewById(R.id.username_input)
@@ -111,6 +119,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+
     private fun handleCreateAccount(username: String, password: String, passwordConf: String, email: String, phone: String) {
         if (passwordConf == password) {
             Log.i("Account", "Creating Account: $username $password")
@@ -122,10 +131,12 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+
     private fun showQuestionPrompt(){
         setContentView(R.layout.home)
         setupQuestionPrompt()
     }
+
 
     private fun setupQuestionPrompt(){
         val questionInput : EditText = findViewById(R.id.question_prompt)
@@ -156,7 +167,7 @@ class MainActivity : ComponentActivity() {
         }
 
         profileBut.setOnClickListener {
-            setUpEdit()
+            setUpEdit(false)
         }
 
         historyBut.setOnClickListener {
@@ -164,6 +175,7 @@ class MainActivity : ComponentActivity() {
             setUpQuestionHistory()
         }
     }
+
 
     private fun handleQuestion(question : String){
         if(question.isNotEmpty()){
@@ -292,36 +304,112 @@ class MainActivity : ComponentActivity() {
 
 
 
-    private fun setUpEdit(){
-        setContentView(R.layout.edit_account)
+    private fun setUpEdit(editable: Boolean){
+        if(editable){
+            setContentView((R.layout.editing_account))
+        }
+        else{
+            setContentView(R.layout.edit_account)
+        }
+
         val userContainer : LinearLayout = findViewById(R.id.user_container)
         val passContainer : LinearLayout = findViewById(R.id.pass_container)
         val emailContainer : LinearLayout = findViewById(R.id.email_container)
         val phoneContainer : LinearLayout = findViewById(R.id.phone_container)
         val backArrow: ImageView = findViewById(R.id.back_arrow)
+
         val info : String = accountManagement.getAccount(userID)
         val infoSep : List<String> = info.split(",")
 
-        addAccountInfo(infoSep[1], userContainer)
-        addAccountInfo(infoSep[2], passContainer)
-        addAccountInfo(infoSep[3], emailContainer)
-        addAccountInfo(infoSep[4], phoneContainer)
+        addAccountInfo(infoSep[1], userContainer, editable, 0)
+        addAccountInfo(infoSep[2], passContainer, editable, 1)
+        addAccountInfo(infoSep[3], emailContainer, editable, 2)
+        addAccountInfo(infoSep[4], phoneContainer, editable, 3)
 
         backArrow.setOnClickListener {
             setContentView(R.layout.home)
             setupQuestionPrompt()
         }
+
+        if(editable){
+            val saveBut : Button = findViewById(R.id.save_but)
+            val newUsernameText : EditText = attributes.removeFirst()
+            val newPasswordText : EditText = attributes.removeFirst()
+            val newEmailText : EditText = attributes.removeFirst()
+            val newPhoneText : EditText = attributes.removeFirst()
+
+
+            saveBut.setOnClickListener {
+                val newUsername : String = if(newUsernameText.text.toString() == ""){
+                    newUsernameText.hint.toString()
+                } else{
+                    newUsernameText.text.toString()
+                }
+                val newPassword : String = if(newPasswordText.text.toString() == ""){
+                    newPasswordText.hint.toString()
+                } else{
+                    newPasswordText.text.toString()
+                }
+                Log.i("password", newPasswordText.text.toString())
+                val newEmail : String = if(newEmailText.text.toString() == ""){
+                    newEmailText.hint.toString()
+                } else{
+                    newEmailText.text.toString()
+                }
+                val newPhone : String = if(newPhoneText.text.toString() == ""){
+                    newPhoneText.hint.toString()
+                } else{
+                    newPhoneText.text.toString()
+                }
+
+                Log.i("Account", "$newUsername $newPassword $newEmail $newPhone")
+                if(accountManagement.editAccount(userID, newUsername, newPassword, newEmail, newPhone)){
+                    Log.i("Account", "Update successful")
+                    setUpEdit(false)
+
+
+                }else{
+                    Log.i("Account", "Update failed")
+                }
+
+            }
+        }
+        else{
+            val editBut : Button = findViewById(R.id.edit)
+            editBut.setOnClickListener {
+                setUpEdit(true)
+            }
+        }
+
     }
 
 
-    private fun addAccountInfo(info : String, container : LinearLayout){
-        val textView = TextView(this)
-        textView.text = info
-        textView.setTextColor(resources.getColor(R. color. white))
-        textView.textSize = 18f
 
-        container.addView(textView)
+    private fun addAccountInfo(info : String, container : LinearLayout, editable : Boolean, attribute : Int){
+        if(editable){
+            val editTextView = EditText(this)
+            editTextView.hint = info
+            editTextView.width = 650
+            editTextView.textSize = 20f
+            editTextView.setHintTextColor(ContextCompat.getColor(this, R.color.white))
+            editTextView.setTextColor(ContextCompat.getColor(this, R.color.white))
+            editTextView.background = ContextCompat.getDrawable(this, R.drawable.rounded_corner)
+            editTextView.setBackgroundColor("#4c4c4c".toColorInt())
+            editTextView.setPadding(15)
+            attributes.add(editTextView)
+            container.addView(editTextView)
+        }
+        else{
+            val textView = TextView(this)
+            textView.text = info
+            textView.setTextColor(ContextCompat.getColor(this, R.color.white))
+            textView.textSize = 20f
+            textView.setPadding(15)
+            container.addView(textView)
+        }
+
     }
+
 
     private fun setUpMacroView(){
 
@@ -341,6 +429,7 @@ class MainActivity : ComponentActivity() {
                 satFatInput.text.toString(), fibreInput.text.toString(), carbInput.text.toString())
 
             Log.i("Model", "result : $result")
+            setUpResponse(result)
         }
 
         backArrow.setOnClickListener {
@@ -349,9 +438,44 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+
     private fun handleMacros(grams : String, calories : String, protein : String, fat : String, sat : String, fibre : String, carb : String) : String{
         expert = Model()
         val questionCS : String = "$grams,$calories,$protein,$fat,$sat,$fibre,$carb,"
         return expert.getExpertAnswer(questionCS)
+    }
+
+
+    private fun setUpResponse(result : String){
+        setContentView(R.layout.answer)
+
+        val backBut : ImageView = findViewById(R.id.back_arrow)
+        val againBut : Button = findViewById(R.id.ask_again)
+
+        handleResponse(result, findViewById(R.id.response))
+
+        backBut.setOnClickListener {
+            setContentView(R.layout.macros)
+            setUpMacroView()
+        }
+
+        againBut.setOnClickListener {
+            setContentView(R.layout.answer)
+            handleResponse(result, findViewById(R.id.response))
+        }
+
+    }
+
+
+    private fun handleResponse(food: String, layout: LinearLayout){
+        val textView = TextView(this)
+        Log.i("Handle Response", food)
+        textView.text = food
+        textView.setTextColor(resources.getColor(R.color.white))
+        textView.textSize = 30f
+        textView.setPadding(15)
+        textView.gravity = Gravity.CENTER
+
+        layout.addView(textView)
     }
 }

@@ -112,7 +112,7 @@ public class AccountDatabase {
     public boolean editAccount(UserInformation userInfo){
         String content = retrieveExceptEdit(userInfo.getUserID());
         UUID userID = userInfo.getUserID();
-        content += "\n" + userID.toString() + "," +
+        content +=  userID.toString() + "," +
                 userInfo.getUserUsername() + "," +
                 userInfo.getUserPassword() + "," +
                 userInfo.getUserEmail() + "," +
