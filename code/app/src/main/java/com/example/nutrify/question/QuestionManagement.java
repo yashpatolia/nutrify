@@ -1,3 +1,5 @@
+package com.example.nutrify.question;
+
 import java.util.ArrayList;
 
 public abstract class QuestionManagement {

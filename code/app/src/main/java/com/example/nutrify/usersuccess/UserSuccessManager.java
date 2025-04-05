@@ -1,3 +1,5 @@
+package com.example.nutrify.usersuccess;
+
 public class UserSuccessManager extends UserSuccessManagement {
     private final AccountDatabase accountDB;
 
