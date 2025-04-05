@@ -49,3 +49,5 @@ output.json
 
 #model
 /model/.myenv/
+model/myenv/
+model/venv/
