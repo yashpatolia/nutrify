@@ -1,7 +1,8 @@
 package com.example.nutrify
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Environment
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.Gravity
 import android.view.View
@@ -11,6 +12,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.ComponentActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.setPadding
 import com.example.nutrify.account.AccountManagement
 
@@ -18,6 +20,7 @@ import com.example.nutrify.account.AccountManager
 import com.example.nutrify.expert.Expert
 import com.example.nutrify.expert.Model
 import java.util.UUID
+import androidx.core.graphics.toColorInt
 
 class MainActivity : ComponentActivity() {
     private lateinit var accountManagement: AccountManagement
@@ -28,7 +31,9 @@ class MainActivity : ComponentActivity() {
 
     private var currentUsername : String = ""
 
-    private val messageQueue: ArrayDeque<TextView> = ArrayDeque();
+    private val messageQueue: ArrayDeque<TextView> = ArrayDeque()
+
+    private val attributes: ArrayDeque<EditText> = ArrayDeque()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -152,9 +157,10 @@ class MainActivity : ComponentActivity() {
         }
 
         profileBut.setOnClickListener {
-            setUpEdit()
+            setUpEdit(false)
         }
     }
+
 
     private fun handleQuestion(question : String){
         if(question.isNotEmpty()){
@@ -200,35 +206,110 @@ class MainActivity : ComponentActivity() {
     }
 
 
-    private fun setUpEdit(){
-        setContentView(R.layout.edit_account)
+    private fun setUpEdit(editable: Boolean){
+        if(editable){
+            setContentView((R.layout.editing_account))
+        }
+        else{
+            setContentView(R.layout.edit_account)
+        }
+
         val userContainer : LinearLayout = findViewById(R.id.user_container)
         val passContainer : LinearLayout = findViewById(R.id.pass_container)
         val emailContainer : LinearLayout = findViewById(R.id.email_container)
         val phoneContainer : LinearLayout = findViewById(R.id.phone_container)
         val backArrow: ImageView = findViewById(R.id.back_arrow)
+
         val info : String = accountManagement.getAccount(userID)
         val infoSep : List<String> = info.split(",")
 
-        addAccountInfo(infoSep[1], userContainer)
-        addAccountInfo(infoSep[2], passContainer)
-        addAccountInfo(infoSep[3], emailContainer)
-        addAccountInfo(infoSep[4], phoneContainer)
+        addAccountInfo(infoSep[1], userContainer, editable, 0)
+        addAccountInfo(infoSep[2], passContainer, editable, 1)
+        addAccountInfo(infoSep[3], emailContainer, editable, 2)
+        addAccountInfo(infoSep[4], phoneContainer, editable, 3)
 
         backArrow.setOnClickListener {
             setContentView(R.layout.home)
             setupQuestionPrompt()
         }
+
+        if(editable){
+            val saveBut : Button = findViewById(R.id.save_but)
+            val newUsernameText : EditText = attributes.removeFirst()
+            val newPasswordText : EditText = attributes.removeFirst()
+            val newEmailText : EditText = attributes.removeFirst()
+            val newPhoneText : EditText = attributes.removeFirst()
+
+
+            saveBut.setOnClickListener {
+                val newUsername : String = if(newUsernameText.text.toString() == ""){
+                    newUsernameText.hint.toString()
+                } else{
+                    newUsernameText.text.toString()
+                }
+                val newPassword : String = if(newPasswordText.text.toString() == ""){
+                    newPasswordText.hint.toString()
+                } else{
+                    newPasswordText.text.toString()
+                }
+                Log.i("password", newPasswordText.text.toString())
+                val newEmail : String = if(newEmailText.text.toString() == ""){
+                    newEmailText.hint.toString()
+                } else{
+                    newEmailText.text.toString()
+                }
+                val newPhone : String = if(newPhoneText.text.toString() == ""){
+                    newPhoneText.hint.toString()
+                } else{
+                    newPhoneText.text.toString()
+                }
+
+                Log.i("Account", "$newUsername $newPassword $newEmail $newPhone")
+                if(accountManagement.editAccount(userID, newUsername, newPassword, newEmail, newPhone)){
+                    Log.i("Account", "Update successful")
+                    setUpEdit(false)
+
+
+                }else{
+                    Log.i("Account", "Update failed")
+                }
+
+            }
+        }
+        else{
+            val editBut : Button = findViewById(R.id.edit)
+            editBut.setOnClickListener {
+                setUpEdit(true)
+            }
+        }
+
     }
 
 
-    private fun addAccountInfo(info : String, container : LinearLayout){
-        val textView = TextView(this)
-        textView.text = info
-        textView.setTextColor(resources.getColor(R. color. white))
-        textView.textSize = 18f
 
-        container.addView(textView)
+    private fun addAccountInfo(info : String, container : LinearLayout, editable : Boolean, attribute : Int){
+        if(editable){
+            val editTextView = EditText(this)
+            editTextView.hint = info
+            editTextView.width = 650
+            editTextView.textSize = 20f
+            editTextView.setHintTextColor(ContextCompat.getColor(this, R.color.white))
+            editTextView.setTextColor(ContextCompat.getColor(this, R.color.white))
+            editTextView.background = ContextCompat.getDrawable(this, R.drawable.rounded_corner)
+            editTextView.setBackgroundColor("#4c4c4c".toColorInt())
+            editTextView.setPadding(15)
+            attributes.add(editTextView)
+            container.addView(editTextView)
+        }
+        else{
+            val textView = TextView(this)
+            textView.text = info
+            textView.setTextColor(ContextCompat.getColor(this, R.color.white))
+            textView.textSize = 20f
+            textView.setPadding(15)
+            container.addView(textView)
+        }
+
     }
 
 
@@ -284,7 +365,7 @@ class MainActivity : ComponentActivity() {
             setContentView(R.layout.answer)
             handleResponse(result, findViewById(R.id.response))
         }
-        
+
     }
 
 
