@@ -13,7 +13,7 @@ public abstract class QuestionManagement {
     // }
 
     // Abstract method for searching history
-    public abstract List<List> searchHistory(String search);
+    public abstract List<List<String>> searchHistory(String search);
 
     // Abstract method for displaying page
     public abstract void displayPage();

@@ -1,6 +1,5 @@
 package com.example.nutrify
 import android.content.Intent
-import android.media.Image
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
