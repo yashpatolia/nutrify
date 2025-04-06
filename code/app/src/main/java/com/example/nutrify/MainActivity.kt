@@ -66,8 +66,8 @@ class MainActivity : ComponentActivity() {
         questionManagement = QuestionManager()
         questionList = arrayListOf<QuestionAnswer>()
         searchResults = arrayListOf<QuestionAnswer>()
-        questionAnswer = arrayListOf(arrayListOf("question1", "answer1"), arrayListOf("question2", "answer2"))
-        search = arrayListOf(arrayListOf("question1", "answer1"))
+        questionAnswer = arrayListOf(arrayListOf("question1", "question2"), arrayListOf("answer1", "answer2"), arrayListOf("0", "1"))
+        search = arrayListOf(arrayListOf("question1"), arrayListOf("answer1"), arrayListOf("0"))
 
         setupLoginUI()
     }
@@ -267,12 +267,12 @@ class MainActivity : ComponentActivity() {
         //get list of questions
         questionList.clear()
         //val questionAnswer = questionManagement.searchHistory(" ") // make a method to return all questions?
-        for (i in questionAnswer.indices) {
-            val questionAnswerObject = QuestionAnswer(questionAnswer[i][0], questionAnswer[i][1], 0)
+        for (i in questionAnswer[0].indices) {
+            val questionAnswerObject = QuestionAnswer(questionAnswer[0][i], questionAnswer[1][i], questionAnswer[2][i])
             questionList.add(questionAnswerObject)
         }
 
-        var adapter = AdapterClass(questionList)
+        var adapter = AdapterClass(questionList, questionManagement)
         recyclerView.adapter = adapter
 
         adapter.onItemClick = {
@@ -327,12 +327,12 @@ class MainActivity : ComponentActivity() {
         searchResults.clear()
         //val search = questionManagement.searchHistory(searchValue)
 
-        for (i in search.indices) {
-            val questionAnswerObject = QuestionAnswer(search[i][0], search[i][1], 0)
+        for (i in search[0].indices) {
+            val questionAnswerObject = QuestionAnswer(search[0][i], search[1][i], search[2][i])
             searchResults.add(questionAnswerObject)
         }
 
-        var adapter = AdapterClass(searchResults)
+        var adapter = AdapterClass(searchResults, questionManagement)
         searchRecyclerView.adapter = adapter
 
         adapter.onItemClick = {

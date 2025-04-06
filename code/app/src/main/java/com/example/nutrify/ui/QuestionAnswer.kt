@@ -3,11 +3,11 @@ package com.example.nutrify.ui
 import android.os.Parcel
 import android.os.Parcelable
 
-data class QuestionAnswer(var question: String, var answer: String, var UUID: Int) : Parcelable{
+data class QuestionAnswer(var question: String, var answer: String, var UUID: String) : Parcelable{
     constructor(parcel: Parcel) : this(
         parcel.readString()!!,
         parcel.readString()!!,
-        parcel.readInt()
+        parcel.readString()!!
     ) {
     }
 
@@ -18,7 +18,7 @@ data class QuestionAnswer(var question: String, var answer: String, var UUID: In
     override fun writeToParcel(dest: Parcel, flags: Int) {
         dest.writeString(question)
         dest.writeString(answer)
-        dest.writeInt(UUID)
+        dest.writeString(UUID)
     }
 
     companion object CREATOR : Parcelable.Creator<QuestionAnswer> {
