@@ -1,4 +1,5 @@
 package com.example.nutrify
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.Environment
@@ -105,9 +106,22 @@ class MainActivity : ComponentActivity() {
 
         } else {
             Log.i("Login Attempt", "Failure")
+            handleLoginFail()
+
         }
     }
 
+    @SuppressLint("SetTextI18n")
+    private fun handleLoginFail(){
+        val textView = TextView(this)
+        textView.text = "Incorrect username or password"
+        textView.width = 100
+        textView.textSize = 18f
+        textView.setHintTextColor(ContextCompat.getColor(this, R.color.white))
+        textView.setTextColor(ContextCompat.getColor(this, R.color.white))
+        textView.gravity = Gravity.CENTER
+        findViewById<LinearLayout>(R.id.login_fail).addView(textView)
+    }
 
     private fun showCreateAccountUI() {
         setContentView(R.layout.create_account)
@@ -275,6 +289,7 @@ class MainActivity : ComponentActivity() {
 
     }
 
+
     private fun setUpQuestionSearch(searchValue: String) {
         searchRecyclerView = findViewById(R.id.questionlist)
         searchRecyclerView.layoutManager = LinearLayoutManager(this)
@@ -297,6 +312,7 @@ class MainActivity : ComponentActivity() {
 
     }
 
+
     private fun handleQuestionSearch(){
         val searchButton : ImageView = findViewById(R.id.search_button)
         val searchValue: EditText = findViewById(R.id.search_prompt)
@@ -313,6 +329,7 @@ class MainActivity : ComponentActivity() {
         }
 
     }
+
 
     private fun getSearch(searchValue: String) {
         //get list of questions
@@ -333,8 +350,6 @@ class MainActivity : ComponentActivity() {
             startActivity(intent)
         }
     }
-
-
 
 
     private fun setUpEdit(editable: Boolean){
@@ -415,7 +430,6 @@ class MainActivity : ComponentActivity() {
         }
 
     }
-
 
 
     private fun addAccountInfo(info : String, container : LinearLayout, editable : Boolean, attribute : Int){
