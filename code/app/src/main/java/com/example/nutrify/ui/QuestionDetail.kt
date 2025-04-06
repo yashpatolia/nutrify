@@ -12,8 +12,8 @@ class QuestionDetail : AppCompatActivity() {
 
         val getData = intent.getParcelableExtra<QuestionAnswer>("android")
         if (getData != null) {
-            val pastQuestion : TextView = findViewById(R.id.incomingHistory)
-            val pastAnswer : TextView = findViewById(R.id.outgoingHistory)
+            val pastQuestion : TextView = findViewById(R.id.outgoingHistory)
+            val pastAnswer : TextView = findViewById(R.id.incomingHistory)
 
             pastQuestion.text = getData.question
             pastAnswer.text = getData.answer

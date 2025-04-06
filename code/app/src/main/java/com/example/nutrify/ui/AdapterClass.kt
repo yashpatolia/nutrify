@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import com.example.nutrify.R
 
@@ -27,9 +28,21 @@ class AdapterClass(private val questionList: ArrayList<QuestionAnswer>): Recycle
         holder.itemView.setOnClickListener {
             onItemClick?.invoke(currentItem)
         }
+
+        holder.deleteButton.setOnClickListener{
+            deleteItem(position)
+        }
+    }
+
+    private fun deleteItem(position : Int) {
+        questionList.removeAt(position)
+        notifyItemRemoved(position)
+        notifyItemRangeChanged(position, questionList.size)
+        //delete question from database?
     }
 
     class ViewHolderClass(itemView: View): RecyclerView.ViewHolder(itemView) {
         val questionItem:TextView = itemView.findViewById(R.id.questionhistoryelement)
+        val deleteButton : Button = itemView.findViewById(R.id.deletequestion)
     }
 }

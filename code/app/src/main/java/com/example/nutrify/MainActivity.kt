@@ -259,7 +259,7 @@ class MainActivity : ComponentActivity() {
         val questionAnswer = arrayListOf(arrayListOf("question1", "answer1"), arrayListOf("question2", "answer2"))
 
         for (i in questionAnswer.indices) {
-            val questionAnswerObject = QuestionAnswer(questionAnswer[i][0].toString(), questionAnswer[i][1].toString(), 0)
+            val questionAnswerObject = QuestionAnswer(questionAnswer[i][0], questionAnswer[i][1], 0)
             questionList.add(questionAnswerObject)
         }
 
@@ -323,11 +323,11 @@ class MainActivity : ComponentActivity() {
         val search = arrayListOf(arrayListOf("question1", "answer1"))
 
         for (i in search.indices) {
-            val questionAnswerObject = QuestionAnswer(search[i][0].toString(), search[i][1].toString(), 0)
+            val questionAnswerObject = QuestionAnswer(search[i][0], search[i][1], 0)
             searchResults.add(questionAnswerObject)
         }
 
-        adapter = AdapterClass(questionList)
+        adapter = AdapterClass(searchResults)
         recyclerView.adapter = adapter
 
         adapter.onItemClick = {
