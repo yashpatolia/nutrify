@@ -1,6 +1,7 @@
 package com.example.nutrify.question;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public abstract class QuestionManagement {
     // // Declare field for the database service
@@ -12,7 +13,7 @@ public abstract class QuestionManagement {
     // }
 
     // Abstract method for searching history
-    public abstract ArrayList<String> searchHistory(String search);
+    public abstract List<List> searchHistory(String search);
 
     // Abstract method for displaying page
     public abstract void displayPage();

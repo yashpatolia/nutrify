@@ -62,35 +62,36 @@ public class QuestionManager extends QuestionManagement {
                 }
             }
 
-            //List<List> questionAnswer = new ArrayList<>();
-            //questionAnswer.add(question, answer);
+            List<List> questionAnswer = new ArrayList<>();
+            questionAnswer.add(questionID, question, answer);
+            return questionAnswer;
 
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        //return questionAnswer
         return null;
     }
 
     // Method to delete question history
     public void deleteHistory(String questionId) {
 
-        File questionHistory = new File("questions.txt"); // Reading from the text file with question history, questions.txt
-        File newQuestionHistory = new File("updatedQuestions.txt"); // A new file where the updates question history will be stored
+        File questionHistory = new File("questions.txt"); // Reading from the text file with question history,
+                                                          // questions.txt
+        File newQuestionHistory = new File("updatedQuestions.txt"); // A new file where the updates question history
+                                                                    // will be stored
 
-        try(
+        try (
                 BufferedReader br = new BufferedReader(new FileReader(questionHistory));
-                BufferedWriter bw = new BufferedWriter(new FileWriter(newQuestionHistory));)
-        {
+                BufferedWriter bw = new BufferedWriter(new FileWriter(newQuestionHistory));) {
             String line;
 
-            while((line = br.readLine()) != null) {
+            while ((line = br.readLine()) != null) {
 
                 String[] columns = line.split("~");
                 if (columns.length >= 3) {
 
-                    if(!columns[0].equals(questionId)) {
+                    if (!columns[0].equals(questionId)) {
                         bw.write(line);
                         bw.newLine();
                     }
@@ -99,14 +100,13 @@ public class QuestionManager extends QuestionManagement {
 
             }
 
-            if(!questionHistory.delete())
+            if (!questionHistory.delete())
                 throw new IOException("Failed to delete original question history file");
 
-            if(!newQuestionHistory.renameTo(questionHistory))
+            if (!newQuestionHistory.renameTo(questionHistory))
                 throw new IOException("Failed to rename new question history file");
 
-        }
-        catch(IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
