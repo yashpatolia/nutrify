@@ -63,7 +63,9 @@ public class QuestionManager extends QuestionManagement {
             }
 
             List<List<String>> questionAnswer = new ArrayList<>();
-            questionAnswer.add(questionID, question, answer);
+            questionAnswer.add(questionID);
+            questionAnswer.add(question);
+            questionAnswer.add(answer);
             return questionAnswer;
 
         } catch (IOException e) {
