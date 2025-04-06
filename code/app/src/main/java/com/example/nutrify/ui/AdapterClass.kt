@@ -7,8 +7,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import com.example.nutrify.R
+import com.example.nutrify.question.QuestionManagement
+import com.example.nutrify.question.QuestionManager
 
-class AdapterClass(private val questionList: ArrayList<QuestionAnswer>): RecyclerView.Adapter<AdapterClass.ViewHolderClass>() {
+class AdapterClass(private val questionList: ArrayList<QuestionAnswer>, val questionManagement: QuestionManagement): RecyclerView.Adapter<AdapterClass.ViewHolderClass>() {
 
     var onItemClick: ((QuestionAnswer) -> Unit)? = null
 
@@ -31,6 +33,7 @@ class AdapterClass(private val questionList: ArrayList<QuestionAnswer>): Recycle
 
         holder.deleteButton.setOnClickListener{
             deleteItem(position)
+            questionManagement.deleteHistory(currentItem.UUID)
         }
     }
 

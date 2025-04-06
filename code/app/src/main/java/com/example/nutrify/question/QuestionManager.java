@@ -35,7 +35,7 @@ public class QuestionManager extends QuestionManagement {
     }
 
     // Method to retrieve search history
-    public ArrayList<String> searchHistory(String search) {
+    public List<List<String>> searchHistory(String search) {
         String filePath = "questions.txt"; // Reading from the correct file (questions.txt)
 
         List<String> questionID = new ArrayList<>();
@@ -62,9 +62,9 @@ public class QuestionManager extends QuestionManagement {
                 }
             }
 
-            List<List> questionAnswer = new ArrayList<>();
-            questionAnswer.add(questionID, question, answer);
-            return questionAnswer;
+            //List<List> questionAnswer = new ArrayList<>();
+            //questionAnswer.add(questionID, question, answer);
+            //return questionAnswer;
 
         } catch (IOException e) {
             e.printStackTrace();
