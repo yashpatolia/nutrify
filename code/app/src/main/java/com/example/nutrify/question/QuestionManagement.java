@@ -2,6 +2,7 @@ package com.example.nutrify.question;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public abstract class QuestionManagement {
     // // Declare field for the database service
@@ -19,7 +20,7 @@ public abstract class QuestionManagement {
     public abstract void displayPage();
 
     // Abstract method for asking a question
-    public abstract String askUserQuestion(String question, String answer);
+    public abstract String askUserQuestion(String question, String answer, UUID userID);
 
     // Abstract method for deleting question history
     public abstract void deleteHistory(String questionId);
