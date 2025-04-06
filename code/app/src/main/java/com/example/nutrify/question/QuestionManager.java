@@ -8,9 +8,9 @@ import java.util.UUID;
 public class QuestionManager extends QuestionManagement {
 
     // Method to ask a question and save both question and answer to a text file
-    public String askUserQuestion(String question, String answer) {
+    public String askUserQuestion(String question, String answer, UUID userID) {
         // Generate a new UUID for the question-answer pair and save it
-        saveQuestionToTextFile(question, answer);
+        saveQuestionToTextFile(question, answer, userID);
         return question;
     }
 
@@ -65,9 +65,7 @@ public class QuestionManager extends QuestionManagement {
             }
 
             List<List<String>> questionAnswer = new ArrayList<>();
-            questionAnswer.add(questionID);
-            questionAnswer.add(question);
-            questionAnswer.add(answer);
+            questionAnswer.add(questionID, question, answer);
             return questionAnswer;
 
         } catch (IOException e) {
