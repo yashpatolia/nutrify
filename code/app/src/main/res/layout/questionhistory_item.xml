@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@android:color/transparent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/questionhistoryelement"
+            android:text="lakjdf;lk"
+            android:textColor="@color/white"
+            android:textSize="24dp"
+            android:layout_margin="25dp"/>
+
+        <Button
+            android:id="@+id/deletequestion"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/delete_button"
+            android:tint="@color/white"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="end"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="20dp"/>
+
+
+</androidx.cardview.widget.CardView>

@@ -12,13 +12,13 @@ public abstract class QuestionManagement {
     // }
 
     // Abstract method for searching history
-    public abstract ArrayList<String> searchHistory();
+    public abstract ArrayList<String> searchHistory(String search);
 
     // Abstract method for displaying page
     public abstract void displayPage();
 
     // Abstract method for asking a question
-    public abstract String askUserQuestion(String question);
+    public abstract String askUserQuestion(String question, String answer);
 
     // Abstract method for deleting question history
     public abstract void deleteHistory(String questionId);

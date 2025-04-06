@@ -14,6 +14,9 @@ activityCompose = "1.8.0"
 composeBom = "2024.09.00"
 onnxruntimeMobile = "1.12.0"
 pmmlEvaluatorMetro = "1.7.2"
+recyclerview = "1.4.0"
+cardview = "1.0.0"
+appcompat = "1.7.0"
 
 
 [libraries]
@@ -35,6 +38,9 @@ androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 onnxruntime-mobile = { module = "com.microsoft.onnxruntime:onnxruntime-mobile", version.ref = "onnxruntimeMobile" }
 pmml-evaluator-metro = { module = "org.jpmml:pmml-evaluator-metro", version.ref = "pmmlEvaluatorMetro" }
+androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
+androidx-cardview = { group = "androidx.cardview", name = "cardview", version.ref = "cardview" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 
 
 [plugins]

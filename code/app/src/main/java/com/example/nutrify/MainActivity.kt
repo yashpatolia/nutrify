@@ -1,4 +1,6 @@
 package com.example.nutrify
+import android.content.Intent
+import android.media.Image
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
@@ -10,34 +12,54 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.ComponentActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.core.content.ContextCompat
 import androidx.core.view.setPadding
 import com.example.nutrify.account.AccountManagement
 
 import com.example.nutrify.account.AccountManager
+import com.example.nutrify.ui.AdapterClass
 import com.example.nutrify.expert.Expert
 import com.example.nutrify.expert.Model
+import com.example.nutrify.question.QuestionManagement
 import java.util.UUID
 import androidx.core.graphics.toColorInt
+import com.example.nutrify.question.QuestionManager
+import com.example.nutrify.ui.QuestionAnswer
+import com.example.nutrify.ui.QuestionDetail
 
 class MainActivity : ComponentActivity() {
     private lateinit var accountManagement: AccountManagement
 
     private lateinit var expert : Expert
 
+    private lateinit var questionManagement: QuestionManagement
+
     private lateinit var userID : UUID
 
     private var currentUsername : String = ""
 
+    private lateinit var recyclerView: RecyclerView
+
     private val messageQueue: ArrayDeque<TextView> = ArrayDeque()
 
     private val attributes: ArrayDeque<EditText> = ArrayDeque()
+
+    private lateinit var questionList : ArrayList<QuestionAnswer>
+
+    private lateinit var searchResults : ArrayList<QuestionAnswer>
+
+    private lateinit var adapter : AdapterClass
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initializeLogging()
         accountManagement = AccountManager("/storage/emulated/0/Android/data/com.example.nutrify/files/Download/account.csv")
+        questionManagement = QuestionManager()
+        questionList = arrayListOf<QuestionAnswer>()
+        searchResults = arrayListOf<QuestionAnswer>()
         setupLoginUI()
     }
 
@@ -134,6 +156,7 @@ class MainActivity : ComponentActivity() {
         val questionContainer : LinearLayout = findViewById(R.id.messageContainer)
         val macroBut : Button = findViewById(R.id.macro_but)
         val profileBut : ImageView = findViewById(R.id.rightImage)
+        val historyBut : ImageView = findViewById(R.id.questionHistoryButton)
 
         macroBut.setOnClickListener {
             setContentView(R.layout.macros)
@@ -156,6 +179,11 @@ class MainActivity : ComponentActivity() {
 
         profileBut.setOnClickListener {
             setUpEdit(false)
+        }
+
+        historyBut.setOnClickListener {
+            setContentView(R.layout.question_history)
+            setUpQuestionHistory()
         }
     }
 
@@ -202,6 +230,114 @@ class MainActivity : ComponentActivity() {
 
         questionContainer.addView(textView)
     }
+
+    private fun setUpQuestionHistory() {
+        recyclerView = findViewById(R.id.questionlist)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.setHasFixedSize(true)
+        val backButton : ImageView = findViewById(R.id.back_arrow_qhistory)
+        val searchButton : ImageView = findViewById(R.id.search_button)
+
+
+        getQuestionHistory()
+
+        backButton.setOnClickListener {
+            setContentView(R.layout.home)
+            setupQuestionPrompt()
+        }
+
+        searchButton.setOnClickListener {
+            setContentView(R.layout.search)
+            handleQuestionSearch()
+        }
+
+    }
+
+    private fun getQuestionHistory() {
+        //get list of questions
+        //val questionAnswer = questionManagement.searchHistory(" ") // make a method to return all questions?
+        val questionAnswer = arrayListOf(arrayListOf("question1", "answer1"), arrayListOf("question2", "answer2"))
+
+        for (i in questionAnswer.indices) {
+            val questionAnswerObject = QuestionAnswer(questionAnswer[i][0], questionAnswer[i][1], 0)
+            questionList.add(questionAnswerObject)
+        }
+
+        adapter = AdapterClass(questionList)
+        recyclerView.adapter = adapter
+
+        adapter.onItemClick = {
+            val intent = Intent(this, QuestionDetail::class.java)
+            intent.putExtra("android", it)
+            startActivity(intent)
+        }
+
+    }
+
+    private fun handleDeleteButton() {
+
+    }
+
+    private fun setUpQuestionSearch(searchValue: String) {
+        recyclerView = findViewById(R.id.questionlist)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.setHasFixedSize(true)
+        val backButton : ImageView = findViewById(R.id.back_arrow_qhistory)
+        val searchButton : ImageView = findViewById(R.id.search_button)
+
+        getSearch(searchValue)
+
+        backButton.setOnClickListener {
+
+            setUpQuestionHistory()
+
+        }
+
+        searchButton.setOnClickListener {
+            setContentView(R.layout.search)
+            handleQuestionSearch()
+        }
+
+    }
+
+    private fun handleQuestionSearch(){
+        val searchButton : ImageView = findViewById(R.id.search_button)
+        val searchValue: EditText = findViewById(R.id.search_prompt)
+        val backButton: ImageView = findViewById(R.id.back_arrow_search)
+
+        searchButton.setOnClickListener {
+            setContentView(R.layout.question_history)
+            setUpQuestionSearch(searchValue.text.toString())
+        }
+
+        backButton.setOnClickListener {
+            setContentView(R.layout.question_history)
+            setUpQuestionHistory()
+        }
+
+    }
+
+    private fun getSearch(searchValue: String) {
+        //get list of questions
+        //val search = questionManagement.searchHistory(searchValue)
+        val search = arrayListOf(arrayListOf("question1", "answer1"))
+
+        for (i in search.indices) {
+            val questionAnswerObject = QuestionAnswer(search[i][0], search[i][1], 0)
+            searchResults.add(questionAnswerObject)
+        }
+
+        adapter = AdapterClass(searchResults)
+        recyclerView.adapter = adapter
+
+        adapter.onItemClick = {
+            val intent = Intent(this, QuestionDetail::class.java)
+            intent.putExtra("android", it)
+            startActivity(intent)
+        }
+    }
+
+
 
 
     private fun setUpEdit(editable: Boolean){
