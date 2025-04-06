@@ -42,6 +42,8 @@ class MainActivity : ComponentActivity() {
 
     private lateinit var recyclerView: RecyclerView
 
+    private lateinit var searchRecyclerView: RecyclerView
+
     private val messageQueue: ArrayDeque<TextView> = ArrayDeque()
 
     private val attributes: ArrayDeque<EditText> = ArrayDeque()
@@ -50,7 +52,11 @@ class MainActivity : ComponentActivity() {
 
     private lateinit var searchResults : ArrayList<QuestionAnswer>
 
-    private lateinit var adapter : AdapterClass
+    //private lateinit var adapter : AdapterClass
+
+    private lateinit var questionAnswer : ArrayList<ArrayList<String>>
+
+    private lateinit var search : ArrayList<ArrayList<String>>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,6 +66,9 @@ class MainActivity : ComponentActivity() {
         questionManagement = QuestionManager()
         questionList = arrayListOf<QuestionAnswer>()
         searchResults = arrayListOf<QuestionAnswer>()
+        questionAnswer = arrayListOf(arrayListOf("question1", "answer1"), arrayListOf("question2", "answer2"))
+        search = arrayListOf(arrayListOf("question1", "answer1"))
+
         setupLoginUI()
     }
 
@@ -235,6 +244,7 @@ class MainActivity : ComponentActivity() {
         recyclerView = findViewById(R.id.questionlist)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
+
         val backButton : ImageView = findViewById(R.id.back_arrow_qhistory)
         val searchButton : ImageView = findViewById(R.id.search_button)
 
@@ -255,15 +265,14 @@ class MainActivity : ComponentActivity() {
 
     private fun getQuestionHistory() {
         //get list of questions
+        questionList.clear()
         //val questionAnswer = questionManagement.searchHistory(" ") // make a method to return all questions?
-        val questionAnswer = arrayListOf(arrayListOf("question1", "answer1"), arrayListOf("question2", "answer2"))
-
         for (i in questionAnswer.indices) {
             val questionAnswerObject = QuestionAnswer(questionAnswer[i][0], questionAnswer[i][1], 0)
             questionList.add(questionAnswerObject)
         }
 
-        adapter = AdapterClass(questionList)
+        var adapter = AdapterClass(questionList)
         recyclerView.adapter = adapter
 
         adapter.onItemClick = {
@@ -274,14 +283,10 @@ class MainActivity : ComponentActivity() {
 
     }
 
-    private fun handleDeleteButton() {
-
-    }
-
     private fun setUpQuestionSearch(searchValue: String) {
-        recyclerView = findViewById(R.id.questionlist)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.setHasFixedSize(true)
+        searchRecyclerView = findViewById(R.id.questionlist)
+        searchRecyclerView.layoutManager = LinearLayoutManager(this)
+        searchRecyclerView.setHasFixedSize(true)
         val backButton : ImageView = findViewById(R.id.back_arrow_qhistory)
         val searchButton : ImageView = findViewById(R.id.search_button)
 
@@ -319,16 +324,16 @@ class MainActivity : ComponentActivity() {
 
     private fun getSearch(searchValue: String) {
         //get list of questions
+        searchResults.clear()
         //val search = questionManagement.searchHistory(searchValue)
-        val search = arrayListOf(arrayListOf("question1", "answer1"))
 
         for (i in search.indices) {
             val questionAnswerObject = QuestionAnswer(search[i][0], search[i][1], 0)
             searchResults.add(questionAnswerObject)
         }
 
-        adapter = AdapterClass(searchResults)
-        recyclerView.adapter = adapter
+        var adapter = AdapterClass(searchResults)
+        searchRecyclerView.adapter = adapter
 
         adapter.onItemClick = {
             val intent = Intent(this, QuestionDetail::class.java)
