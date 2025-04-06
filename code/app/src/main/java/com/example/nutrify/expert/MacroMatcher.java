@@ -45,7 +45,8 @@ public class MacroMatcher implements Expert {
             );
 
             result = map.containsKey("recommendation") ? map.get("recommendation") : "No recommendation found.";
-            return result;
+            String food = result.substring(0, result.indexOf('('));
+            return food;
 
         } catch (Exception e) {
             e.printStackTrace();

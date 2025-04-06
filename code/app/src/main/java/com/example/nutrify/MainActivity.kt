@@ -24,6 +24,8 @@ import com.example.nutrify.expert.Model
 import com.example.nutrify.question.QuestionManagement
 import java.util.UUID
 import androidx.core.graphics.toColorInt
+import com.example.nutrify.expert.LLMRecommender
+import com.example.nutrify.expert.MacroMatcher
 import com.example.nutrify.question.QuestionManager
 import com.example.nutrify.ui.QuestionAnswer
 import com.example.nutrify.ui.QuestionDetail
@@ -158,6 +160,7 @@ class MainActivity : ComponentActivity() {
 
 
     private fun setupQuestionPrompt(){
+        val expert : Expert = LLMRecommender()
         val questionInput : EditText = findViewById(R.id.question_prompt)
         val logoutButton : ImageView = findViewById(R.id.logout)
         val submitQuestion : ImageView = findViewById(R.id.sendButton)
@@ -177,12 +180,10 @@ class MainActivity : ComponentActivity() {
         }
 
         submitQuestion.setOnClickListener {
-
             addMessageBubble(questionInput.text.toString(), true, questionContainer)
+            var result : String = expert.getExpertAnswer(questionInput.toString())
+            questionContainer.postDelayed({ addMessageBubble(result, false, questionContainer) }, 1000)
             questionInput.text.clear()
-            handleQuestion(questionInput.toString())
-            //send question to question class for response
-            questionContainer.postDelayed({ addMessageBubble("Auto-response", false, questionContainer) }, 1000)
         }
 
         profileBut.setOnClickListener {
@@ -193,14 +194,6 @@ class MainActivity : ComponentActivity() {
             setContentView(R.layout.question_history)
             setUpQuestionHistory()
         }
-    }
-
-
-    private fun handleQuestion(question : String){
-        if(question.isNotEmpty()){
-
-        }
-
     }
 
 
@@ -480,9 +473,18 @@ class MainActivity : ComponentActivity() {
 
 
     private fun handleMacros(grams : String, calories : String, protein : String, fat : String, sat : String, fibre : String, carb : String) : String{
-        expert = Model()
-        val questionCS : String = "$grams,$calories,$protein,$fat,$sat,$fibre,$carb,"
-        return expert.getExpertAnswer(questionCS)
+
+        if(sat.toInt() + fibre.toInt() >= 40){
+            expert = Model()
+            val questionCS : String = "$grams,$calories,$protein,$fat,$sat,$fibre,$carb,"
+            return expert.getExpertAnswer(questionCS)
+        }
+        else{
+            expert = MacroMatcher()
+            val questionCS : String = "$calories,$protein,$carb,$fat,"
+            return expert.getExpertAnswer(questionCS)
+        }
+
     }
 
 
