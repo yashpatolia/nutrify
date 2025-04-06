@@ -194,8 +194,10 @@ class MainActivity : ComponentActivity() {
         }
 
         submitQuestion.setOnClickListener {
+            val userInput = questionInput.text.toString()
+            Log.i("LLM_INPUT", "Prompt = $userInput") //Check whats being passed to the llm
             addMessageBubble(questionInput.text.toString(), true, questionContainer)
-            var result : String = expert.getExpertAnswer(questionInput.toString())
+            var result : String = expert.getExpertAnswer(questionInput.text.toString())
             questionContainer.postDelayed({ addMessageBubble(result, false, questionContainer) }, 1000)
             questionInput.text.clear()
         }
