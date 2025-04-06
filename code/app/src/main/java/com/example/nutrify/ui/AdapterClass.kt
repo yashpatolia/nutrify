@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.example.nutrify.R
 
-class AdapterClass(private val questionList: ArrayList<String>): RecyclerView.Adapter<AdapterClass.ViewHolderClass>() {
+class AdapterClass(private val questionList: ArrayList<QuestionAnswer>): RecyclerView.Adapter<AdapterClass.ViewHolderClass>() {
+
+    var onItemClick: ((QuestionAnswer) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderClass {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.questionhistory_item, parent, false)
@@ -20,7 +22,11 @@ class AdapterClass(private val questionList: ArrayList<String>): RecyclerView.Ad
 
     override fun onBindViewHolder(holder: ViewHolderClass, position: Int) {
         val currentItem = questionList[position]
-        holder.questionItem.text = currentItem
+        holder.questionItem.text = currentItem.question
+
+        holder.itemView.setOnClickListener {
+            onItemClick?.invoke(currentItem)
+        }
     }
 
     class ViewHolderClass(itemView: View): RecyclerView.ViewHolder(itemView) {

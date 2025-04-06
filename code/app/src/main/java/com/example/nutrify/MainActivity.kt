@@ -1,4 +1,5 @@
 package com.example.nutrify
+import android.content.Intent
 import android.media.Image
 import android.os.Bundle
 import android.os.Environment
@@ -26,6 +27,9 @@ import com.example.nutrify.expert.Model
 import com.example.nutrify.question.QuestionManagement
 import java.util.UUID
 import androidx.core.graphics.toColorInt
+import com.example.nutrify.question.QuestionManager
+import com.example.nutrify.ui.QuestionAnswer
+import com.example.nutrify.ui.QuestionDetail
 
 class MainActivity : ComponentActivity() {
     private lateinit var accountManagement: AccountManagement
@@ -44,11 +48,20 @@ class MainActivity : ComponentActivity() {
 
     private val attributes: ArrayDeque<EditText> = ArrayDeque()
 
+    private lateinit var questionList : ArrayList<QuestionAnswer>
+
+    private lateinit var searchResults : ArrayList<QuestionAnswer>
+
+    private lateinit var adapter : AdapterClass
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initializeLogging()
         accountManagement = AccountManager("/storage/emulated/0/Android/data/com.example.nutrify/files/Download/account.csv")
+        questionManagement = QuestionManager()
+        questionList = arrayListOf<QuestionAnswer>()
+        searchResults = arrayListOf<QuestionAnswer>()
         setupLoginUI()
     }
 
@@ -226,7 +239,6 @@ class MainActivity : ComponentActivity() {
         recyclerView.setHasFixedSize(true)
         val backButton : ImageView = findViewById(R.id.back_arrow_qhistory)
         val searchButton : ImageView = findViewById(R.id.search_button)
-        val deleteButton : ImageView = findViewById(R.id.delete_button)
 
 
         getQuestionHistory()
@@ -241,16 +253,27 @@ class MainActivity : ComponentActivity() {
             handleQuestionSearch()
         }
 
-        deleteButton.setOnClickListener {
-
-        }
-
     }
 
     private fun getQuestionHistory() {
         //get list of questions
+        //val questionAnswer = questionManagement.searchHistory(" ") // make a method to return all questions?
+        val questionAnswer = arrayListOf(arrayListOf("question1", "answer1"), arrayListOf("question2", "answer2"))
 
-        //recyclerView.adapter = AdapterClass(questionList)
+        for (i in questionAnswer.indices) {
+            val questionAnswerObject = QuestionAnswer(questionAnswer[i][0].toString(), questionAnswer[i][1].toString(), 0)
+            questionList.add(questionAnswerObject)
+        }
+
+        adapter = AdapterClass(questionList)
+        recyclerView.adapter = adapter
+
+        adapter.onItemClick = {
+            val intent = Intent(this, QuestionDetail::class.java)
+            intent.putExtra("android", it)
+            startActivity(intent)
+        }
+
     }
 
     private fun handleDeleteButton() {
@@ -298,7 +321,22 @@ class MainActivity : ComponentActivity() {
 
     private fun getSearch(searchValue: String) {
         //get list of questions
-        //recyclerView.adapter = AdapterClass(searchResults)
+        //val search = questionManagement.searchHistory(searchValue)
+        val search = arrayListOf(arrayListOf("question1", "answer1"))
+
+        for (i in search.indices) {
+            val questionAnswerObject = QuestionAnswer(search[i][0].toString(), search[i][1].toString(), 0)
+            searchResults.add(questionAnswerObject)
+        }
+
+        adapter = AdapterClass(questionList)
+        recyclerView.adapter = adapter
+
+        adapter.onItemClick = {
+            val intent = Intent(this, QuestionDetail::class.java)
+            intent.putExtra("android", it)
+            startActivity(intent)
+        }
     }
 
 
