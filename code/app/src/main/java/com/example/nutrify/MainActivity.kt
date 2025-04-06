@@ -518,8 +518,8 @@ class MainActivity : ComponentActivity() {
         }
 
         againBut.setOnClickListener {
-            setContentView(R.layout.answer)
-            handleResponse(result, findViewById(R.id.response))
+            setContentView(R.layout.macros)
+            setUpMacroView()
         }
 
     }
