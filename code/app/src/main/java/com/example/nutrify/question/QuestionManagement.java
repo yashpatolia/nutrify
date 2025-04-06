@@ -12,9 +12,6 @@ public abstract class QuestionManagement {
     // this.questionDB = questionDB;
     // }
 
-    // Abstract method for saving question to text file
-    public abstract saveQuestionToTextFile(String question, String answer, UUID userID);
-
     // Abstract method for searching history
     public abstract List<List<String>> searchHistory(UUID userID);
 
