@@ -15,7 +15,7 @@ public class QuestionManager extends QuestionManagement {
     }
 
     // Private method to save a question and its answer to a text file
-    private void saveQuestionToTextFile(String question, String answer) {
+    private void saveQuestionToTextFile(String question, String answer, UUID userID) {
         String filePath = "questions.txt"; // File path to save questions and answers
 
         // Generate a new UUID for each question-answer pair
@@ -26,8 +26,7 @@ public class QuestionManager extends QuestionManagement {
 
             // Writing the UUID, question, and answer to the text file.
             // Format: "UUID ~ question ~ answer"
-            printWriter.println(questionId.toString() + " ~ " + question + " ~ " + answer); // Save the question-answer
-                                                                                            // pair
+            printWriter.println(questionId.toString() + " ~ " + question + " ~ " + answer + " ~ " + userID);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -35,7 +34,7 @@ public class QuestionManager extends QuestionManagement {
     }
 
     // Method to retrieve search history
-    public List<List<String>> searchHistory(String search) {
+    public List<List<String>> searchHistory(UUID userID) {
         String filePath = "questions.txt"; // Reading from the correct file (questions.txt)
 
         List<String> questionID = new ArrayList<>();
@@ -55,7 +54,10 @@ public class QuestionManager extends QuestionManagement {
                 }
 
                 // Assuming that each line follows the format: "UUID ~ question ~ answer"
-                if (columns.length >= 3) {
+                if (columns.length >= 4) {
+                    if (!columns[3].equals(userID.toString())) {
+                        continue; // Skip if the userID does not match
+                    }
                     questionID.add(columns[0]);
                     question.add(columns[1]);
                     answer.add(columns[2]);
