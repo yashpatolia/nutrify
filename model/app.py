@@ -141,5 +141,5 @@ def refresh_foods():
 
 
 if __name__ == '__main__':
-    fetch_usda_foods()
+    fetch_usda_foods() 
     app.run(debug=True)
