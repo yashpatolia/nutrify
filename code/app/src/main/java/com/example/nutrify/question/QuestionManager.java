@@ -26,7 +26,7 @@ public class QuestionManager extends QuestionManagement {
 
             // Writing the UUID, question, and answer to the text file.
             // Format: "UUID ~ question ~ answer"
-            printWriter.println(questionId.toString() + " ~ " + question + " ~ " + answer + " ~ " + userID);
+            printWriter.println(questionId.toString() + "~" + question + "~" + answer + "~" + userID.toString());
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -48,15 +48,15 @@ public class QuestionManager extends QuestionManagement {
             while ((line = bufferedReader.readLine()) != null) {
                 String[] columns = line.split("~");
 
-                if (isFirstLine) {
-                    isFirstLine = false;
-                    continue;
-                }
+                //if (isFirstLine) {
+                    //isFirstLine = false;
+                    //continue;
+                //}
 
                 // Assuming that each line follows the format: "UUID ~ question ~ answer"
                 if (columns.length >= 4) {
                     if (!columns[3].equals(userID.toString())) {
-                        continue; // Skip if the userID does not match
+                        //continue; // Skip if the userID does not match
                     }
                     questionID.add(columns[0]);
                     question.add(columns[1]);
@@ -80,9 +80,9 @@ public class QuestionManager extends QuestionManagement {
     // Method to delete question history
     public void deleteHistory(String questionId) {
 
-        File questionHistory = new File("questions.txt"); // Reading from the text file with question history,
+        File questionHistory = new File("questions.csv"); // Reading from the text file with question history,
                                                           // questions.txt
-        File newQuestionHistory = new File("updatedQuestions.txt"); // A new file where the updates question history
+        File newQuestionHistory = new File("updatedQuestions.csv"); // A new file where the updates question history
                                                                     // will be stored
 
         try (
