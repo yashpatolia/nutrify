@@ -56,7 +56,7 @@ public class QuestionManager extends QuestionManagement {
                 // Assuming that each line follows the format: "UUID ~ question ~ answer"
                 if (columns.length >= 4) {
                     if (!columns[3].equals(userID.toString())) {
-                        //continue; // Skip if the userID does not match
+                        continue; // Skip if the userID does not match
                     }
                     questionID.add(columns[0]);
                     question.add(columns[1]);
