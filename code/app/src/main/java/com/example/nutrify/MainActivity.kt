@@ -54,8 +54,6 @@ class MainActivity : ComponentActivity() {
 
     private lateinit var searchResults : ArrayList<QuestionAnswer>
 
-    //private lateinit var adapter : AdapterClass
-
     private lateinit var questionAnswer : ArrayList<ArrayList<String>>
 
     private lateinit var search : ArrayList<ArrayList<String>>
@@ -198,6 +196,7 @@ class MainActivity : ComponentActivity() {
             Log.i("LLM_INPUT", "Prompt = $userInput") //Check whats being passed to the llm
             addMessageBubble(questionInput.text.toString(), true, questionContainer)
             var result : String = expert.getExpertAnswer(questionInput.text.toString())
+            questionManagement.askUserQuestion(questionInput.text.toString(), result, userID)
             questionContainer.postDelayed({ addMessageBubble(result, false, questionContainer) }, 1000)
             questionInput.text.clear()
         }
@@ -493,12 +492,16 @@ class MainActivity : ComponentActivity() {
         if(sat.toInt() + fibre.toInt() >= 40){
             expert = Model()
             val questionCS : String = "$grams,$calories,$protein,$fat,$sat,$fibre,$carb,"
-            return expert.getExpertAnswer(questionCS)
+            var modelResult = expert.getExpertAnswer(questionCS)
+            questionManagement.askUserQuestion(questionCS, modelResult, userID)
+            return modelResult
         }
         else{
             expert = MacroMatcher()
             val questionCS : String = "$calories,$protein,$carb,$fat,"
-            return expert.getExpertAnswer(questionCS)
+            var mmResult = expert.getExpertAnswer(questionCS)
+            questionManagement.askUserQuestion(questionCS, mmResult, userID)
+            return mmResult
         }
 
     }
