@@ -80,9 +80,9 @@ public class QuestionManager extends QuestionManagement {
     // Method to delete question history
     public void deleteHistory(String questionId) {
 
-        File questionHistory = new File("questions.csv"); // Reading from the text file with question history,
+        File questionHistory = new File("questions.txt"); // Reading from the text file with question history,
                                                           // questions.txt
-        File newQuestionHistory = new File("updatedQuestions.csv"); // A new file where the updates question history
+        File newQuestionHistory = new File("updatedQuestions.txt"); // A new file where the updates question history
                                                                     // will be stored
 
         try (

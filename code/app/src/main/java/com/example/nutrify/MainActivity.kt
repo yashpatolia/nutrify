@@ -66,7 +66,6 @@ class MainActivity : ComponentActivity() {
         questionManagement = QuestionManager()
         questionList = arrayListOf<QuestionAnswer>()
         searchResults = arrayListOf<QuestionAnswer>()
-
         setupLoginUI()
     }
 
@@ -251,7 +250,7 @@ class MainActivity : ComponentActivity() {
         recyclerView.setHasFixedSize(true)
 
         val backButton : ImageView = findViewById(R.id.back_arrow_qhistory)
-        val searchButton : ImageView = findViewById(R.id.search_button)
+        //val searchButton : ImageView = findViewById(R.id.search_button)
 
 
         getQuestionHistory()
@@ -261,10 +260,10 @@ class MainActivity : ComponentActivity() {
             setupQuestionPrompt()
         }
 
-        searchButton.setOnClickListener {
-            setContentView(R.layout.search)
-            handleQuestionSearch()
-        }
+//        searchButton.setOnClickListener {
+//            setContentView(R.layout.search)
+//            handleQuestionSearch()
+//        }
 
     }
 
@@ -272,10 +271,13 @@ class MainActivity : ComponentActivity() {
         //get list of questions
         questionList.clear()
         val questionAnswer = questionManagement.searchHistory(userID) // make a method to return all questions?
-        for (i in questionAnswer[0].indices) {
-            val questionAnswerObject = QuestionAnswer(questionAnswer[0][i], questionAnswer[1][i], questionAnswer[2][i])
-            questionList.add(questionAnswerObject)
+        if (questionAnswer != null) {
+            for (i in questionAnswer[0].indices) {
+                val questionAnswerObject = QuestionAnswer(questionAnswer[0][i], questionAnswer[1][i], questionAnswer[2][i])
+                questionList.add(questionAnswerObject)
+            }
         }
+
 
         var adapter = AdapterClass(questionList, questionManagement)
         recyclerView.adapter = adapter
