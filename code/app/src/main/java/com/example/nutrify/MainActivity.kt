@@ -54,8 +54,6 @@ class MainActivity : ComponentActivity() {
 
     private lateinit var searchResults : ArrayList<QuestionAnswer>
 
-    //private lateinit var adapter : AdapterClass
-
     private lateinit var questionAnswer : ArrayList<ArrayList<String>>
 
     private lateinit var search : ArrayList<ArrayList<String>>
@@ -68,9 +66,6 @@ class MainActivity : ComponentActivity() {
         questionManagement = QuestionManager()
         questionList = arrayListOf<QuestionAnswer>()
         searchResults = arrayListOf<QuestionAnswer>()
-        questionAnswer = arrayListOf(arrayListOf("question1", "question2"), arrayListOf("answer1", "answer2"), arrayListOf("0", "1"))
-        search = arrayListOf(arrayListOf("question1"), arrayListOf("answer1"), arrayListOf("0"))
-
         setupLoginUI()
     }
 
@@ -198,6 +193,7 @@ class MainActivity : ComponentActivity() {
             Log.i("LLM_INPUT", "Prompt = $userInput") //Check whats being passed to the llm
             addMessageBubble(questionInput.text.toString(), true, questionContainer)
             var result : String = expert.getExpertAnswer(questionInput.text.toString())
+            questionManagement.askUserQuestion(questionInput.text.toString(), result, userID)
             questionContainer.postDelayed({ addMessageBubble(result, false, questionContainer) }, 1000)
             questionInput.text.clear()
         }
@@ -254,7 +250,7 @@ class MainActivity : ComponentActivity() {
         recyclerView.setHasFixedSize(true)
 
         val backButton : ImageView = findViewById(R.id.back_arrow_qhistory)
-        val searchButton : ImageView = findViewById(R.id.search_button)
+        //val searchButton : ImageView = findViewById(R.id.search_button)
 
 
         getQuestionHistory()
@@ -264,21 +260,24 @@ class MainActivity : ComponentActivity() {
             setupQuestionPrompt()
         }
 
-        searchButton.setOnClickListener {
-            setContentView(R.layout.search)
-            handleQuestionSearch()
-        }
+//        searchButton.setOnClickListener {
+//            setContentView(R.layout.search)
+//            handleQuestionSearch()
+//        }
 
     }
 
     private fun getQuestionHistory() {
         //get list of questions
         questionList.clear()
-        //val questionAnswer = questionManagement.searchHistory(" ") // make a method to return all questions?
-        for (i in questionAnswer[0].indices) {
-            val questionAnswerObject = QuestionAnswer(questionAnswer[0][i], questionAnswer[1][i], questionAnswer[2][i])
-            questionList.add(questionAnswerObject)
+        val questionAnswer = questionManagement.searchHistory(userID) // make a method to return all questions?
+        if (questionAnswer != null) {
+            for (i in questionAnswer[0].indices) {
+                val questionAnswerObject = QuestionAnswer(questionAnswer[0][i], questionAnswer[1][i], questionAnswer[2][i])
+                questionList.add(questionAnswerObject)
+            }
         }
+
 
         var adapter = AdapterClass(questionList, questionManagement)
         recyclerView.adapter = adapter
@@ -493,12 +492,16 @@ class MainActivity : ComponentActivity() {
         if(sat.toInt() + fibre.toInt() >= 40){
             expert = Model()
             val questionCS : String = "$grams,$calories,$protein,$fat,$sat,$fibre,$carb,"
-            return expert.getExpertAnswer(questionCS)
+            var modelResult = expert.getExpertAnswer(questionCS)
+            questionManagement.askUserQuestion(questionCS, modelResult, userID)
+            return modelResult
         }
         else{
             expert = MacroMatcher()
             val questionCS : String = "$calories,$protein,$carb,$fat,"
-            return expert.getExpertAnswer(questionCS)
+            var mmResult = expert.getExpertAnswer(questionCS)
+            questionManagement.askUserQuestion(questionCS, mmResult, userID)
+            return mmResult
         }
 
     }

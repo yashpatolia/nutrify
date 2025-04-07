@@ -33,15 +33,7 @@
             android:textSize="30dp"
             android:gravity="left"/>
 
-        <ImageView
-            android:id="@+id/search_button"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="21dp"
-            android:contentDescription="search button"
-            android:gravity="end"
-            android:src="@drawable/search_button"
-            android:tint="@color/white" />
+
     </LinearLayout>
 
     <LinearLayout
