@@ -16,7 +16,7 @@ public class QuestionManager extends QuestionManagement {
 
     // Private method to save a question and its answer to a text file
     private void saveQuestionToTextFile(String question, String answer, UUID userID) {
-        String filePath = "questions.txt"; // File path to save questions and answers
+        String filePath = "/storage/emulated/0/Android/data/com.example.nutrify/files/Download/questions.txt"; // File path to save questions and answers
 
         // Generate a new UUID for each question-answer pair
         UUID questionId = UUID.randomUUID();
@@ -35,7 +35,7 @@ public class QuestionManager extends QuestionManagement {
 
     // Method to retrieve search history
     public List<List<String>> searchHistory(UUID userID) {
-        String filePath = "questions.txt"; // Reading from the correct file (questions.txt)
+        String filePath = "/storage/emulated/0/Android/data/com.example.nutrify/files/Download/questions.txt"; // Reading from the correct file (questions.txt)
 
         List<String> questionID = new ArrayList<>();
         List<String> question = new ArrayList<>();
@@ -56,7 +56,7 @@ public class QuestionManager extends QuestionManagement {
                 // Assuming that each line follows the format: "UUID ~ question ~ answer"
                 if (columns.length >= 4) {
                     if (!columns[3].equals(userID.toString())) {
-                        //continue; // Skip if the userID does not match
+                        continue; // Skip if the userID does not match
                     }
                     questionID.add(columns[0]);
                     question.add(columns[1]);
@@ -80,9 +80,9 @@ public class QuestionManager extends QuestionManagement {
     // Method to delete question history
     public void deleteHistory(String questionId) {
 
-        File questionHistory = new File("questions.txt"); // Reading from the text file with question history,
+        File questionHistory = new File("/storage/emulated/0/Android/data/com.example.nutrify/files/Download/questions.txt"); // Reading from the text file with question history,
                                                           // questions.txt
-        File newQuestionHistory = new File("updatedQuestions.txt"); // A new file where the updates question history
+        File newQuestionHistory = new File("/storage/emulated/0/Android/data/com.example.nutrify/files/Download/updatedQuestions.txt"); // A new file where the updates question history
                                                                     // will be stored
 
         try (

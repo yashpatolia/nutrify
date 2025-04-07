@@ -273,7 +273,7 @@ class MainActivity : ComponentActivity() {
         val questionAnswer = questionManagement.searchHistory(userID) // make a method to return all questions?
         if (questionAnswer != null) {
             for (i in questionAnswer[0].indices) {
-                val questionAnswerObject = QuestionAnswer(questionAnswer[0][i], questionAnswer[1][i], questionAnswer[2][i])
+                val questionAnswerObject = QuestionAnswer(questionAnswer[1][i], questionAnswer[2][i], questionAnswer[0][i])
                 questionList.add(questionAnswerObject)
             }
         }
